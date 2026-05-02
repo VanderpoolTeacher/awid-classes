@@ -26,6 +26,8 @@
   --space-6: 80px;
 }
 
+html { scroll-behavior: smooth; }
+
 /* ---------- Reset / base ---------- */
 *,
 *::before,
@@ -266,3 +268,62 @@ p { margin: 0 0 var(--space-2); }
   color: var(--color-muted);
   padding: var(--space-4);
 }
+
+/* ---------- Class detail ---------- */
+.class-hero {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: #fff;
+  padding: var(--space-6) var(--space-4);
+}
+.class-hero__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+.class-hero h1 { color: #fff; margin-bottom: var(--space-1); }
+.class-hero__audience {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 12px;
+  opacity: 0.85;
+  margin-bottom: var(--space-2);
+}
+.class-hero__short { font-size: 18px; opacity: 0.95; max-width: 780px; }
+
+.class-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  padding: var(--space-5) 0;
+}
+@media (min-width: 900px) {
+  .class-body { grid-template-columns: minmax(0, 1fr) 320px; }
+}
+
+.class-body__main h2 { margin-top: var(--space-3); }
+.class-body__main ul { padding-left: 1.25em; color: var(--color-muted); }
+.class-body__main li { margin-bottom: var(--space-1); }
+
+.class-rail {
+  background: var(--color-section);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+}
+@media (min-width: 900px) {
+  .class-rail { position: sticky; top: var(--space-3); align-self: start; }
+}
+.class-rail__row {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-1) 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 14px;
+}
+.class-rail__row:last-of-type { border-bottom: 0; }
+.class-rail__row dt { color: var(--color-muted); margin: 0; }
+.class-rail__row dd { margin: 0; font-weight: 500; text-align: right; }
+.class-rail__price { font-size: 24px; color: var(--color-primary); font-weight: 700; margin: var(--space-2) 0; }
+.class-rail__instructor { margin-top: var(--space-3); }
+.class-rail__cta { display: block; width: 100%; text-align: center; margin-top: var(--space-2); }
+
+.class-not-found { text-align: center; padding: var(--space-6) var(--space-4); }
