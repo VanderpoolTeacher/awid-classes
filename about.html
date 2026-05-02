@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>About — AWID Classes</title>
+  <meta name="description" content="About Anthony Wayne Innovation &amp; Design.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html" aria-label="AWID Classes home">
+        <img src="assets/img/logo-wordmark-awidc.png" alt="Anthony Wayne Innovation &amp; Design">
+      </a>
+      <nav class="site-header__nav" aria-label="Primary">
+        <a href="index.html#catalog">Classes</a>
+        <a href="about.html" aria-current="page">About</a>
+        <a href="mailto:contact@example.com">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <h1>Closing the Gap Between Ideas and Impact</h1>
+        <p class="hero__subline">
+          Anthony Wayne Innovation &amp; Design empowers communities to solve problems
+          through design thinking, applied innovation, and strategic alignment.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="max-width:800px;">
+        <h2>About the classes program</h2>
+        <p>
+          The classes you see here are the public-facing programs of AWID. We run hands-on
+          workshops in AI, design, and technology for students, makers, and small business
+          owners across Northwest Ohio.
+        </p>
+        <p>
+          Each workshop is built around the idea that the best way to learn is to make
+          something real. Expect to leave every class with something you built — a
+          prototype, a small game, a one-page action plan — and the confidence to keep going.
+        </p>
+
+        <h2>About AWID</h2>
+        <p>
+          AWID is based at Anthony Wayne Local Schools, between Toledo and rural Northwest
+          Ohio. The full story of the parent program — including consulting and applied
+          innovation work — lives at
+          <a href="https://mvanderpool.com/aw-innovation-and-design">mvanderpool.com/aw-innovation-and-design</a>.
+        </p>
+
+        <h2>Instructor</h2>
+        <p>
+          <strong>Michael Vanderpool</strong> is the founder of AWID. He works with students
+          and organizations on design thinking, applied technology, and the practical use
+          of AI in creative and business work.
+        </p>
+
+        <p style="margin-top: var(--space-4);">
+          <a class="btn btn--primary" href="index.html#catalog">Browse current classes</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div>© <span id="footer-year"></span> Anthony Wayne Innovation &amp; Design</div>
+      <div>
+        <a href="mailto:contact@example.com">contact@example.com</a>
+        ·
+        <a href="https://mvanderpool.com/aw-innovation-and-design">mvanderpool.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("footer-year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
