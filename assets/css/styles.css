@@ -176,3 +176,18 @@ p { margin: 0 0 var(--space-2); }
   flex-wrap: wrap;
   gap: var(--space-2);
 }
+
+/* ---------- Hero ---------- */
+.hero {
+  background: linear-gradient(180deg, var(--color-section) 0%, #fff 100%);
+  text-align: center;
+  padding: var(--space-6) var(--space-4);
+}
+.hero h1 {
+  margin-bottom: var(--space-2);
+}
+.hero__subline {
+  font-size: 18px;
+  color: var(--color-muted);
+  margin-bottom: var(--space-4);
+}
