@@ -12,3 +12,6 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Node (defensive — no npm in plan, but harmless)
+node_modules/
