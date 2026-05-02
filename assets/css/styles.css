@@ -327,3 +327,64 @@ p { margin: 0 0 var(--space-2); }
 .class-rail__cta { display: block; width: 100%; text-align: center; margin-top: var(--space-2); }
 
 .class-not-found { text-align: center; padding: var(--space-6) var(--space-4); }
+
+/* ---------- Registration form ---------- */
+.register {
+  background: var(--color-section);
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-5) 0;
+}
+.register__form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+}
+.register__field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-2);
+}
+.register__field label {
+  font-weight: 500;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+.register__field input,
+.register__field textarea {
+  font: inherit;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: #fff;
+}
+.register__field input:focus,
+.register__field textarea:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+  border-color: var(--color-primary);
+}
+.register__field--invalid input,
+.register__field--invalid textarea { border-color: #c0392b; }
+.register__error {
+  color: #c0392b;
+  font-size: 13px;
+  margin-top: 2px;
+  min-height: 1em;
+}
+.register__honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+}
+.register__submit { margin-top: var(--space-2); }
+.register__success {
+  background: #e8f4ec;
+  border: 1px solid #a3d4b3;
+  color: #1f5d39;
+  padding: var(--space-3);
+  border-radius: var(--radius);
+}
