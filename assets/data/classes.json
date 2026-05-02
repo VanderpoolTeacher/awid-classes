@@ -1,0 +1,114 @@
+[
+  {
+    "id": "intro-design-tech-ai",
+    "title": "Intro to Design and Tech with AI",
+    "shortDescription": "A friendly first step into using AI tools to design and build.",
+    "longDescription": "Get a hands-on introduction to AI tools that are reshaping how people design and build today. We'll explore prompting, generative tools, and a simple end-to-end project so you leave with something you made.",
+    "audience": "All ages",
+    "schedule": {
+      "startDate": "2026-06-04",
+      "days": "Wed evenings",
+      "sessions": 6,
+      "time": "6:00–7:30 PM"
+    },
+    "price": 149,
+    "location": "Anthony Wayne Local Schools, Whitehouse OH",
+    "instructor": {
+      "name": "Michael Vanderpool",
+      "bio": "Founder and instructor at AWID. Background in design, technology education, and applied innovation."
+    },
+    "prerequisites": "None — bring a laptop if you have one.",
+    "capacity": 12,
+    "seatsRemaining": 12,
+    "heroImage": "assets/img/classes/intro-design-tech-ai.jpg",
+    "learningObjectives": [
+      "Understand core AI concepts in design",
+      "Use AI tools to accelerate ideation",
+      "Build a small prototype end-to-end"
+    ]
+  },
+  {
+    "id": "ai-infused-game-design",
+    "title": "AI Infused Game Design",
+    "shortDescription": "Design and build a small game using AI-assisted tools.",
+    "longDescription": "Students will work through the full arc of game design — concept, mechanics, art, and playtest — using AI tools as a creative partner. We finish with a playable mini-game.",
+    "audience": "Grades 6–12",
+    "schedule": {
+      "startDate": "2026-06-07",
+      "days": "Sat mornings",
+      "sessions": 4,
+      "time": "10:00–11:30 AM"
+    },
+    "price": 99,
+    "location": "Anthony Wayne Local Schools, Whitehouse OH",
+    "instructor": {
+      "name": "Michael Vanderpool",
+      "bio": "Founder and instructor at AWID. Background in design, technology education, and applied innovation."
+    },
+    "prerequisites": "Curiosity. Laptops provided if needed.",
+    "capacity": 14,
+    "seatsRemaining": 14,
+    "heroImage": "assets/img/classes/ai-infused-game-design.jpg",
+    "learningObjectives": [
+      "Frame a game concept and core mechanic",
+      "Use AI tools for art, ideation, and writing",
+      "Playtest, iterate, and ship a small game"
+    ]
+  },
+  {
+    "id": "intro-ai-business",
+    "title": "Intro to AI and Your Business",
+    "shortDescription": "Practical AI for small business owners — what's real, what works, what to skip.",
+    "longDescription": "A grounded, no-hype workshop for owners and operators. We'll look at where AI is genuinely useful in small business workflows, walk through a few real tools, and leave with one or two changes you can apply this month.",
+    "audience": "Small business owners and operators",
+    "schedule": {
+      "startDate": "2026-06-12",
+      "days": "Thu evenings",
+      "sessions": 3,
+      "time": "6:30–8:00 PM"
+    },
+    "price": 179,
+    "location": "Anthony Wayne Local Schools, Whitehouse OH",
+    "instructor": {
+      "name": "Michael Vanderpool",
+      "bio": "Founder and instructor at AWID. Background in design, technology education, and applied innovation."
+    },
+    "prerequisites": "Bring a laptop and a real workflow you'd like to improve.",
+    "capacity": 16,
+    "seatsRemaining": 16,
+    "heroImage": "assets/img/classes/intro-ai-business.jpg",
+    "learningObjectives": [
+      "Spot where AI actually helps in your business",
+      "Try 2–3 tools against your own workflows",
+      "Leave with a one-page action plan"
+    ]
+  },
+  {
+    "id": "applied-ai-design-thinking",
+    "title": "Applied AI in Design Thinking",
+    "shortDescription": "Use AI as a partner across the design thinking process — empathize through test.",
+    "longDescription": "A working session for professionals already comfortable with design thinking. We'll plug AI tools into each phase of the process, look at where they help and where they get in the way, and leave with a refined personal toolkit.",
+    "audience": "Professionals familiar with design thinking",
+    "schedule": {
+      "startDate": "2026-06-10",
+      "days": "Tue evenings",
+      "sessions": 5,
+      "time": "6:00–7:30 PM"
+    },
+    "price": 199,
+    "location": "Anthony Wayne Local Schools, Whitehouse OH",
+    "instructor": {
+      "name": "Michael Vanderpool",
+      "bio": "Founder and instructor at AWID. Background in design, technology education, and applied innovation."
+    },
+    "prerequisites": "Some prior exposure to design thinking. Bring a laptop.",
+    "capacity": 12,
+    "seatsRemaining": 12,
+    "heroImage": "assets/img/classes/applied-ai-design-thinking.jpg",
+    "learningObjectives": [
+      "Map AI tools to each design thinking phase",
+      "Evaluate AI outputs against real research data",
+      "Build a personal AI-augmented toolkit"
+    ]
+  }
+]
