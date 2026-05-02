@@ -91,9 +91,13 @@
     "seatsRemaining": 30,
     "heroImage": "assets/img/classes/ai-infused-game-design.jpg",
     "learningObjectives": [
-      "Frame a game concept and core mechanic",
-      "Use AI tools for art, ideation, and writing",
-      "Playtest, iterate, and ship a small game"
+      "Frame a game concept and define a core mechanic",
+      "Sketch level designs and iterate with AI assistance",
+      "Use AI tools to generate art, sound, and writing assets",
+      "Build a small playable game using a beginner-friendly engine",
+      "Run playtests and incorporate feedback into the next iteration",
+      "Reflect on AI as a creative partner versus a shortcut",
+      "Ship and demo a finished mini-game"
     ]
   },
   {
@@ -120,9 +124,13 @@
     "seatsRemaining": 30,
     "heroImage": "assets/img/classes/intro-ai-business.jpg",
     "learningObjectives": [
-      "Spot where AI actually helps in your business",
-      "Try 2–3 tools against your own workflows",
-      "Leave with a one-page action plan"
+      "Recognize where AI genuinely fits in small-business workflows — and where it doesn't",
+      "Compare leading AI tools relevant to your industry",
+      "Test two or three AI tools against your real workflows",
+      "Estimate the time or cost impact of an AI workflow change",
+      "Spot privacy and data-handling risks before introducing AI",
+      "Set up a simple, repeatable AI-assisted process you can hand off",
+      "Build a one-page action plan with concrete next steps"
     ]
   },
   {
@@ -149,9 +157,13 @@
     "seatsRemaining": 30,
     "heroImage": "assets/img/classes/applied-ai-design-thinking.jpg",
     "learningObjectives": [
-      "Map AI tools to each design thinking phase",
-      "Evaluate AI outputs against real research data",
-      "Build a personal AI-augmented toolkit"
+      "Map AI tools to each phase of design thinking — empathize, define, ideate, prototype, test",
+      "Use AI to synthesize user research at scale without losing nuance",
+      "Generate broader, faster divergent ideation with AI as a partner",
+      "Build interactive prototypes more quickly using AI assistance",
+      "Evaluate AI outputs against real research data and ground truth",
+      "Recognize common failure modes when AI is applied poorly to design work",
+      "Assemble a personal AI-augmented design toolkit you'll actually use"
     ]
   }
 ]
