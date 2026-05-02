@@ -21,9 +21,11 @@ function renderCard(cls) {
   const a = document.createElement("a");
   a.className = "card";
   a.href = `class.html?id=${encodeURIComponent(cls.id)}`;
-  const audienceLabel = `${escapeHtml(cls.audience).toUpperCase()} · ${cls.schedule.sessions} SESSIONS`;
-  const scheduleSnippet = `${escapeHtml(cls.schedule.days)} · starts ${formatStartDate(cls.schedule.startDate)}`;
-  const priceLabel = `$${cls.price}`;
+  const audienceLabel = `${escapeHtml(cls.audience).toUpperCase()} · ${cls.schedule.sessions} MODULES`;
+  const scheduleSnippet = cls.schedule.startDate
+    ? `${escapeHtml(cls.schedule.days)} · starts ${formatStartDate(cls.schedule.startDate)}`
+    : escapeHtml(cls.schedule.days);
+  const priceLabel = cls.price === 0 ? "Free" : `$${cls.price}`;
 
   a.innerHTML = `
     <div class="card__image" aria-hidden="true">

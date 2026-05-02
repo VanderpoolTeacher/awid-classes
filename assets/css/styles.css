@@ -322,7 +322,12 @@ p { margin: 0 0 var(--space-2); }
 .class-rail__row:last-of-type { border-bottom: 0; }
 .class-rail__row dt { color: var(--color-muted); margin: 0; }
 .class-rail__row dd { margin: 0; font-weight: 500; text-align: right; }
-.class-rail__price { font-size: 24px; color: var(--color-primary); font-weight: 700; margin: var(--space-2) 0; }
+.class-rail__price { font-size: 24px; color: var(--color-primary); font-weight: 700; margin: var(--space-2) 0 var(--space-1); }
+.class-rail__sponsor {
+  font-size: 13px;
+  color: var(--color-muted);
+  margin: 0 0 var(--space-2);
+}
 .class-rail__instructor { margin-top: var(--space-3); }
 .class-rail__cta { display: block; width: 100%; text-align: center; margin-top: var(--space-2); }
 

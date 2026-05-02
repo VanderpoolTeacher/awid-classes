@@ -2,29 +2,69 @@
   {
     "id": "intro-design-tech-ai",
     "title": "Intro to Design and Tech with AI",
-    "shortDescription": "A friendly first step into using AI tools to design and build.",
-    "longDescription": "Get a hands-on introduction to AI tools that are reshaping how people design and build today. We'll explore prompting, generative tools, and a simple end-to-end project so you leave with something you made.",
-    "audience": "All ages",
+    "shortDescription": "Foundations of design and technology, with AI as a creative partner.",
+    "longDescription": "A comprehensive look at design and technology — color, typography, layout, user-centered research, prototyping, and the basics of HTML, CSS, JavaScript, and Python. We'll bring AI in as a creative and analytical partner across the process so you leave with both fundamentals and a modern toolkit. Suits aspiring designers, engineers, entrepreneurs, or anyone curious about the field.",
+    "audience": "Anyone curious about design and tech",
     "schedule": {
-      "startDate": "2026-06-04",
-      "days": "Wed evenings",
-      "sessions": 6,
-      "time": "6:00–7:30 PM"
+      "startDate": null,
+      "days": "Flexible — self-paced or workshop",
+      "sessions": 9,
+      "time": "By arrangement"
     },
-    "price": 149,
+    "price": 0,
+    "sponsor": "Actual Reality Technologies",
     "location": "Anthony Wayne Local Schools, Whitehouse OH",
     "instructor": {
       "name": "Michael Vanderpool",
       "bio": "Founder and instructor at AWID. Background in design, technology education, and applied innovation."
     },
     "prerequisites": "None — bring a laptop if you have one.",
-    "capacity": 12,
-    "seatsRemaining": 12,
+    "capacity": 30,
+    "seatsRemaining": 30,
     "heroImage": "assets/img/classes/intro-design-tech-ai.jpg",
     "learningObjectives": [
-      "Understand core AI concepts in design",
-      "Use AI tools to accelerate ideation",
-      "Build a small prototype end-to-end"
+      "Apply design fundamentals — color, typography, layout, composition",
+      "Conduct user research and design with personas and empathy",
+      "Use design thinking to frame and solve real problems",
+      "Prototype, test, and iterate based on user feedback",
+      "Build interactive designs with HTML, CSS, and JavaScript",
+      "Use Python for data analysis, automation, and interactive elements",
+      "Make design decisions informed by real data",
+      "Use AI tools as a creative and analytical partner",
+      "Communicate design decisions clearly — verbally and visually"
+    ]
+  },
+  {
+    "id": "intro-career-in-tech",
+    "title": "Introduction to a Career in Tech",
+    "shortDescription": "Explore tech career paths, the skills they need, and how to break in.",
+    "longDescription": "An overview course for anyone considering a career in technology — career changers, recent grads, or curious beginners. We'll cover the landscape of tech careers, the skills and certifications that matter, learning resources, and concrete steps to get started. You'll leave with a clear understanding of your potential path and a personal action plan.",
+    "audience": "Individuals exploring careers in technology",
+    "schedule": {
+      "startDate": null,
+      "days": "Flexible — self-paced or workshop",
+      "sessions": 6,
+      "time": "By arrangement"
+    },
+    "price": 0,
+    "sponsor": "Actual Reality Technologies",
+    "location": "Anthony Wayne Local Schools, Whitehouse OH",
+    "instructor": {
+      "name": "Michael Vanderpool",
+      "bio": "Founder and instructor at AWID. Background in design, technology education, and applied innovation."
+    },
+    "prerequisites": "None.",
+    "capacity": 30,
+    "seatsRemaining": 30,
+    "heroImage": "assets/img/classes/intro-career-in-tech.jpg",
+    "learningObjectives": [
+      "Understand the tech industry landscape and demand",
+      "Identify the key skills and certifications for major roles",
+      "Compare paths across software, IT, cybersecurity, data, cloud, UX, and product",
+      "Choose between degrees, bootcamps, and self-taught routes",
+      "Build experience through projects, portfolios, and open source",
+      "Navigate the tech job search and interview process",
+      "Build a personalized action plan for entering the industry"
     ]
   },
   {
@@ -34,20 +74,21 @@
     "longDescription": "Students will work through the full arc of game design — concept, mechanics, art, and playtest — using AI tools as a creative partner. We finish with a playable mini-game.",
     "audience": "Grades 6–12",
     "schedule": {
-      "startDate": "2026-06-07",
-      "days": "Sat mornings",
+      "startDate": null,
+      "days": "Flexible — self-paced or workshop",
       "sessions": 4,
-      "time": "10:00–11:30 AM"
+      "time": "By arrangement"
     },
-    "price": 99,
+    "price": 0,
+    "sponsor": "Actual Reality Technologies",
     "location": "Anthony Wayne Local Schools, Whitehouse OH",
     "instructor": {
       "name": "Michael Vanderpool",
       "bio": "Founder and instructor at AWID. Background in design, technology education, and applied innovation."
     },
     "prerequisites": "Curiosity. Laptops provided if needed.",
-    "capacity": 14,
-    "seatsRemaining": 14,
+    "capacity": 30,
+    "seatsRemaining": 30,
     "heroImage": "assets/img/classes/ai-infused-game-design.jpg",
     "learningObjectives": [
       "Frame a game concept and core mechanic",
@@ -62,20 +103,21 @@
     "longDescription": "A grounded, no-hype workshop for owners and operators. We'll look at where AI is genuinely useful in small business workflows, walk through a few real tools, and leave with one or two changes you can apply this month.",
     "audience": "Small business owners and operators",
     "schedule": {
-      "startDate": "2026-06-12",
-      "days": "Thu evenings",
+      "startDate": null,
+      "days": "Flexible — self-paced or workshop",
       "sessions": 3,
-      "time": "6:30–8:00 PM"
+      "time": "By arrangement"
     },
-    "price": 179,
+    "price": 0,
+    "sponsor": "Actual Reality Technologies",
     "location": "Anthony Wayne Local Schools, Whitehouse OH",
     "instructor": {
       "name": "Michael Vanderpool",
       "bio": "Founder and instructor at AWID. Background in design, technology education, and applied innovation."
     },
     "prerequisites": "Bring a laptop and a real workflow you'd like to improve.",
-    "capacity": 16,
-    "seatsRemaining": 16,
+    "capacity": 30,
+    "seatsRemaining": 30,
     "heroImage": "assets/img/classes/intro-ai-business.jpg",
     "learningObjectives": [
       "Spot where AI actually helps in your business",
@@ -90,20 +132,21 @@
     "longDescription": "A working session for professionals already comfortable with design thinking. We'll plug AI tools into each phase of the process, look at where they help and where they get in the way, and leave with a refined personal toolkit.",
     "audience": "Professionals familiar with design thinking",
     "schedule": {
-      "startDate": "2026-06-10",
-      "days": "Tue evenings",
+      "startDate": null,
+      "days": "Flexible — self-paced or workshop",
       "sessions": 5,
-      "time": "6:00–7:30 PM"
+      "time": "By arrangement"
     },
-    "price": 199,
+    "price": 0,
+    "sponsor": "Actual Reality Technologies",
     "location": "Anthony Wayne Local Schools, Whitehouse OH",
     "instructor": {
       "name": "Michael Vanderpool",
       "bio": "Founder and instructor at AWID. Background in design, technology education, and applied innovation."
     },
     "prerequisites": "Some prior exposure to design thinking. Bring a laptop.",
-    "capacity": 12,
-    "seatsRemaining": 12,
+    "capacity": 30,
+    "seatsRemaining": 30,
     "heroImage": "assets/img/classes/applied-ai-design-thinking.jpg",
     "learningObjectives": [
       "Map AI tools to each design thinking phase",
