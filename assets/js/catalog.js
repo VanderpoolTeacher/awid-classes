@@ -1,8 +1,19 @@
 const DATA_URL = "assets/data/classes.json";
 
 function formatStartDate(iso) {
-  const d = new Date(iso);
+  // Parse YYYY-MM-DD as local-date noon to avoid UTC->local off-by-one.
+  const [y, m, day] = iso.split("-").map(Number);
+  const d = new Date(y, m - 1, day, 12, 0, 0);
   return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+}
+
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }
 
 function renderCard(cls) {
@@ -10,19 +21,17 @@ function renderCard(cls) {
   const a = document.createElement("a");
   a.className = "card";
   a.href = `class.html?id=${encodeURIComponent(cls.id)}`;
-  if (isFull) a.setAttribute("aria-disabled", "true");
-
-  const audienceLabel = `${cls.audience.toUpperCase()} · ${cls.schedule.sessions} SESSIONS`;
-  const scheduleSnippet = `${cls.schedule.days} · starts ${formatStartDate(cls.schedule.startDate)}`;
+  const audienceLabel = `${escapeHtml(cls.audience).toUpperCase()} · ${cls.schedule.sessions} SESSIONS`;
+  const scheduleSnippet = `${escapeHtml(cls.schedule.days)} · starts ${formatStartDate(cls.schedule.startDate)}`;
   const priceLabel = `$${cls.price}`;
 
   a.innerHTML = `
-    <div class="card__image" role="img" aria-label="${cls.title} hero image">
-      ${cls.title}
+    <div class="card__image" aria-hidden="true">
+      ${escapeHtml(cls.title)}
     </div>
     <div class="card__body">
       <div class="label">${audienceLabel}${isFull ? '<span class="card__full-tag">Full</span>' : ""}</div>
-      <h3 class="card__title">${cls.title}</h3>
+      <h3 class="card__title">${escapeHtml(cls.title)}</h3>
       <p class="card__meta">${scheduleSnippet} · <span class="card__price">${priceLabel}</span></p>
     </div>
   `;
