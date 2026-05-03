@@ -21,20 +21,28 @@ function renderCard(cls) {
   const a = document.createElement("a");
   a.className = "card";
   a.href = `class.html?id=${encodeURIComponent(cls.id)}`;
-  const audienceLabel = `${escapeHtml(cls.audience).toUpperCase()} · ${cls.schedule.sessions} MODULES`;
+
+  const eyebrow = `${cls.schedule.sessions} MODULES · ${cls.price === 0 ? "FREE" : `$${cls.price}`}`;
   const scheduleSnippet = cls.schedule.startDate
     ? `${escapeHtml(cls.schedule.days)} · starts ${formatStartDate(cls.schedule.startDate)}`
     : escapeHtml(cls.schedule.days);
-  const priceLabel = cls.price === 0 ? "Free" : `$${cls.price}`;
+
+  const previewLOs = cls.learningObjectives
+    .slice(0, 4)
+    .map(lo => `<li>${escapeHtml(lo)}</li>`)
+    .join("");
 
   a.innerHTML = `
     <div class="card__image" aria-hidden="true">
       ${escapeHtml(cls.title)}
     </div>
     <div class="card__body">
-      <div class="label">${audienceLabel}${isFull ? '<span class="card__full-tag">Full</span>' : ""}</div>
+      <div class="label">${eyebrow}${isFull ? '<span class="card__full-tag">Full</span>' : ""}</div>
       <h3 class="card__title">${escapeHtml(cls.title)}</h3>
-      <p class="card__meta">${scheduleSnippet} · <span class="card__price">${priceLabel}</span></p>
+      <p class="card__for">For ${escapeHtml(cls.audience)}.</p>
+      <p class="card__lead">You'll learn to</p>
+      <ul class="card__los">${previewLOs}</ul>
+      <p class="card__meta">${scheduleSnippet}</p>
     </div>
   `;
   return a;
