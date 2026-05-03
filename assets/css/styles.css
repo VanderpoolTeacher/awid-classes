@@ -216,6 +216,15 @@ p { margin: 0 0 var(--space-2); }
   height: auto;
   display: inline-block;
 }
+.sponsor-strip__url {
+  margin: var(--space-1) 0 0;
+  font-size: 14px;
+}
+.class-rail__sponsor-url {
+  margin: var(--space-1) 0 0;
+  font-size: 13px;
+  text-align: center;
+}
 
 /* ---------- Catalog ---------- */
 .catalog {

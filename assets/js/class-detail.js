@@ -51,6 +51,9 @@ function renderClass(container, cls) {
            <img src="assets/img/ART-logo-sponsored-by.png"
                 alt="Your access is sponsored by ${escapeHtml(cls.sponsor)}">
          </a>
+         <p class="class-rail__sponsor-url">
+           <a href="https://actualreality.tech/" target="_blank" rel="noopener noreferrer">actualreality.tech</a>
+         </p>
        </div>`
     : "";
 
