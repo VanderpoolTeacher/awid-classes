@@ -107,7 +107,7 @@ function renderClass(container, cls) {
       <div class="container">
         <h2 id="register-heading">Register for ${escapeHtml(cls.title)}</h2>
         ${isFull
-          ? '<p>This class is currently full. Email <a href="mailto:contact@example.com">contact@example.com</a> to be notified about the next session.</p>'
+          ? '<p>This class is currently full. Email <a href="mailto:mvanderpool.edu@gmail.com">mvanderpool.edu@gmail.com</a> to be notified about the next session.</p>'
           : `
         <form class="register__form" data-register-form
               data-class-id="${escapeHtml(cls.id)}"
