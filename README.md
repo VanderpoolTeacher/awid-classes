@@ -37,7 +37,7 @@ Open <http://localhost:8000/>.
     "time": "6:00–7:30 PM"
   },
   "price": 149,
-  "location": "Anthony Wayne Local Schools, Whitehouse OH",
+  "location": "The Loft 419, downtown Toledo (hybrid options available)",
   "instructor": {
     "name": "Michael Vanderpool",
     "bio": "Short bio paragraph."
