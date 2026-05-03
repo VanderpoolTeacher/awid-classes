@@ -39,11 +39,41 @@ function validate(form) {
   return ok;
 }
 
-// TODO(awid-classes): wire to real submission endpoint.
-// Easy paths: mailto fallback, Formspree, Google Forms POST, Netlify Forms.
+// Submissions go to mvanderpool.edu@gmail.com via FormSubmit.co (no account needed).
+// First submission to a new address triggers a one-time activation email — click the
+// link inside, and all future submissions deliver normally. To change the destination
+// email, edit FORM_ENDPOINT below.
+const FORM_ENDPOINT = "https://formsubmit.co/ajax/mvanderpool.edu@gmail.com";
+
 async function submitRegistration(payload) {
-  console.log("registration submitted:", payload);
-  return { ok: true };
+  const body = {
+    _subject: `AWID class registration: ${payload.classTitle}`,
+    _template: "table",
+    _captcha: "false",
+    name: payload.name,
+    email: payload.email,
+    phone: payload.phone || "(not provided)",
+    notes: payload.notes || "(none)",
+    class_id: payload.classId,
+    class_title: payload.classTitle,
+    submitted_at: payload.submittedAt
+  };
+  try {
+    const res = await fetch(FORM_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(body)
+    });
+    if (!res.ok) {
+      console.error("Form endpoint returned non-OK status:", res.status);
+      return { ok: false };
+    }
+    const data = await res.json().catch(() => ({}));
+    return { ok: data.success === "true" || data.success === true };
+  } catch (err) {
+    console.error("Form submission failed:", err);
+    return { ok: false };
+  }
 }
 
 function showSuccess(form, classTitle) {
@@ -52,7 +82,7 @@ function showSuccess(form, classTitle) {
     Object.assign(document.createElement("div"), {
       className: "register__success",
       innerHTML: `<strong>Thanks — we'll be in touch about ${escapeHtml(classTitle)}.</strong>
-                  <p style="margin:8px 0 0;">A confirmation message has been logged for development purposes.</p>`
+                  <p style="margin:8px 0 0;">Your registration was sent. We'll reply by email shortly.</p>`
     })
   );
   // Scroll the message into view
