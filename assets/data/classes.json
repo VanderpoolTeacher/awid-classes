@@ -136,9 +136,9 @@
   {
     "id": "applied-ai-design-thinking",
     "title": "Applied AI in Design Thinking",
-    "shortDescription": "Use AI as a partner across the design thinking process — empathize through test.",
-    "longDescription": "A working session for professionals already comfortable with design thinking. We'll plug AI tools into each phase of the process, look at where they help and where they get in the way, and leave with a refined personal toolkit.",
-    "audience": "Professionals familiar with design thinking",
+    "shortDescription": "Learn the design thinking process — with AI as your creative and analytical partner from day one.",
+    "longDescription": "A beginner-friendly introduction to design thinking — empathize, define, ideate, prototype, test — taught hands-on with AI tools woven into each phase of the process. No prior experience required. You'll learn the method and use it on a small real-world problem, leaving with a working prototype and a process you can apply to anything.",
+    "audience": "Beginners — no prior experience needed",
     "schedule": {
       "startDate": null,
       "days": "Flexible — self-paced or workshop",
@@ -152,18 +152,19 @@
       "name": "Michael Vanderpool",
       "bio": "Founder and instructor at AWID. Background in design, technology education, and applied innovation."
     },
-    "prerequisites": "Some prior exposure to design thinking. Bring a laptop.",
+    "prerequisites": "None. Bring a laptop.",
     "capacity": 30,
     "seatsRemaining": 30,
     "heroImage": "assets/img/classes/applied-ai-design-thinking.jpg",
     "learningObjectives": [
-      "Map AI tools to each phase of design thinking — empathize, define, ideate, prototype, test",
-      "Use AI to synthesize user research at scale without losing nuance",
-      "Generate broader, faster divergent ideation with AI as a partner",
-      "Build interactive prototypes more quickly using AI assistance",
-      "Evaluate AI outputs against real research data and ground truth",
-      "Recognize common failure modes when AI is applied poorly to design work",
-      "Assemble a personal AI-augmented design toolkit you'll actually use"
+      "Understand each phase of design thinking — empathize, define, ideate, prototype, test",
+      "Conduct simple user research and synthesize what you find with AI assistance",
+      "Frame a clear, actionable problem statement from research insights",
+      "Run an ideation session that uses AI to expand the option space",
+      "Build a quick prototype using AI-assisted tools",
+      "Run a small test and incorporate feedback into the next iteration",
+      "Recognize where AI genuinely helps the process — and where it can mislead",
+      "Take a small problem from empathy through prototype within the workshop"
     ]
   }
 ]
