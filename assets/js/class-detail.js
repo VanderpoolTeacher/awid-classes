@@ -60,7 +60,7 @@ function renderClass(container, cls) {
   container.innerHTML = `
     <section class="class-hero" aria-labelledby="class-title">
       <div class="class-hero__inner">
-        <p class="class-hero__audience">${escapeHtml(cls.audience)} · ${cls.schedule.sessions} modules</p>
+        <p class="class-hero__audience">${escapeHtml(cls.audience)}</p>
         <h1 id="class-title">${escapeHtml(cls.title)}</h1>
         <p class="class-hero__short">${escapeHtml(cls.shortDescription)}</p>
       </div>
@@ -86,7 +86,6 @@ function renderClass(container, cls) {
             ${startsRow}
             <div class="class-rail__row"><dt>Schedule</dt><dd>${escapeHtml(cls.schedule.days)}</dd></div>
             <div class="class-rail__row"><dt>Time</dt><dd>${escapeHtml(cls.schedule.time)}</dd></div>
-            <div class="class-rail__row"><dt>Modules</dt><dd>${cls.schedule.sessions}</dd></div>
             <div class="class-rail__row"><dt>Location</dt><dd>${escapeHtml(cls.location)}</dd></div>
             <div class="class-rail__row"><dt>Seats left</dt><dd>${isFull ? "Full" : cls.seatsRemaining}</dd></div>
           </dl>

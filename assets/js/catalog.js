@@ -22,7 +22,7 @@ function renderCard(cls) {
   a.className = "card";
   a.href = `class.html?id=${encodeURIComponent(cls.id)}`;
 
-  const eyebrow = `${cls.schedule.sessions} MODULES · ${cls.price === 0 ? "FREE" : `$${cls.price}`}`;
+  const eyebrow = cls.price === 0 ? "FREE" : `$${cls.price}`;
   const scheduleSnippet = cls.schedule.startDate
     ? `${escapeHtml(cls.schedule.days)} · starts ${formatStartDate(cls.schedule.startDate)}`
     : escapeHtml(cls.schedule.days);

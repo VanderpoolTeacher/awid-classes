@@ -149,6 +149,9 @@ p { margin: 0 0 var(--space-2); }
   margin: 0 auto;
 }
 .site-header__logo img { height: 44px; width: auto; }
+@media (max-width: 540px) {
+  .site-header__logo img { height: 64px; }
+}
 .site-header__nav {
   display: flex;
   gap: var(--space-3);
@@ -201,6 +204,16 @@ p { margin: 0 0 var(--space-2); }
   border-radius: var(--radius);
   box-shadow: var(--shadow-md);
   display: block;
+}
+@media (max-width: 720px) {
+  .hero { padding-left: 0; padding-right: 0; }
+  .hero .container { padding-left: 0; padding-right: 0; }
+  .hero__image {
+    max-width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    margin-bottom: var(--space-3);
+  }
 }
 
 /* ---------- Sponsor strip ---------- */
