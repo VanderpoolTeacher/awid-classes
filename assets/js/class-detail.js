@@ -47,8 +47,10 @@ function renderClass(container, cls) {
     : "";
   const sponsorBlock = cls.sponsor
     ? `<div class="class-rail__sponsor">
-         <img src="assets/img/ART-logo-sponsored-by.png"
-              alt="Your access is sponsored by ${escapeHtml(cls.sponsor)}">
+         <a href="https://actualreality.tech/" target="_blank" rel="noopener noreferrer">
+           <img src="assets/img/ART-logo-sponsored-by.png"
+                alt="Your access is sponsored by ${escapeHtml(cls.sponsor)}">
+         </a>
        </div>`
     : "";
 
