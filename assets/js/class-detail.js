@@ -46,7 +46,10 @@ function renderClass(container, cls) {
     ? `<div class="class-rail__row"><dt>Starts</dt><dd>${formatStartDate(cls.schedule.startDate)}</dd></div>`
     : "";
   const sponsorBlock = cls.sponsor
-    ? `<p class="class-rail__sponsor">Sponsored by ${escapeHtml(cls.sponsor)}</p>`
+    ? `<div class="class-rail__sponsor">
+         <img src="assets/img/ART-logo-sponsored-by.png"
+              alt="Your access is sponsored by ${escapeHtml(cls.sponsor)}">
+       </div>`
     : "";
 
   container.innerHTML = `

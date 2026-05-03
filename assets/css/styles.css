@@ -203,6 +203,20 @@ p { margin: 0 0 var(--space-2); }
   display: block;
 }
 
+/* ---------- Sponsor strip ---------- */
+.sponsor-strip {
+  padding: var(--space-3) var(--space-4);
+  background: #fff;
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+}
+.sponsor-strip__image {
+  max-width: 320px;
+  width: 100%;
+  height: auto;
+  display: inline-block;
+}
+
 /* ---------- Catalog ---------- */
 .catalog {
   padding: var(--space-5) 0;
@@ -333,9 +347,13 @@ p { margin: 0 0 var(--space-2); }
 .class-rail__row dd { margin: 0; font-weight: 500; text-align: right; }
 .class-rail__price { font-size: 24px; color: var(--color-primary); font-weight: 700; margin: var(--space-2) 0 var(--space-1); }
 .class-rail__sponsor {
-  font-size: 13px;
-  color: var(--color-muted);
   margin: 0 0 var(--space-2);
+  text-align: center;
+}
+.class-rail__sponsor img {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
 }
 .class-rail__instructor { margin-top: var(--space-3); }
 .class-rail__cta { display: block; width: 100%; text-align: center; margin-top: var(--space-2); }
