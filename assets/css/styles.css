@@ -256,7 +256,7 @@ p { margin: 0 0 var(--space-2); }
   object-fit: cover;
 }
 .card__body { padding: var(--space-2) var(--space-3); }
-.card__title { margin: var(--space-1) 0; font-size: 18px; color: var(--color-text); }
+.card__title { margin: var(--space-1) 0; font-size: 22px; line-height: 1.25; color: var(--color-text); }
 .card__meta { color: var(--color-muted); font-size: 14px; }
 .card__price { color: var(--color-primary); font-weight: 600; }
 
