@@ -101,39 +101,6 @@
     ]
   },
   {
-    "id": "intro-ai-business",
-    "title": "Intro to AI and Your Business",
-    "shortDescription": "Practical AI for small business owners — what's real, what works, what to skip.",
-    "longDescription": "A grounded, no-hype workshop for owners and operators. We'll look at where AI is genuinely useful in small business workflows, walk through a few real tools, and leave with one or two changes you can apply this month.",
-    "audience": "Small business owners and operators",
-    "schedule": {
-      "startDate": null,
-      "days": "Flexible — self-paced or workshop",
-      "sessions": 3,
-      "time": "By arrangement"
-    },
-    "price": 0,
-    "sponsor": "Actual Reality Technologies",
-    "location": "Anthony Wayne Local Schools, Whitehouse OH",
-    "instructor": {
-      "name": "Michael Vanderpool",
-      "bio": "Founder and instructor at AWID. Background in design, technology education, and applied innovation."
-    },
-    "prerequisites": "Bring a laptop and a real workflow you'd like to improve.",
-    "capacity": 30,
-    "seatsRemaining": 30,
-    "heroImage": "assets/img/classes/intro-ai-business.jpg",
-    "learningObjectives": [
-      "Recognize where AI genuinely fits in small-business workflows — and where it doesn't",
-      "Compare leading AI tools relevant to your industry",
-      "Test two or three AI tools against your real workflows",
-      "Estimate the time or cost impact of an AI workflow change",
-      "Spot privacy and data-handling risks before introducing AI",
-      "Set up a simple, repeatable AI-assisted process you can hand off",
-      "Build a one-page action plan with concrete next steps"
-    ]
-  },
-  {
     "id": "applied-ai-design-thinking",
     "title": "Applied AI in Design Thinking",
     "shortDescription": "Learn the design thinking process — with AI as your creative and analytical partner from day one.",
