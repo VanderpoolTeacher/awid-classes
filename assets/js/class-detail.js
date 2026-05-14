@@ -93,11 +93,21 @@ function renderClass(container, cls) {
             <strong>${escapeHtml(cls.instructor.name)}</strong>
             <p style="margin-top:4px;font-size:14px;">${escapeHtml(cls.instructor.bio)}</p>
           </div>
-          <a class="btn btn--primary class-rail__cta"
-             href="#register"
-             ${isFull ? 'aria-disabled="true" tabindex="-1" onclick="event.preventDefault()"' : ""}>
-            ${isFull ? "Class full" : "Register"}
-          </a>
+          ${isFull
+            ? `<a class="btn btn--primary class-rail__cta"
+                 href="#register"
+                 aria-disabled="true" tabindex="-1" onclick="event.preventDefault()">
+                Class full
+              </a>`
+            : cls.eventbriteUrl
+              ? `<a class="btn btn--primary class-rail__cta"
+                   href="${escapeHtml(cls.eventbriteUrl)}"
+                   target="_blank" rel="noopener noreferrer">
+                  Register on Eventbrite ↗
+                </a>`
+              : `<a class="btn btn--primary class-rail__cta" href="#register">
+                  Register
+                </a>`}
         </aside>
       </div>
     </section>
@@ -107,7 +117,16 @@ function renderClass(container, cls) {
         <h2 id="register-heading">Register for ${escapeHtml(cls.title)}</h2>
         ${isFull
           ? '<p>This class is currently full. Email <a href="mailto:mvanderpool.edu@gmail.com">mvanderpool.edu@gmail.com</a> to be notified about the next session.</p>'
-          : `
+          : cls.eventbriteUrl
+            ? `
+        <p>Registration for this class is handled on Eventbrite, where you'll get confirmation and reminder emails.</p>
+        <a class="btn btn--primary"
+           href="${escapeHtml(cls.eventbriteUrl)}"
+           target="_blank" rel="noopener noreferrer">
+          Register on Eventbrite ↗
+        </a>
+        `
+            : `
         <form class="register__form" data-register-form
               data-class-id="${escapeHtml(cls.id)}"
               data-class-title="${escapeHtml(cls.title)}"
