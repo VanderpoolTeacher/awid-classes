@@ -107,10 +107,10 @@
     "longDescription": "A beginner-friendly introduction to design thinking — empathize, define, ideate, prototype, test — taught hands-on with AI tools woven into each phase of the process. No prior experience required. You'll learn the method and use it on a small real-world problem, leaving with a working prototype and a process you can apply to anything.",
     "audience": "Beginners — no prior experience needed",
     "schedule": {
-      "startDate": null,
-      "days": "Flexible — self-paced or workshop",
-      "sessions": 5,
-      "time": "By arrangement"
+      "startDate": "2026-05-29",
+      "days": "One-day workshop · Friday",
+      "sessions": 1,
+      "time": "10:00 AM – 4:00 PM (lunch break included)"
     },
     "price": 0,
     "sponsor": "Actual Reality Technologies",
@@ -122,6 +122,7 @@
     "prerequisites": "None. Bring a laptop.",
     "capacity": 30,
     "seatsRemaining": 30,
+    "eventbriteUrl": "https://www.eventbrite.com/e/1989613748280?aff=oddtdtcreator",
     "heroImage": "assets/img/classes/applied-ai-design-thinking.jpg",
     "learningObjectives": [
       "Understand each phase of design thinking — empathize, define, ideate, prototype, test",
