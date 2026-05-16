@@ -500,7 +500,11 @@ html.ribbon-hide .site-ribbon { display: none; }
   text-decoration: underline;
 }
 .site-ribbon__cta:hover,
-.site-ribbon__cta:focus-visible { color: #fff; }
+.site-ribbon__cta:focus-visible {
+  color: #fff;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
 
 .site-ribbon__close {
   flex: 0 0 auto;
@@ -509,14 +513,17 @@ html.ribbon-hide .site-ribbon { display: none; }
   border: 0;
   font-size: 20px;
   line-height: 1;
-  padding: 4px 8px;
+  padding: 8px 12px;
+  min-width: 44px;
+  min-height: 44px;
   cursor: pointer;
   border-radius: var(--radius-sm);
 }
 .site-ribbon__close:hover,
 .site-ribbon__close:focus-visible {
   background: rgba(255, 255, 255, 0.15);
-  outline: none;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }
 
 @media (max-width: 600px) {
