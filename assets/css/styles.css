@@ -527,6 +527,7 @@ html.ribbon-hide .site-ribbon { display: none; }
 }
 
 @media (max-width: 600px) {
+  .site-ribbon { position: relative; }
   .site-ribbon__inner {
     flex-wrap: wrap;
     padding: 8px var(--space-2);
@@ -538,5 +539,4 @@ html.ribbon-hide .site-ribbon { display: none; }
     top: 4px;
     right: 4px;
   }
-  .site-ribbon { position: relative; }
 }
