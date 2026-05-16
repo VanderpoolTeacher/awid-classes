@@ -9,8 +9,36 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <script>
+    (function () {
+      var KEY = "awid:ribbon:applied-ai-2026-05-29";
+      var HIDE_AFTER = new Date(2026, 4, 30).getTime(); // May 30 2026 local midnight
+      try {
+        var dismissed = window.localStorage.getItem(KEY) === "1";
+        var expired = Date.now() >= HIDE_AFTER;
+        if (dismissed || expired) {
+          document.documentElement.classList.add("ribbon-hide");
+        }
+      } catch (e) {
+        // localStorage unavailable (private mode etc.) — show ribbon.
+      }
+    })();
+  </script>
 </head>
 <body>
+  <aside class="site-ribbon" data-ribbon role="region" aria-label="Featured class announcement">
+    <div class="site-ribbon__inner">
+      <p class="site-ribbon__text">
+        <strong>Applied AI in Design Thinking</strong> · Fri May 29 · 10am–4pm · The Loft 419
+      </p>
+      <a class="site-ribbon__cta"
+         href="https://www.eventbrite.com/e/1989613748280?aff=oddtdtcreator"
+         target="_blank" rel="noopener noreferrer">
+        Register →
+      </a>
+      <button type="button" class="site-ribbon__close" data-ribbon-dismiss aria-label="Dismiss announcement">×</button>
+    </div>
+  </aside>
   <header class="site-header">
     <div class="site-header__inner">
       <a class="site-header__logo" href="index.html" aria-label="AWID Classes home">
@@ -87,6 +115,14 @@
 
   <script>
     document.getElementById("footer-year").textContent = new Date().getFullYear();
+    (function () {
+      var btn = document.querySelector("[data-ribbon-dismiss]");
+      if (!btn) return;
+      btn.addEventListener("click", function () {
+        try { window.localStorage.setItem("awid:ribbon:applied-ai-2026-05-29", "1"); } catch (e) {}
+        document.documentElement.classList.add("ribbon-hide");
+      });
+    })();
   </script>
   <script type="module" src="assets/js/catalog.js"></script>
 </body>
