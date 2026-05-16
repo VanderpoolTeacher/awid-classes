@@ -467,7 +467,7 @@ p { margin: 0 0 var(--space-2); }
 
 /* ---------- Feature banner (home-page event spotlight) ---------- */
 .feature-banner {
-  background: var(--color-primary);
+  background: #EA580C;
   color: #fff;
   padding: var(--space-5) 0;
   text-align: center;
@@ -476,7 +476,12 @@ p { margin: 0 0 var(--space-2); }
 html.feature-banner-hide .feature-banner { display: none; }
 
 .feature-banner__inner {
-  max-width: 760px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .feature-banner__eyebrow {
