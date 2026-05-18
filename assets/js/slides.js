@@ -125,6 +125,11 @@ document.addEventListener("keydown", (e) => {
       e.preventDefault();
       last();
       break;
+    case "f":
+    case "F":
+      e.preventDefault();
+      toggleFullscreen();
+      break;
   }
 });
 
@@ -138,3 +143,11 @@ container.addEventListener("click", (e) => {
   const half = window.innerWidth / 2;
   if (e.clientX >= half) next(); else prev();
 });
+
+function toggleFullscreen() {
+  if (document.fullscreenElement) {
+    document.exitFullscreen?.();
+  } else {
+    document.documentElement.requestFullscreen?.();
+  }
+}

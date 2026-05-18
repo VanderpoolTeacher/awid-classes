@@ -122,3 +122,6 @@ body {
   user-select: none;
   pointer-events: none;
 }
+
+:fullscreen { background: var(--slide-bg); }
+:-webkit-full-screen { background: var(--slide-bg); }
