@@ -85,7 +85,7 @@ function buildCourseSlide(course) {
     if (sched.days) schedBits.push(sched.days);
     if (sched.time) schedBits.push(sched.time);
     if (schedBits.length) {
-      inner.appendChild(el("p", "slide__meta", schedBits.map(escapeHtml).join(" · ")));
+      inner.appendChild(el("p", "slide__meta", schedBits.map(escapeHtml).join(" \u00B7 ")));
     }
 
     const objectives = (course.learningObjectives || []).slice(0, 5);
@@ -186,6 +186,14 @@ function prev() { setSlide(currentIndex - 1); }
 function first() { setSlide(0); }
 function last() { setSlide(slides.length - 1); }
 
+function toggleFullscreen() {
+  if (document.fullscreenElement) {
+    document.exitFullscreen?.();
+  } else {
+    document.documentElement.requestFullscreen?.();
+  }
+}
+
 document.addEventListener("keydown", (e) => {
   switch (e.key) {
     case "ArrowRight":
@@ -225,11 +233,3 @@ container.addEventListener("click", (e) => {
   const half = window.innerWidth / 2;
   if (e.clientX >= half) next(); else prev();
 });
-
-function toggleFullscreen() {
-  if (document.fullscreenElement) {
-    document.exitFullscreen?.();
-  } else {
-    document.documentElement.requestFullscreen?.();
-  }
-}

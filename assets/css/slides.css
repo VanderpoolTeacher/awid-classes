@@ -5,17 +5,16 @@
   --slide-primary: #1F3A93;
   --slide-primary-dark: #16306C;
   --slide-accent: #EA580C;
-  --slide-section: #F5F7FB;
 
-  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-               Roboto, Helvetica, Arial, sans-serif;
+  --slide-font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+                     Roboto, Helvetica, Arial, sans-serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; height: 100%; }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--slide-font-body);
   color: var(--slide-text);
   background: var(--slide-bg);
   -webkit-font-smoothing: antialiased;
