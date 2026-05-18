@@ -131,3 +131,10 @@ document.addEventListener("keydown", (e) => {
 window.addEventListener("hashchange", () => {
   setSlide(startingIndexFromHash(), { fromHash: true });
 });
+
+container.addEventListener("click", (e) => {
+  // Allow links inside slides to work normally
+  if (e.target.closest("a")) return;
+  const half = window.innerWidth / 2;
+  if (e.clientX >= half) next(); else prev();
+});
