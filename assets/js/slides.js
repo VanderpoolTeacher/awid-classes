@@ -99,6 +99,14 @@ function buildCourseSlide(course) {
   });
 }
 
+function buildPlaceholderCourseSlide(id) {
+  return buildSlide((inner) => {
+    inner.appendChild(el("p", "slide__eyebrow", "Course"));
+    inner.appendChild(el("h2", "slide__title", "Course data unavailable"));
+    inner.appendChild(el("p", "slide__lede", `Could not load ${id}. Refresh to retry.`));
+  });
+}
+
 function formatDate(iso) {
   const d = new Date(iso + "T00:00:00");
   if (Number.isNaN(d.getTime())) return iso;
@@ -151,10 +159,14 @@ async function renderDeck() {
   }
   const byId = new Map(courses.map((c) => [c.id, c]));
 
-  const courseSlides = COURSE_ORDER
-    .map((id) => byId.get(id))
-    .filter(Boolean)
-    .map(buildCourseSlide);
+  const courseSlides = COURSE_ORDER.map((id) => {
+    const course = byId.get(id);
+    if (!course) {
+      console.warn(`slides: course not found in classes.json: ${id}`);
+      return buildPlaceholderCourseSlide(id);
+    }
+    return buildCourseSlide(course);
+  });
 
   slides = [
     buildTitleSlide(),
