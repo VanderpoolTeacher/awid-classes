@@ -86,3 +86,32 @@ function renderDeck() {
 }
 
 renderDeck();
+
+function next() { setSlide(currentIndex + 1); }
+function prev() { setSlide(currentIndex - 1); }
+function first() { setSlide(0); }
+function last() { setSlide(slides.length - 1); }
+
+document.addEventListener("keydown", (e) => {
+  switch (e.key) {
+    case "ArrowRight":
+    case " ":
+    case "PageDown":
+      e.preventDefault();
+      next();
+      break;
+    case "ArrowLeft":
+    case "PageUp":
+      e.preventDefault();
+      prev();
+      break;
+    case "Home":
+      e.preventDefault();
+      first();
+      break;
+    case "End":
+      e.preventDefault();
+      last();
+      break;
+  }
+});
