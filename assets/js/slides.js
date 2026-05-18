@@ -66,12 +66,24 @@ function buildClosingSlide() {
   });
 }
 
-function setSlide(index) {
+function setSlide(index, opts = {}) {
   if (slides.length === 0) return;
   const clamped = Math.max(0, Math.min(index, slides.length - 1));
   slides.forEach((s, i) => s.classList.toggle("is-active", i === clamped));
   currentIndex = clamped;
   counter.textContent = `${clamped + 1} / ${slides.length}`;
+  if (!opts.fromHash) {
+    const newHash = `#${clamped + 1}`;
+    if (location.hash !== newHash) {
+      history.replaceState(null, "", newHash);
+    }
+  }
+}
+
+function startingIndexFromHash() {
+  const n = parseInt(location.hash.replace("#", ""), 10);
+  if (Number.isFinite(n) && n >= 1 && n <= slides.length) return n - 1;
+  return 0;
 }
 
 function renderDeck() {
@@ -82,7 +94,7 @@ function renderDeck() {
     buildClosingSlide(),
   ];
   container.replaceChildren(...slides);
-  setSlide(0);
+  setSlide(startingIndexFromHash(), { fromHash: true });
 }
 
 renderDeck();
@@ -114,4 +126,8 @@ document.addEventListener("keydown", (e) => {
       last();
       break;
   }
+});
+
+window.addEventListener("hashchange", () => {
+  setSlide(startingIndexFromHash(), { fromHash: true });
 });
