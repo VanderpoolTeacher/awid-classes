@@ -144,8 +144,10 @@ async function renderDeck() {
   let courses = [];
   try {
     courses = await loadCourses();
+    if (!Array.isArray(courses)) throw new TypeError("classes.json is not an array");
   } catch (err) {
     console.error("slides: failed to load classes.json", err);
+    courses = [];
   }
   const byId = new Map(courses.map((c) => [c.id, c]));
 
