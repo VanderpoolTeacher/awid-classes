@@ -21,9 +21,10 @@ function buildSlide(contentBuilder) {
 
 function buildTitleSlide() {
   return buildSlide((inner) => {
-    inner.appendChild(el("img", "slide__image"));
-    inner.querySelector("img").src = "assets/img/logo-and-wordmark.png";
-    inner.querySelector("img").alt = "Anthony Wayne Innovation & Design";
+    const img = el("img", "slide__image");
+    img.src = "assets/img/logo-and-wordmark.png";
+    img.alt = "Anthony Wayne Innovation & Design";
+    inner.appendChild(img);
     inner.appendChild(el("h1", "slide__title", "AWID Classes"));
     inner.appendChild(el("p", "slide__lede", "Hands-on classes in AI, design, and tech."));
   });
