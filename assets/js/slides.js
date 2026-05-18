@@ -66,6 +66,54 @@ function buildClosingSlide() {
   });
 }
 
+const COURSE_ORDER = [
+  "intro-design-tech-ai",
+  "intro-career-in-tech",
+  "ai-infused-game-design",
+  "applied-ai-design-thinking",
+];
+
+function buildCourseSlide(course) {
+  return buildSlide((inner) => {
+    inner.appendChild(el("p", "slide__eyebrow", escapeHtml(course.audience || "Class")));
+    inner.appendChild(el("h2", "slide__title", escapeHtml(course.title)));
+    inner.appendChild(el("p", "slide__lede", escapeHtml(course.shortDescription)));
+
+    const sched = course.schedule || {};
+    const schedBits = [];
+    if (sched.startDate) schedBits.push(formatDate(sched.startDate));
+    if (sched.days) schedBits.push(sched.days);
+    if (sched.time) schedBits.push(sched.time);
+    if (schedBits.length) {
+      inner.appendChild(el("p", "slide__meta", schedBits.map(escapeHtml).join(" · ")));
+    }
+
+    const objectives = (course.learningObjectives || []).slice(0, 5);
+    if (objectives.length) {
+      const ul = el("ul", "slide__list");
+      for (const obj of objectives) {
+        ul.appendChild(el("li", "", escapeHtml(obj)));
+      }
+      inner.appendChild(ul);
+    }
+  });
+}
+
+function formatDate(iso) {
+  const d = new Date(iso + "T00:00:00");
+  if (Number.isNaN(d.getTime())) return iso;
+  return d.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric", year: "numeric" });
+}
+
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 function setSlide(index, opts = {}) {
   if (slides.length === 0) return;
   const clamped = Math.max(0, Math.min(index, slides.length - 1));
@@ -86,11 +134,31 @@ function startingIndexFromHash() {
   return 0;
 }
 
-function renderDeck() {
+async function loadCourses() {
+  const res = await fetch("assets/data/classes.json", { cache: "no-cache" });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return res.json();
+}
+
+async function renderDeck() {
+  let courses = [];
+  try {
+    courses = await loadCourses();
+  } catch (err) {
+    console.error("slides: failed to load classes.json", err);
+  }
+  const byId = new Map(courses.map((c) => [c.id, c]));
+
+  const courseSlides = COURSE_ORDER
+    .map((id) => byId.get(id))
+    .filter(Boolean)
+    .map(buildCourseSlide);
+
   slides = [
     buildTitleSlide(),
     buildAboutSlide(),
     buildSponsorSlide(),
+    ...courseSlides,
     buildClosingSlide(),
   ];
   container.replaceChildren(...slides);
