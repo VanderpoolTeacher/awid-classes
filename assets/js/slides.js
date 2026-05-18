@@ -1,0 +1,87 @@
+const container = document.querySelector("[data-slides]");
+const counter = document.querySelector("[data-slides-counter]");
+
+let slides = [];
+let currentIndex = 0;
+
+function el(tag, className, html) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (html !== undefined) node.innerHTML = html;
+  return node;
+}
+
+function buildSlide(contentBuilder) {
+  const slide = el("section", "slide");
+  const inner = el("div", "slide__inner");
+  contentBuilder(inner);
+  slide.appendChild(inner);
+  return slide;
+}
+
+function buildTitleSlide() {
+  return buildSlide((inner) => {
+    inner.appendChild(el("img", "slide__image"));
+    inner.querySelector("img").src = "assets/img/logo-and-wordmark.png";
+    inner.querySelector("img").alt = "Anthony Wayne Innovation & Design";
+    inner.appendChild(el("h1", "slide__title", "AWID Classes"));
+    inner.appendChild(el("p", "slide__lede", "Hands-on classes in AI, design, and tech."));
+  });
+}
+
+function buildAboutSlide() {
+  return buildSlide((inner) => {
+    inner.appendChild(el("p", "slide__eyebrow", "About AWID"));
+    inner.appendChild(el("h2", "slide__title", "Closing the gap between ideas and impact"));
+    inner.appendChild(el("p", "slide__lede",
+      "AWID runs hands-on workshops in AI, design, and technology for students, makers, " +
+      "and small businesses across Northwest Ohio."));
+  });
+}
+
+function buildSponsorSlide() {
+  return buildSlide((inner) => {
+    inner.appendChild(el("p", "slide__eyebrow", "Sponsor"));
+    const img = el("img", "slide__image");
+    img.src = "assets/img/ART-logo-sponsored-by.png";
+    img.alt = "Your access is sponsored by Actual Reality Technologies";
+    inner.appendChild(img);
+    inner.appendChild(el("p", "slide__meta", "actualreality.tech"));
+  });
+}
+
+function buildClosingSlide() {
+  return buildSlide((inner) => {
+    inner.appendChild(el("p", "slide__eyebrow", "Join us"));
+    inner.appendChild(el("h2", "slide__title", "Browse classes &amp; register"));
+    const link = el("a", "slide__cta", "mvanderpool.com/aw-innovation-and-design");
+    link.href = "https://mvanderpool.com/aw-innovation-and-design";
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    inner.appendChild(link);
+    const email = el("p", "slide__meta");
+    email.innerHTML = '<a href="mailto:mvanderpool.edu@gmail.com">mvanderpool.edu@gmail.com</a>';
+    inner.appendChild(email);
+  });
+}
+
+function setSlide(index) {
+  if (slides.length === 0) return;
+  const clamped = Math.max(0, Math.min(index, slides.length - 1));
+  slides.forEach((s, i) => s.classList.toggle("is-active", i === clamped));
+  currentIndex = clamped;
+  counter.textContent = `${clamped + 1} / ${slides.length}`;
+}
+
+function renderDeck() {
+  slides = [
+    buildTitleSlide(),
+    buildAboutSlide(),
+    buildSponsorSlide(),
+    buildClosingSlide(),
+  ];
+  container.replaceChildren(...slides);
+  setSlide(0);
+}
+
+renderDeck();
