@@ -71,6 +71,38 @@ once):
 9. **Redaction is a required step before any transcript is published.** If a transcript ever
    needs to go public, it must first be redacted (names + personal/sensitive content
    stripped) and committed as a separate redacted copy — never the raw file. *(2026-06-01)*
+10. **Lessons follow a fixed template structure.** Front matter (incl. `relatedConcepts`
+    keys) → Overview → Learning objectives → Key vocabulary → The lesson → Worked example →
+    Hands-on activity → Common pitfalls → Discussion questions → Check for understanding →
+    Key takeaways → Instructor notes. Markdown, stored in `lessons/`. Lesson 01 is the
+    prototype; a blank `lessons/_TEMPLATE.md` will be extracted from it. *(2026-06-01)*
+11. **Introduce every technology/concept with "What it is → What it does → How it fits."**
+    A required convention in lessons: define the thing, say what it does, then place it in
+    its ecosystem (e.g., "Git is version-control software that tracks a codebase's changes
+    and sits in the software development life cycle"). *(2026-06-01)*
+12. **Lessons are immutable once created.** A published lesson may not be changed without an
+    open, approved **GitHub issue**; the issue number is referenced in the commit that makes
+    the change. Enforced via lesson front matter (`locked: true` + `changePolicy`). The
+    structure (Decision 10) and the intro convention (Decision 11) are codified in
+    `lessons/_TEMPLATE.md`, which every new lesson is built from. *(2026-06-01)*
+13. **Learning objectives must be measurable and Bloom's-aligned.** Each objective uses one
+    action verb, is observable, states a single outcome (no compound objectives), avoids vague
+    verbs (understand/know/appreciate), and is tagged with its Bloom's level. Prefer a climb
+    Understand → Analyze → Apply → Evaluate/Create. Codified in `_TEMPLATE.md`. *(2026-06-01)*
+14. **Lessons open with a narrative and call back to it in the wrap-up.** Each lesson begins
+    with a short, concrete story/scene (ideally a real class moment/metaphor) that sets up the
+    tension; the wrap-up (Key takeaways) resolves it. Lesson prose should draw on the
+    instructor's real metaphors and demos. Codified in `_TEMPLATE.md`. *(2026-06-01)*
+15. **Each lesson decomposes into parts (SCORM 1.2).** The master lesson `.md` is the blueprint/
+    source of truth; produced deliverables live in a per-lesson folder: `lesson-text.md`
+    (learner reading), `activity.md` (student handout), `instructor-guide.md` (facilitation),
+    and `scorm/` (a self-contained, vanilla-JS interactive packaged for **SCORM 1.2** — runs
+    standalone or in an LMS). *(2026-06-01)*
+16. **Keep narrative distance from the physical class.** Lesson content freely uses the stories,
+    metaphors, and expressions from the delivered class, but does NOT explicitly reference the
+    session itself ("the room," "in class," "the instructor said"). Tell the stories as
+    illustrative scenes, not as a recap. Interactive quizzes give **per-question feedback**, not
+    just a score. *(2026-06-01)*
 
 ---
 
@@ -171,4 +203,102 @@ once):
   public repo — they contain attendees' real names and candid conversation. Unstaged them and
   added `recordings/` to `.gitignore` (Decisions 8 & 9). Committing only the three derived
   artifacts plus the `.gitignore` policy change.
-- **Result:** *(in progress — commit + push next)*
+- **Result:** Committed the 3 artifacts + `.gitignore` as `b9b040e` and pushed branch
+  `feature/course-concept-inventory` to GitHub. Verified no transcripts are tracked.
+
+### 2026-06-01 — Step 5: Merge slideshow into `main` & clean up branches
+
+- **Prompt (summary):** Asked what was going on with `feature/1-overview-slideshow`, then to
+  merge it into `main`, then to clean up the feature branches. Narrated slowly for the recording.
+- **Response/decision:** Found that `feature/1` (the overview slideshow) was complete but **not
+  on `main`** despite a "MERGED" PR label — `main` actually held unrelated feature-banner work.
+  Merged `feature/1` into `main` locally (clean, no conflicts). On push, GitHub **rejected** it:
+  while we worked, PR #3 (our concept branch, which was *stacked on* `feature/1`) had been merged
+  into `origin/main`, carrying the slideshow up too. Chose the safe path — fetch, inspect, and
+  **align local `main` to `origin/main`** (`reset --hard`) rather than force — discarding our now
+  redundant local merge. Then deleted both feature branches: `feature/1` with safe `-d`;
+  `feature/course-concept-inventory` needed `-D` because of one orphaned local commit that had
+  accidentally bundled the pre-existing logo/spec changes we'd deliberately excluded.
+- **Result:** `main` (local = GitHub) now holds the slideshow **and** the concept files, in sync.
+  Only `main` remains; feature branches gone locally and on GitHub. Transcripts still local-only.
+  Lesson reinforced on camera: rejections/`-d` refusals are safety features — fetch, look, then act.
+
+### 2026-06-01 — Step 6: First lesson + lesson-template conventions
+
+- **Prompt (summary):** Create a lesson on what we did with Git/GitHub (basic understanding) —
+  to also serve as the basis for a reusable lesson template structure. Approved the proposed
+  outline and added a rule: introduce every technology/concept with "what it is, what it does,
+  how it fits into the ecosystem."
+- **Response/decision:** Wrote `lessons/01-git-and-github-basics.md` against the approved
+  structure (Decision 10), applying the "What → Does → Fits" convention (Decision 11) to Git and
+  GitHub and an ecosystem-aware vocabulary table. Grounded every example in the real session
+  (stage/commit/push, branch, merge, the rejected push, `-d` vs `-D`, the privacy catch). Linked
+  it back to concept-inventory keys via `relatedConcepts` front matter.
+- **Result:** Lesson 01 written. Doubles as the template prototype.
+
+### 2026-06-01 — Step 7: Formalize the lesson pattern + immutability policy
+
+- **Prompt (summary):** "Establish this as a pattern." Also: lesson front matter must state that
+  once created, a lesson cannot be changed without a GitHub issue.
+- **Response/decision:** Extracted `lessons/_TEMPLATE.md` — the reusable skeleton encoding the
+  fixed section order (Decision 10) and the "What → Does → Fits" intro convention (Decision 11)
+  as in-file author guidance. Added an immutability policy (Decision 12): lessons carry
+  `locked: true` + a `changePolicy` in front matter requiring a GitHub issue for any change.
+  Backfilled the policy fields into Lesson 01.
+- **Result:** `lessons/_TEMPLATE.md` created; Lesson 01 front matter updated with `created`,
+  `locked`, and `changePolicy`. Pattern is now reusable.
+
+### 2026-06-01 — Step 8: Dedicated content-creation branch
+
+- **Prompt (summary):** Work on a branch specific to the content-creation process; put the
+  current work on it.
+- **Response/decision:** Created `feature/content-creation` off `main`. Staged the course
+  folder (recordings gitignored, so excluded), committed the template + Lesson 01 + updated log
+  as `0d79ed7`, and pushed the branch. `main` (the live site) untouched — feature-branch pushes
+  don't deploy, so we can iterate freely here.
+- **Result:** Content now lives on `feature/content-creation`, backed up on GitHub. This is the
+  ongoing lane for authoring lessons.
+
+### 2026-06-01 — Step 9: Module 0 lesson — "It's Not Magic"
+
+- **Prompt (summary):** "Let's do module 0."
+- **Response/decision:** Authored the Module 0 framing lesson from the template, covering the
+  three tightly-linked concepts `2026-05-29-003` (demystifying), `-001` (it's not magic), and
+  `-002` (non-deterministic), with `-019` and `-027` as support. Applied the "What → Does →
+  Fits" convention to AI, LLM, and Code. Added a `module` field to the template and the lesson
+  to tie lessons to the course-outline-map modules.
+- **Result:** Wrote `lessons/02-its-not-magic-how-ai-works.md` (module 0). Note on numbering:
+  `lesson` = file/creation order (Git basics = 01, Module 0 = 02); `module` = course sequence.
+  They intentionally differ — Git basics is module-3/tooling content authored first. Open
+  question for the user: keep this scheme, or renumber files to match course order (nothing is
+  locked on `main` yet). **Next:** commit Module 0 to the content branch; pick the next lesson.
+
+### 2026-06-01 — Step 10: Decompose Module 0 into parts + SCORM interactive
+
+- **Prompt (summary):** Extrapolate the lesson into its parts — lesson text, activity docs, an
+  interactive HTML that becomes a SCORM package, and instructor guide. Use SCORM 1.2. Expand the
+  lesson text to be more robust using class content/metaphors. Start each lesson with a narrative
+  and call back to it in the wrap-up.
+- **Response/decision:** Established the decomposition pattern (Decision 15) and the narrative
+  convention (Decision 14). Built the parts under
+  `lessons/02-its-not-magic-how-ai-works/`. Expanded the lesson text with the instructor's real
+  metaphors (the deterministic "2+2" box, "only so many ways to arrange words / the load of
+  bull——", music/notes, the car-and-engine, running-out-of-data) and framed it with the AI
+  "podcast voices" narrative, paid off in the wrap-up. SCORM interactive is self-contained
+  vanilla JS with a 5-question check that reports `lesson_status` + `score.raw`; no-ops safely
+  standalone.
+- **Result:** Created `lesson-text.md`, `activity.md`, `instructor-guide.md`, and `scorm/`
+  (`index.html`, `styles.css`, `scorm-api.js`, `imsmanifest.xml`, `README.md`). Updated
+  `_TEMPLATE.md` with the narrative convention.
+
+### 2026-06-01 — Step 11: Lesson viewer web page
+
+- **Prompt (summary):** Create a web page to view the lesson with.
+- **Response/decision:** Built a reusable lesson viewer `lessons/view.html` (no external
+  dependencies): tabs for Lesson / Activity / Instructor Guide + a button to launch the SCORM
+  interactive. It fetches and renders the part `.md` files with a small built-in Markdown
+  parser (headings, lists, tables, blockquotes, code, inline), so the source `.md` stays the
+  single source of truth. Parameterized by `?lesson=<folder>`, defaulting to Module 0.
+- **Result:** `lessons/view.html` created. Verified over a local server — viewer + all parts
+  return HTTP 200. Open at `…/lessons/view.html`. **Next:** commit/push; pick the next lesson
+  or decompose Lesson 01.
