@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Whose Work Is It? AI, Ownership &amp; Responsible Use</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="scorm-api.js"></script>
+</head>
+<body>
+  <main class="lesson" id="lesson">
+    <header class="lesson__header">
+      <p class="lesson__eyebrow">Module 1 · Creative Problem Solving</p>
+      <h1 class="lesson__title">Whose Work Is It?</h1>
+      <div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+    </header>
+
+    <section class="step" data-step>
+      <h2>🎨 A story to start with</h2>
+      <p>Someone photographs a downtown art museum, runs it through an AI tool, and adds dramatic
+         laser lights swirling around it. It looks amazing. They post it.</p>
+      <p>And there's a knot in their stomach — because some people in the arts community will see
+         it and feel <strong>robbed.</strong> The AI learned from countless artists who never
+         agreed, were never paid, were never credited. To them, that's not a fun effect. It feels
+         like theft.</p>
+      <p class="callout">AI learns by soaking up human-made work. So: <strong>whose work is it,
+         and is using AI fair?</strong></p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>The objection: "you used my work without asking"</h2>
+      <p>Sit in a creator's chair. AI got good by training on mountains of human work — much of it
+         copyrighted, almost none of it licensed. So generating art "in the style of" a real
+         artist can feel like their life's work was taken to compete against them.</p>
+      <p>It's serious and widely held — and the people who feel it may be exactly the audience
+         you're trying to reach. (We saw the same fight when music suddenly became free to
+         download.)</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>What the law protects: ideas vs. expression</h2>
+      <p>Surprise: <strong>you can't copyright an idea.</strong> "A detective story set in space"
+         belongs to everyone. What's protected is your specific <strong>expression</strong> — the
+         exact words, the exact image you made.</p>
+      <p>That cuts both ways: AI can riff on common ideas legally, and <em>your</em> specific,
+         hard-won work is yours even though the general topic isn't.</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>Fair use is a gray area — prefer safe sources</h2>
+      <p>"Fair use" sometimes allows limited use of protected work, but for AI it's
+         <strong>unsettled</strong> — don't treat it as a free pass. Red flags: a tool reproducing
+         a <strong>stock-photo watermark</strong>, or copying a living, named artist's exact
+         style.</p>
+      <p>The safe path: <strong>prefer public-domain or owned sources.</strong> Government/NASA
+         images are free to use; your own photos and writing are yours. Then the ownership
+         question mostly disappears.</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>Keep an honest trail — and remember it's about intent</h2>
+      <p>You don't have to label everything "made with AI," but <strong>keep a quiet note of how
+         you used it.</strong> If anyone asks, that honesty trail protects you.</p>
+      <p>In the end, AI is a tool — a hammer builds a house or breaks a window. The tool isn't the
+         ethics; <strong>you are.</strong> Organizing your own notes is a world away from passing
+         off an artist's style as your own.</p>
+    </section>
+
+    <section class="step step--quiz" data-step hidden>
+      <h2>Quick check</h2>
+      <p class="muted">Answer all five, then submit. You'll need 60% to pass.</p>
+      <form id="quizForm" class="quiz"></form>
+      <button type="button" id="submitQuiz" class="btn">Submit answers</button>
+      <div id="quizResult" class="quiz__result" role="status" hidden></div>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>🎨 Back to the laser lights</h2>
+      <p>Nothing about the tool decided whether that post was okay — the <em>person</em> did. Fun
+         lasers on your own photo for a casual crowd? Fine. Imitating a specific artist's look and
+         selling it as original to people who'd feel cheated? Different entirely. Same image, same
+         tool — the fairness lives in the choices around it.</p>
+      <p><strong>Remember:</strong></p>
+      <ul>
+        <li>Many creators see AI as trained on <strong>unlicensed</strong> work — a real objection.</li>
+        <li>Copyright protects <strong>expression, not ideas.</strong></li>
+        <li><strong>Fair use is a gray area</strong> — prefer public-domain or owned sources.</li>
+        <li>Keep an <strong>attribution</strong> trail; the ethics live in <strong>your intent.</strong></li>
+      </ul>
+      <p class="callout">Lesson complete ✓ — your progress has been sent to the learning system.</p>
+    </section>
+
+    <nav class="lesson__nav">
+      <button type="button" id="prevBtn" class="btn btn--ghost" disabled>← Back</button>
+      <span class="lesson__count" id="stepCount"></span>
+      <button type="button" id="nextBtn" class="btn">Next →</button>
+    </nav>
+  </main>
+
+  <script>
+    var QUESTIONS = [
+      {
+        q: "The plagiarism/theft objection to AI is basically that…",
+        options: ["AI runs too slowly", "AI was trained on creators' work without consent, payment, or credit", "AI images look fake"],
+        answer: 1,
+        feedback: "Creators feel their work was taken to build a tool that now competes with them."
+      },
+      {
+        q: "Copyright protects…",
+        options: ["a general idea", "your specific expression (the exact words/image)", "anything posted on the internet"],
+        answer: 1,
+        feedback: "Ideas are free to all; the specific fixed form is the protected part."
+      },
+      {
+        q: "For AI projects, fair use is…",
+        options: ["a guaranteed free pass", "an unsettled gray area — don't assume it covers you", "only about music"],
+        answer: 1,
+        feedback: "Courts are still deciding it — treat it as a gray zone, not a free pass."
+      },
+      {
+        q: "Which is a SAFE source to build from?",
+        options: ["A living artist's portfolio", "A stock photo with a watermark", "Public-domain NASA images"],
+        answer: 2,
+        feedback: "Public-domain work and your own work are the wells you can always use safely."
+      },
+      {
+        q: "Where do the ethics of an AI tool live?",
+        options: ["In the tool itself", "In your intent and choices", "In the file format"],
+        answer: 1,
+        feedback: "A hammer builds or breaks — the tool isn't the ethics, you are."
+      }
+    ];
+    var PASS_PERCENT = 60;
+
+    var form = document.getElementById("quizForm");
+    var fbEls = [];
+    QUESTIONS.forEach(function (item, qi) {
+      var fs = document.createElement("fieldset");
+      fs.className = "quiz__q";
+      var legend = document.createElement("legend");
+      legend.textContent = (qi + 1) + ". " + item.q;
+      fs.appendChild(legend);
+      item.options.forEach(function (opt, oi) {
+        var id = "q" + qi + "o" + oi;
+        var label = document.createElement("label");
+        label.className = "quiz__opt"; label.htmlFor = id;
+        var input = document.createElement("input");
+        input.type = "radio"; input.name = "q" + qi; input.id = id; input.value = oi;
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(" " + opt));
+        fs.appendChild(label);
+      });
+      var fb = document.createElement("p");
+      fb.className = "quiz__fb"; fb.hidden = true;
+      fs.appendChild(fb); fbEls.push(fb);
+      form.appendChild(fs);
+    });
+
+    var steps = Array.prototype.slice.call(document.querySelectorAll("[data-step]"));
+    var current = 0;
+    var prevBtn = document.getElementById("prevBtn");
+    var nextBtn = document.getElementById("nextBtn");
+    var stepCount = document.getElementById("stepCount");
+    var progressBar = document.getElementById("progressBar");
+    function render() {
+      steps.forEach(function (s, i) { s.hidden = i !== current; });
+      prevBtn.disabled = current === 0;
+      nextBtn.style.visibility = current === steps.length - 1 ? "hidden" : "visible";
+      stepCount.textContent = (current + 1) + " / " + steps.length;
+      progressBar.style.width = (current / (steps.length - 1) * 100) + "%";
+      window.scrollTo(0, 0);
+    }
+    prevBtn.addEventListener("click", function () { if (current > 0) { current--; render(); } });
+    nextBtn.addEventListener("click", function () { if (current < steps.length - 1) { current++; render(); } });
+
+    document.getElementById("submitQuiz").addEventListener("click", function () {
+      var correct = 0;
+      QUESTIONS.forEach(function (item, qi) {
+        var chosen = form.querySelector('input[name="q' + qi + '"]:checked');
+        var isCorrect = chosen && Number(chosen.value) === item.answer;
+        if (isCorrect) correct++;
+        var fb = fbEls[qi];
+        fb.hidden = false;
+        if (isCorrect) {
+          fb.className = "quiz__fb is-correct";
+          fb.textContent = "✓ Correct. " + item.feedback;
+        } else {
+          fb.className = "quiz__fb is-wrong";
+          fb.textContent = "✗ Not quite — the answer is “" + item.options[item.answer] + ".” " + item.feedback;
+        }
+      });
+      var pct = Math.round((correct / QUESTIONS.length) * 100);
+      var passed = pct >= PASS_PERCENT;
+      var result = document.getElementById("quizResult");
+      result.hidden = false;
+      result.className = "quiz__result " + (passed ? "is-pass" : "is-fail");
+      result.textContent = "You scored " + pct + "% (" + correct + "/" + QUESTIONS.length + "). " +
+        (passed ? "Passed! Continue to finish." : "Below " + PASS_PERCENT + "% — review and try again, then continue.");
+      SCORM.setScore(pct);
+      SCORM.complete(passed);
+    });
+
+    SCORM.init();
+    render();
+  </script>
+</body>
+</html>

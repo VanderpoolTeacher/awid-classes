@@ -382,3 +382,16 @@ once):
 - **Result:** Broad grep across published lessons returns only self-labels (a lesson naming its
   own module). All published content now complies with Decisions 18 and 19. **Next:** commit, PR
   closing #8.
+
+### 2026-06-02 — Step 16: Module 1 Lesson 2 — "Whose Work Is It?" (issue #13)
+
+- **Prompt (summary):** "build out" — continue authoring lessons.
+- **Response/decision:** Built the second Module 1 lesson on **issue #13 / branch
+  `feature/13-whose-work-is-it`**, completing the responsible-use side of Module 1 (ownership &
+  ethics) that the trust lesson didn't cover. Authored per LESSON-SPEC from `_templates/`:
+  `module-1-foundational-ai/2-whose-work-is-it/` with `lesson.md` + parts (lesson-text, activity,
+  instructor-guide) + SCORM 1.2 interactive (5-question check with feedback). Concepts
+  `…-004/005/006/022/014`. Narrative hook: the AI laser-lights-on-an-art-museum photo. Self-
+  contained (Decision 18); linked under Module 1 in the outline (Decision 19).
+- **Result:** Lesson complete; manifest well-formed, self-contained grep clean. **Next:** commit,
+  PR closing #13.
