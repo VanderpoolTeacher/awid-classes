@@ -15,3 +15,10 @@ Thumbs.db
 
 # Node (defensive — no npm in plan, but harmless)
 node_modules/
+
+# Raw recordings & transcripts — LOCAL ONLY.
+# These contain attendees' real names and candid, personal conversation.
+# The repo is public, so raw recordings are never committed. Their only value is
+# preservation. If a transcript must ever be published, REDACT it first (strip names
+# and personal/sensitive content) and commit the redacted copy under a different path.
+recordings/

@@ -1,0 +1,1272 @@
+{
+  "course": "Applied AI in Design Thinking (Creative Problem Solving)",
+  "session": "2026-05-29",
+  "instructor": "Michael Vanderpool",
+  "sourceTranscripts": [
+    "May 29 at 10-37 AM.txt",
+    "May 29 at 1-31 PM.txt"
+  ],
+  "keyFormat": "YYYY-MM-DD-NNN — the date the source material was created/stated (the 2026-05-29 session, per the transcript filenames), plus a sequential number. Immutable primary key; referenced by relatedConcepts and by any downstream material.",
+  "strands": {
+    "foundational-ai": "How AI actually works, its limits, ethics, and data concerns.",
+    "design-thinking": "The empathize - define - ideate - prototype - test process.",
+    "cross-cutting": "Build repeatable systems, not one-off outputs."
+  },
+  "phases": ["empathize", "define", "ideate", "prototype", "test"],
+  "generated": "2026-06-01",
+  "concepts": [
+    {
+      "key": "2026-05-29-001",
+      "id": "its-not-magic-its-code",
+      "title": "It's not magic, it's code",
+      "strand": "foundational-ai",
+      "phase": null,
+      "summary": "AI output is not magic - it is code generated from massive data and fast computation. Everything you see on a screen is produced by code; AI just writes that code quickly.",
+      "keyPoints": [
+        "The old model: instructions + inputs go into a box, the box computes, outputs appear - and it was deterministic (2+2 is always 4).",
+        "What changed is the sheer scale of available data and the speed of compute, so what once took a mainframe days now feels instantaneous.",
+        "Every response from AI is written code being rendered to your screen, not thought magically appearing."
+      ],
+      "stories": [
+        "The Mario machine-learning video: the AI plays and fails over and over until it figures out how to beat the level.",
+        "A chatbot that responds so fast it doesn't feel human."
+      ],
+      "tools": [],
+      "quotes": [
+        "It's not magic, right? So why does this stuff even work?",
+        "Every response you're getting from AI is written code. It's not magically appearing on the screen."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "252-280" },
+      "relatedConcepts": ["2026-05-29-002", "2026-05-29-016", "2026-05-29-018"]
+    },
+    {
+      "key": "2026-05-29-002",
+      "id": "non-deterministic-output",
+      "title": "AI output is non-deterministic",
+      "strand": "foundational-ai",
+      "phase": null,
+      "summary": "Unlike traditional computing, an LLM won't give the same answer twice for the same prompt. This unpredictability is the core reason to build repeatable processes rather than rely on one-off outputs.",
+      "keyPoints": [
+        "Ask the exact same question twice and you get different results - there is no guaranteed consistency.",
+        "A poem prompt follows a similar pattern each time but is never identical.",
+        "Getting it to repeat a process requires building systems around it, not just re-prompting."
+      ],
+      "stories": [
+        "Generated something, then asked the same exact question again and did not get the same output."
+      ],
+      "tools": [],
+      "quotes": [
+        "What AI outputs is non-deterministic. You can't predict what it's going to put out every time."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "108-114" },
+      "relatedConcepts": ["2026-05-29-001", "2026-05-29-039", "2026-05-29-041"]
+    },
+    {
+      "key": "2026-05-29-003",
+      "id": "demystifying-ai",
+      "title": "Demystifying AI (this isn't a math class)",
+      "strand": "foundational-ai",
+      "phase": null,
+      "summary": "The goal is a general, working understanding of how AI operates - enough to use it well and reason about its ethics - not a deep dive into machine learning, data science, or computer science.",
+      "keyPoints": [
+        "Not a math, CS, or data-science class; the aim is general literacy.",
+        "Understanding how it works directly informs the ethical considerations of how you use it."
+      ],
+      "stories": [],
+      "tools": [],
+      "quotes": [
+        "How it works - and I think demystifying that portion of it. We're not going to go deep down the machine language."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "2-4" },
+      "relatedConcepts": ["2026-05-29-001", "2026-05-29-016"]
+    },
+    {
+      "key": "2026-05-29-004",
+      "id": "plagiarism-theft-objection",
+      "title": "The plagiarism & theft objection",
+      "strand": "foundational-ai",
+      "phase": null,
+      "summary": "A serious objection - especially from the creative and journalistic community - is that AI is built on others' work, so using it can feel like plagiarism or theft. You must be conscious of where that objection comes from and who your audience is.",
+      "keyPoints": [
+        "AI borrows on pre-existing material; the creative, artistic, and journalistic communities have real concerns.",
+        "Like every technology before it, AI changes jobs and industries, which fuels resistance.",
+        "Be considerate of your audience - the same output can alienate the very community you are trying to reach.",
+        "Counterpoint raised: there are no truly original ideas; everything draws on prior experience and existing patterns."
+      ],
+      "stories": [
+        "Added AI laser lights to a photo of the Toledo Museum of Art and knew parts of the arts community would hate it.",
+        "His daughter and his Esports kids hate AI because they see it as taking jobs.",
+        "Napster: when music suddenly became free, the industry eventually figured out how to protect and move things forward."
+      ],
+      "tools": [],
+      "quotes": [
+        "A big concern from that side of the house is that using AI is plagiarism and theft, because of what it's built on.",
+        "There are no original ideas."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "4-38" },
+      "relatedConcepts": ["2026-05-29-005", "2026-05-29-006", "2026-05-29-022"]
+    },
+    {
+      "key": "2026-05-29-005",
+      "id": "ideas-vs-expression",
+      "title": "Ideas vs. expression (what copyright protects)",
+      "strand": "foundational-ai",
+      "phase": null,
+      "summary": "You cannot copyright an idea, but the specific expression you build - the unique perspective, structure, and wording you spent time crafting - can be protected. The hours of revision and point of view are yours.",
+      "keyPoints": [
+        "Confirmed with a copyright attorney: ideas can't be copyrighted, but your specific expression can.",
+        "Curriculum built over months - the scope, vision, goals, and the particular way it's said - is protectable even though the underlying ideas aren't.",
+        "Worry: material stored online could be absorbed and reused in others' work; IP law here is still being litigated."
+      ],
+      "stories": [
+        "Spent months/years building a class's scope, vision, and goals; would be furious if someone copied the unique parts of a planned school network."
+      ],
+      "tools": [],
+      "quotes": [
+        "You can't copyright ideas... but the time that I put in to make our curriculum unique, and the perspective from which it's coming - that's mine."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "24-35" },
+      "relatedConcepts": ["2026-05-29-004", "2026-05-29-022"]
+    },
+    {
+      "key": "2026-05-29-006",
+      "id": "attribution-and-documentation",
+      "title": "Attribution & documenting your AI use",
+      "strand": "foundational-ai",
+      "phase": null,
+      "summary": "Because AI output comes from a source, keep at least internal documentation of when and how you used it - so you can answer for your process if you're ever called on it.",
+      "keyPoints": [
+        "AI takes pre-existing information and, with your prompting, turns it into something else - it always comes from a source.",
+        "Note your AI use at least in your own internal documentation in case you get 'called to the mat.'",
+        "The bigger ethical use is organizing what you already have, not conjuring things from thin air."
+      ],
+      "stories": [],
+      "tools": ["ChatGPT", "Claude desktop"],
+      "quotes": [
+        "Does that mean everything that you do should be attributed... probably at least within your own internal documentation, if you ever do get called to the mat on it."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "40-44" },
+      "relatedConcepts": ["2026-05-29-004", "2026-05-29-042"]
+    },
+    {
+      "key": "2026-05-29-007",
+      "id": "hallucination-it-will-lie",
+      "title": "Hallucination - 'it will lie to you'",
+      "strand": "foundational-ai",
+      "phase": null,
+      "summary": "An unfocused LLM will fabricate confidently - inventing sources, facts, and even legal cases. You cannot accept what it outputs as gold.",
+      "keyPoints": [
+        "Ask a general LLM for a report with sources and it will invent them.",
+        "Publishing fabricated output gets you debunked, fails a class, or destroys professional credibility.",
+        "Everything it produces is 'loosely based on a true story' unless you verify."
+      ],
+      "stories": [
+        "A lawyer had it write a case summary; it invented perfect-sounding cases that never happened - a judge would find out and you'd lose everything.",
+        "Asked Claude to do a fabrication pass on a 400-page book it had generated; the list of invented people, settings, and events was long."
+      ],
+      "tools": ["ChatGPT", "Claude desktop", "NotebookLM"],
+      "quotes": [
+        "It will lie to you. You cannot take anything that this stuff spits out... and accept it as gold."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "48-61" },
+      "relatedConcepts": ["2026-05-29-008", "2026-05-29-033"]
+    },
+    {
+      "key": "2026-05-29-008",
+      "id": "verify-everything",
+      "title": "Verify everything (do the work on the back end)",
+      "strand": "foundational-ai",
+      "phase": "test",
+      "summary": "Never publish AI output without your own research and verification. Spending time validating on the back end of a project is non-negotiable, and a finite knowledge base reduces the risk.",
+      "keyPoints": [
+        "Do your own investigation; take the time on the back end to verify what you put out is real.",
+        "You can ask AI to flag what's fabricated, but you still confirm it yourself.",
+        "Constraining AI to a finite set of trusted sources lowers hallucination risk."
+      ],
+      "stories": [
+        "Had Claude review a generated book specifically to list everything that was a fabrication."
+      ],
+      "tools": ["Claude desktop", "NotebookLM"],
+      "quotes": [
+        "Taking the time on the back end of the project instead of the front end... to verify that what you're putting out there is real."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "56-61" },
+      "relatedConcepts": ["2026-05-29-007", "2026-05-29-033", "2026-05-29-050"]
+    },
+    {
+      "key": "2026-05-29-009",
+      "id": "nothing-online-is-private",
+      "title": "Nothing online is private (and it never disappears)",
+      "strand": "foundational-ai",
+      "phase": null,
+      "summary": "Anything on the internet is neither private nor temporary. These systems track and log everything by design, so assume your data is exposed and permanent.",
+      "keyPoints": [
+        "It's not only not private, it never disappears.",
+        "To be truly unfindable you'd have to live in the mountains or have been born before the digital-records era.",
+        "Every bit of data has to be tracked and logged for these systems to work."
+      ],
+      "stories": [
+        "Told his nearly-10-year-old son that everything you do on a computer is tracked and the government can see it - enough to make him think twice.",
+        "The breach of the social-security system means kids' numbers are already out there."
+      ],
+      "tools": [],
+      "quotes": [
+        "Nothing you do on the internet is private. It's not only not private, it never disappears."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "68-77" },
+      "relatedConcepts": ["2026-05-29-010", "2026-05-29-013"]
+    },
+    {
+      "key": "2026-05-29-010",
+      "id": "dont-feed-pii-to-llms",
+      "title": "Don't feed personal information to LLMs",
+      "strand": "foundational-ai",
+      "phase": null,
+      "summary": "The less you give a public LLM about yourself or others, the better. Be deliberate about what data you put in - and prefer scoped tools for sensitive material.",
+      "keyPoints": [
+        "Don't put personal information into general LLMs like ChatGPT.",
+        "Be especially careful with customer or student data, even in tools tied to your Google account.",
+        "An aspiration: a local tool that scrubs or tokenizes names and numbers before documents enter an LLM, then restores them after."
+      ],
+      "stories": [
+        "Wishes for a local translation/scrubbing service for the education space that removes names and certain numbers before data hits the LLM."
+      ],
+      "tools": ["ChatGPT", "NotebookLM"],
+      "quotes": [
+        "The less you give this about yourself, if you're trying to be private, the better."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "68-243" },
+      "relatedConcepts": ["2026-05-29-009", "2026-05-29-012", "2026-05-29-013"]
+    },
+    {
+      "key": "2026-05-29-011",
+      "id": "domain-regulations",
+      "title": "Domain regulations - HIPAA, FERPA & industry concerns",
+      "strand": "foundational-ai",
+      "phase": null,
+      "summary": "Every industry has its own regulations and concerns. You need real domain knowledge of the space you're working in before you build AI tools for it.",
+      "keyPoints": [
+        "HIPAA in healthcare, FERPA in education - each space has rules you must honor.",
+        "Without deep understanding of a regulated domain, don't build AI for it.",
+        "NotebookLM, as part of the Google education suite, is positioned as a more FERPA-conscious place to put data than a public LLM."
+      ],
+      "stories": [],
+      "tools": ["NotebookLM"],
+      "quotes": [
+        "You really need to have domain knowledge in the space that you're working in."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "78-80" },
+      "relatedConcepts": ["2026-05-29-012", "2026-05-29-015", "2026-05-29-033"]
+    },
+    {
+      "key": "2026-05-29-012",
+      "id": "data-governance-grc",
+      "title": "Data governance (GRC) for business",
+      "strand": "foundational-ai",
+      "phase": null,
+      "summary": "In a business, your data is the company's asset and competitors can't have it. Before using AI you must govern, regulate, and control data - down to document-level permissions over what each role and each tool may access.",
+      "keyPoints": [
+        "GRC = governance, regulation, and compliance - a major theme in enterprise AI adoption.",
+        "Access control moves from folder-level to document-level, with property tags (e.g., Finance, Quarterly).",
+        "Define what each person and each AI agent is allowed to see - Bob in accounting shouldn't get the engineering schema."
+      ],
+      "stories": [
+        "Microsoft business licensing can transcribe a meeting, produce action items, build a Planner project plan, and put it on everyone's Outlook - but only with the right governance in place."
+      ],
+      "tools": ["Microsoft Copilot"],
+      "quotes": [
+        "Before you use the AIs, you have to govern, regulate, and control your data and be able to say what it's allowed to get at."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "594-606" },
+      "relatedConcepts": ["2026-05-29-010", "2026-05-29-013", "2026-05-29-055"]
+    },
+    {
+      "key": "2026-05-29-013",
+      "id": "licensing-and-data-rights",
+      "title": "Free vs. paid licensing & data rights",
+      "strand": "foundational-ai",
+      "phase": null,
+      "summary": "Free tiers generally reserve the right to use your data however they want; paid tiers may offer toggles to opt out. Read the EULA and assume the worst about what's done with what you upload.",
+      "keyPoints": [
+        "Free versions often state plainly they can do whatever they want with your data.",
+        "Paid ($20+) tiers may add a toggle to limit data use - but trust is limited.",
+        "Personal vs. business licensing matters: personal OneDrive/Drive content may be scanned; business licensing gives the org control."
+      ],
+      "stories": [
+        "Microsoft has indicated personal OneDrive content may be scanned - 'you agreed to it when you clicked OK.'"
+      ],
+      "tools": ["NotebookLM", "ChatGPT", "Google Drive", "Microsoft Copilot"],
+      "quotes": [
+        "Read the end-user license agreement and hope and pray that they're telling you the truth."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "228-244" },
+      "relatedConcepts": ["2026-05-29-009", "2026-05-29-010", "2026-05-29-012"]
+    },
+    {
+      "key": "2026-05-29-014",
+      "id": "ai-is-a-tool",
+      "title": "AI is a tool - intent and dual use",
+      "strand": "foundational-ai",
+      "phase": null,
+      "summary": "AI is a technology tool like any other; the ethics live in how you choose to use it. The real near-term risk isn't AI taking over - it's humans using AI badly.",
+      "keyPoints": [
+        "A hammer builds a house or hurts someone - intent decides.",
+        "The fear isn't Terminator-style takeover; it's humans using AI to harm themselves and others.",
+        "Same ethical considerations as any powerful tool apply."
+      ],
+      "stories": [
+        "The 'smart robot' joke: easiest way to get rid of people is to have them harm themselves - 'man, this got dark fast.'"
+      ],
+      "tools": [],
+      "quotes": [
+        "I can use a hammer to build a house. I can also use a hammer to club somebody upside the head. It's my intent."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "100-106" },
+      "relatedConcepts": ["2026-05-29-040", "2026-05-29-015"]
+    },
+    {
+      "key": "2026-05-29-015",
+      "id": "domain-expertise-matters",
+      "title": "Domain expertise matters most",
+      "strand": "foundational-ai",
+      "phase": null,
+      "summary": "Throughout the history of computing, the people who win with new tools are the domain experts, not the programmers. You need both your domain and a little technical understanding to use AI well.",
+      "keyPoints": [
+        "The first computers calculated battleship-gun trajectories; then accountants and salespeople - not programmers - used them to solve real problems.",
+        "These patterns repeat: domain experts who adopt the tool succeed most.",
+        "You don't need to know how the power reaches the outlet, but a little understanding keeps you from blowing a fuse - know the domain plus enough tech."
+      ],
+      "stories": [
+        "The first computer users in industry were accountants working the ledger, not engineers.",
+        "Car analogy: press the gas and it goes, but knowing how the engine should sound makes you a better driver."
+      ],
+      "tools": [],
+      "quotes": [
+        "The people who have deep domain knowledge and are using this tool are the ones who are going to be the most successful."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "80-99" },
+      "relatedConcepts": ["2026-05-29-011", "2026-05-29-016", "2026-05-29-014"]
+    },
+    {
+      "key": "2026-05-29-016",
+      "id": "abstraction-and-closer-to-the-metal",
+      "title": "Abstraction & getting closer to the metal",
+      "strand": "foundational-ai",
+      "phase": null,
+      "summary": "Technology hides complexity through abstraction so things just work - but abstraction also removes your visibility and control. The closer you get to the actual code, the more precise and deterministic you can be.",
+      "keyPoints": [
+        "Abstraction is intentional: plug-and-play, no drivers, hidden internals.",
+        "That hidden layer lets unwanted things happen without you seeing them.",
+        "More visibility into what AI is actually doing = more precision and fewer surprises."
+      ],
+      "stories": [
+        "When AI strips your prompt down to code, it removes things you might 'get caught up on' - convenient, but it hides what's happening."
+      ],
+      "tools": [],
+      "quotes": [
+        "That abstraction removes your visibility into it, which allows for some things to happen that you don't want to happen."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "94-334" },
+      "relatedConcepts": ["2026-05-29-017", "2026-05-29-018", "2026-05-29-001"]
+    },
+    {
+      "key": "2026-05-29-017",
+      "id": "the-terminal",
+      "title": "The terminal - maximum visibility, least lost in translation",
+      "strand": "foundational-ai",
+      "phase": "prototype",
+      "summary": "The terminal is where you type text commands instead of clicking buttons - as close to the machine as most people get. Working with Claude there gives the most visibility into what it's doing and the least room for error.",
+      "keyPoints": [
+        "Anything you can do by clicking, you can also do by typing a command.",
+        "The closer you get to the source, the less is lost in translation.",
+        "Terminal Claude vs. desktop vs. browser differ; the terminal gives the most insight and control."
+      ],
+      "stories": [
+        "Sometimes runs four terminal sessions at once - 'you have to be an ADHD gen-Xer to manage some of these.'",
+        "Advice for beginners: do one thing at a time until you understand what's happening."
+      ],
+      "tools": ["Claude in the terminal / Claude Code"],
+      "quotes": [
+        "The closer you can get to the source, the less room there is for error.",
+        "This provides the most visibility into what Claude is doing."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "148-162" },
+      "relatedConcepts": ["2026-05-29-016", "2026-05-29-044"]
+    },
+    {
+      "key": "2026-05-29-018",
+      "id": "json-code-prompts-for-consistency",
+      "title": "JSON / code prompts for consistent output",
+      "strand": "foundational-ai",
+      "phase": "prototype",
+      "summary": "Because AI ultimately translates your words into code, asking for output in code or JSON gets you closer to the metal and produces more consistent, controllable results - especially for repeatable images.",
+      "keyPoints": [
+        "AI translates your words into code so the computer can act; the closer you speak to that structure, the more deterministic the output.",
+        "JSON (JavaScript Object Notation) defines an object as key-value pairs - e.g., lens: 35mm - which become the precise parameters of an image.",
+        "Working in code lets you make finite adjustments (change the lens, the style) the plain-English prompt would ignore."
+      ],
+      "stories": [
+        "A client's logo kept getting altered until he asked for the prompt in code/JSON, which finally preserved it.",
+        "Generating a family or animation: code-format prompts keep the character and colors consistent across images."
+      ],
+      "tools": ["ChatGPT", "Image 2.0"],
+      "quotes": [
+        "The closer you can get to using the proper language, the proper structure, the more deterministic you can make your outputs."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "292-334" },
+      "relatedConcepts": ["2026-05-29-002", "2026-05-29-016", "2026-05-29-019"]
+    },
+    {
+      "key": "2026-05-29-019",
+      "id": "how-image-generation-works",
+      "title": "How image generation works (and why it feels magical)",
+      "strand": "foundational-ai",
+      "phase": null,
+      "summary": "Image generation doesn't draw line by line; it computes a coherent object out of pixels so fast it appears magical. The speed - not sorcery - is what makes it feel impossible.",
+      "keyPoints": [
+        "It is not drawing the way a person would; the process is hard even for experts to fully explain.",
+        "It pulls 'crazy colored pixels' together into a recognizable object via fast computation.",
+        "Some researchers say we don't fully understand how the models operate at a certain level."
+      ],
+      "stories": [
+        "A simple prompt for 'a college class' expands into a long internal description (windows, whiteboards, coffee cups, diverse students)."
+      ],
+      "tools": ["ChatGPT", "Image 2.0"],
+      "quotes": [
+        "I don't want to say magic, but it appears to be magical, because of how fast it can do what it can do."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "272-340" },
+      "relatedConcepts": ["2026-05-29-001", "2026-05-29-020", "2026-05-29-018"]
+    },
+    {
+      "key": "2026-05-29-020",
+      "id": "bias-in-image-generation",
+      "title": "Bias in image generation",
+      "strand": "foundational-ai",
+      "phase": null,
+      "summary": "Models reflect the data they're trained on. Early image generators swung between all-white and all-non-white classrooms because the training data was skewed; the computer can only reproduce what it's been fed.",
+      "keyPoints": [
+        "Ask for 'a college classroom' and early tools returned no people of color; ask for 'diverse' and returned no white people - one or the other.",
+        "The bias traces directly to a training corpus that over-represented some groups.",
+        "Newer models are noticeably less biased within just a couple of years."
+      ],
+      "stories": [
+        "Across his classes, 'college classroom' images had no people of color until he explicitly asked for diversity, which then flipped the bias.",
+        "A recent generation surprised him by not stereotyping the facilitator's race."
+      ],
+      "tools": ["ChatGPT", "Image 2.0"],
+      "quotes": [
+        "The computer can only do what it's been told - if it's fed mostly white classrooms, that's what it produces."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "342-348" },
+      "relatedConcepts": ["2026-05-29-019", "2026-05-29-001"]
+    },
+    {
+      "key": "2026-05-29-021",
+      "id": "the-tells-of-ai",
+      "title": "The 'tells' of AI & forensic detection",
+      "strand": "foundational-ai",
+      "phase": "test",
+      "summary": "AI images have giveaways - extra fingers, garbled text, malformed ears. You can have AI run a 'forensic' pass to find these flaws, then bake that check into every image you make.",
+      "keyPoints": [
+        "Common tells: bad text, extra fingers, distorted ears, mismatched details when you zoom in.",
+        "AI can search an image for several minutes and list everything wrong with it.",
+        "Turn that into a reusable skill so every new image prompt is checked for known problems."
+      ],
+      "stories": [
+        "A Glass City video kept the logo correct but turned the street-name text into something Russian-looking - a clear 'AI' tell someone would catch.",
+        "Built a Claude skill that runs a forensic search on every generated image for the known flaws."
+      ],
+      "tools": ["Claude desktop", "ChatGPT"],
+      "quotes": [
+        "What are all the tells? How do you know it's AI?... Now you know what's wrong with it - I want that checked in every image I create."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "348-362" },
+      "relatedConcepts": ["2026-05-29-019", "2026-05-29-008", "2026-05-29-039"]
+    },
+    {
+      "key": "2026-05-29-022",
+      "id": "fair-use-gray-area",
+      "title": "Fair use is a gray area",
+      "strand": "foundational-ai",
+      "phase": null,
+      "summary": "Copyright and fair use around AI are unsettled. Models sometimes reproduce protected material - even watermarks - and using public-domain sources is the safer path.",
+      "keyPoints": [
+        "Generated images have surfaced Getty-style watermarks, exposing where the training data came from.",
+        "Some tools refuse copyrighted-style requests; others don't care.",
+        "Public-domain sources (NASA, government images) are safe to use because they're already paid for by the public."
+      ],
+      "stories": [
+        "An AI 'red carpet' image included a variation of the Getty watermark.",
+        "For a space game he used NASA images; for a UFO game he pulled released government UFO data - all public domain."
+      ],
+      "tools": ["ChatGPT", "Gemini"],
+      "quotes": [
+        "I had AI create an image from a red carpet, and it included a variation of the Getty image."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "374-386" },
+      "relatedConcepts": ["2026-05-29-004", "2026-05-29-005", "2026-05-29-023"]
+    },
+    {
+      "key": "2026-05-29-023",
+      "id": "guardrails-and-bypassing",
+      "title": "Guardrails and bypassing them",
+      "strand": "foundational-ai",
+      "phase": null,
+      "summary": "Tools have content guardrails, but they're inconsistent - often a simple 'try again' or a reframed request slips past them. This is a real, observable behavior to understand (and to use responsibly).",
+      "keyPoints": [
+        "A refusal can frequently be overcome by retrying or rephrasing.",
+        "Different tools enforce guardrails very differently.",
+        "Pushing limits puts you 'on lists' - he tests boundaries deliberately to learn what's possible."
+      ],
+      "stories": [
+        "Statue of Liberty under a drone attack was refused, then produced after typing 'try again.'",
+        "Trump-with-chalk reframed into a joint over a few iterations.",
+        "Google's image tool 'could care less' who the source is."
+      ],
+      "tools": ["ChatGPT", "Gemini"],
+      "quotes": [
+        "And then I just typed 'try again.' Okay - and it did it."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "388-399" },
+      "relatedConcepts": ["2026-05-29-022", "2026-05-29-014"]
+    },
+    {
+      "key": "2026-05-29-024",
+      "id": "context-window",
+      "title": "The context window",
+      "strand": "foundational-ai",
+      "phase": null,
+      "summary": "An AI has a limited working memory - the context window. Like your brain, once you cram in too much, earlier things fall out, so the longer a session runs the more it forgets.",
+      "keyPoints": [
+        "It's based on tokens and other factors; it is finite.",
+        "Long working sessions make the model more likely to drop earlier instructions.",
+        "In the terminal you can see the percent of context used and clear/reset it."
+      ],
+      "stories": [
+        "Why the prompt log doesn't always update itself: the instruction can fall out of the context window mid-session."
+      ],
+      "tools": ["Claude desktop", "Claude in the terminal / Claude Code"],
+      "quotes": [
+        "It's like your brain - once you start dumping too much into it, you can't remember everything and certain stuff falls out."
+      ],
+      "source": { "transcript": "May 29 at 1-31 PM.txt", "approxLines": "70-74" },
+      "relatedConcepts": ["2026-05-29-025", "2026-05-29-042"]
+    },
+    {
+      "key": "2026-05-29-025",
+      "id": "context-of-use",
+      "title": "Context of use - tell it what you're trying to do",
+      "strand": "foundational-ai",
+      "phase": null,
+      "summary": "The more the AI knows about what you're trying to accomplish, the more it can help. Tools increasingly ask for your goal so they can tailor the output.",
+      "keyPoints": [
+        "Stating your goal up front improves results.",
+        "Newer tools proactively ask 'what are you planning to do with this?'",
+        "Precision in language plus domain context is what unlocks useful output."
+      ],
+      "stories": [
+        "A tool asked what he planned to do with a generated list before continuing.",
+        "Asked for 'developers in Cleveland' and got software developers when he meant real-estate developers - a context gap."
+      ],
+      "tools": ["ChatGPT", "Claude desktop", "NotebookLM"],
+      "quotes": [
+        "The more the computer knows what you're trying to do, the more it can help you do what you're trying to do."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "334-507" },
+      "relatedConcepts": ["2026-05-29-024", "2026-05-29-054", "2026-05-29-015"]
+    },
+    {
+      "key": "2026-05-29-026",
+      "id": "tech-speeds-up-transactions",
+      "title": "Winning tech speeds up transactions",
+      "strand": "foundational-ai",
+      "phase": null,
+      "summary": "Looking across history, the technologies that win all speed up transactions. AI agents are the next step, and voice is the accelerator that makes everything faster still.",
+      "keyPoints": [
+        "Amazon sped up what Sears catalogs took a week to do; winning tech compresses time.",
+        "Agents can search every airline, plan a whole vacation, or book on your behalf - though handing over your credit card is a separate decision.",
+        "Voice beats reading and typing for speed, both for input and for the computer talking back."
+      ],
+      "stories": [
+        "A dream-vacation agent prompt: sun, a place under $500/night, an Italian restaurant nearby, an art gallery, a show - the modern travel agent.",
+        "He has voice conversations with ChatGPT on his 30-minute drive, then turns the idea into a one-page proposal on arrival."
+      ],
+      "tools": ["ChatGPT"],
+      "quotes": [
+        "The technologies that have won... they all speed up transactions.",
+        "Voice is where all of this gets faster."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "476-492" },
+      "relatedConcepts": ["2026-05-29-028", "2026-05-29-034"]
+    },
+    {
+      "key": "2026-05-29-027",
+      "id": "running-out-of-training-data",
+      "title": "AI is running out of training data",
+      "strand": "foundational-ai",
+      "phase": null,
+      "summary": "Models are exhausting the available text on the planet, so they're increasingly turning to video - transcribing it and learning from the transcription - to keep growing.",
+      "keyPoints": [
+        "After only a few years, the supply of text is running low.",
+        "Systems now break down video into text to learn from it.",
+        "There's effectively a near-infinite-but-not-actually-infinite ceiling on data."
+      ],
+      "stories": [],
+      "tools": ["Gemini", "NotebookLM"],
+      "quotes": [
+        "It's literally running out of information... so it's already starting to break down video, converting it into text and learning from it."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "338-340" },
+      "relatedConcepts": ["2026-05-29-001"]
+    },
+    {
+      "key": "2026-05-29-028",
+      "id": "agents-and-computer-use",
+      "title": "Agents & computer use",
+      "strand": "foundational-ai",
+      "phase": "prototype",
+      "summary": "AI agents can control your browser and computer - clicking buttons, reading the page, taking actions - and good ones tell you their plan and stop before doing anything irreversible like paying.",
+      "keyPoints": [
+        "Claude can navigate web pages, take screenshots, and use vision to read what's on screen; if screenshots fail, it can read the page's code.",
+        "It states its plan and waits for approval before acting - 'click approve and we'll make it happen.'",
+        "Long-running tasks can run in the background while you do other things; you can ask it where it is in the process.",
+        "An orange mouse cursor signals Claude is controlling your computer."
+      ],
+      "stories": [
+        "The live demo: ordering lunch for the room on jimmyjohns.com via the Claude Chrome extension, button by button.",
+        "Built a quiz in the LMS, then had Claude take it and score 100 to demo computer use to his dean."
+      ],
+      "tools": ["Claude Chrome extension"],
+      "quotes": [
+        "It tells you what it's going to do before it does it.",
+        "When you see the mouse light up orange, it means Claude is using your computer."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "430-475" },
+      "relatedConcepts": ["2026-05-29-026", "2026-05-29-050", "2026-05-29-044"]
+    },
+    {
+      "key": "2026-05-29-029",
+      "id": "reading-level-and-audience",
+      "title": "Reading level & audience adaptation",
+      "strand": "foundational-ai",
+      "phase": null,
+      "summary": "You can have AI rewrite the same content for different audiences and reading levels. Default to a fifth-grade reading level unless you have a reason not to - not because people aren't smart, but because brains have limited processing capacity.",
+      "keyPoints": [
+        "Ask it to write for a business audience, a fifth grader, or 'like an engineer.'",
+        "The same base concepts can be deployed for grades 5-8, 9-12, and adults with adjusted vocabulary.",
+        "Lower reading levels aid comprehension for everyone; simpler is usually better."
+      ],
+      "stories": [
+        "Telling it 'your audience is an engineer' reshapes the tone; nursing and liberal-arts audiences each get their own framing."
+      ],
+      "tools": ["Claude desktop", "NotebookLM"],
+      "quotes": [
+        "You should always write for a fifth-grade audience unless you have another reason not to."
+      ],
+      "source": { "transcript": "May 29 at 1-31 PM.txt", "approxLines": "436-442" },
+      "relatedConcepts": ["2026-05-29-049", "2026-05-29-054"]
+    },
+    {
+      "key": "2026-05-29-030",
+      "id": "design-thinking-overview",
+      "title": "Design thinking overview",
+      "strand": "design-thinking",
+      "phase": null,
+      "summary": "Applied AI in Design Thinking is about taking an idea through a process - understand, document, prototype, get feedback, improve - with AI woven into every phase. The process, not any single output, is the point.",
+      "keyPoints": [
+        "Work through a process to document what you're creating so you understand it and can trace where things came from.",
+        "Build a prototype - a presentation, web app, or curriculum - to put in front of an audience.",
+        "Use the feedback to make the thing better; that loop is what the class is about."
+      ],
+      "stories": [],
+      "tools": [],
+      "quotes": [
+        "How do we take an idea, work through a process called design thinking to document what we're doing... and then build a prototype... to get feedback. That's what applied AI and design thinking is all about."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "142-145" },
+      "relatedConcepts": ["2026-05-29-031", "2026-05-29-032", "2026-05-29-034", "2026-05-29-035", "2026-05-29-036"]
+    },
+    {
+      "key": "2026-05-29-031",
+      "id": "empathize-seek-to-understand",
+      "title": "Empathize - seek first to understand",
+      "strand": "design-thinking",
+      "phase": "empathize",
+      "summary": "The first phase is understanding the problem and domain deeply before trying to solve anything. You can't write a convincing problem statement for something you don't understand.",
+      "keyPoints": [
+        "Seeking first to understand is the start of the design-thinking process.",
+        "To solve a problem - and to convince people to fund the solution - you must first understand it.",
+        "When entering an unfamiliar domain, the first move is to understand that domain better."
+      ],
+      "stories": [
+        "Wanting to get funding from the Toledo CIC, he first had to understand what the CIC is and how it works."
+      ],
+      "tools": ["NotebookLM"],
+      "quotes": [
+        "I have to understand this problem to be able to present a problem statement to convince people to give me money to solve it."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "282-284" },
+      "relatedConcepts": ["2026-05-29-032", "2026-05-29-033", "2026-05-29-015"]
+    },
+    {
+      "key": "2026-05-29-032",
+      "id": "define-problem-statement",
+      "title": "Define - framing a problem statement",
+      "strand": "design-thinking",
+      "phase": "define",
+      "summary": "Once you understand the problem, frame it into a clear problem statement. A good statement is what convinces people - and funders - that the problem is worth solving.",
+      "keyPoints": [
+        "The define phase converts understanding into a clear, actionable problem statement.",
+        "The statement is a persuasion tool, not just a description.",
+        "Better understanding of the idea (the empathize work) feeds directly into a sharper statement."
+      ],
+      "stories": [],
+      "tools": ["NotebookLM"],
+      "quotes": [
+        "To be able to present a problem statement to convince people to give me money to solve it for them."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "282-284" },
+      "relatedConcepts": ["2026-05-29-031", "2026-05-29-033"]
+    },
+    {
+      "key": "2026-05-29-033",
+      "id": "research-finite-knowledge-base",
+      "title": "Research & building a finite knowledge base",
+      "strand": "design-thinking",
+      "phase": "empathize",
+      "summary": "Use NotebookLM to gather trusted sources into a finite knowledge base, then converse with that bounded set. A finite corpus means less hallucination and citations back to the source.",
+      "keyPoints": [
+        "Add sources (web search, URLs, pasted text, Google Drive, even YouTube via Gemini/NotebookLM) to build a knowledge base.",
+        "A finite corpus dramatically lowers hallucination versus a near-infinite general model.",
+        "Outputs link back to the exact source, making it easy to verify - and you can save findings to a note and export to Google Docs.",
+        "The librarian analogy: it does the searching, but you still put in the work to choose and read your sources."
+      ],
+      "stories": [
+        "Built a Toledo CIC knowledge base from news and the CIC charter to figure out how to get funding.",
+        "Dumped 20 technology-validation startup-fund reports into NotebookLM to understand the program.",
+        "NotebookLM can generate an audio overview that sounds like a two-host podcast."
+      ],
+      "tools": ["NotebookLM", "Gemini", "Google Drive"],
+      "quotes": [
+        "Less likelihood for hallucination, because it's pulling from a finite set of data versus the nearly infinite set."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "168-208" },
+      "relatedConcepts": ["2026-05-29-031", "2026-05-29-007", "2026-05-29-046", "2026-05-29-051"]
+    },
+    {
+      "key": "2026-05-29-034",
+      "id": "ideate-expand-option-space",
+      "title": "Ideate - expand the option space",
+      "strand": "design-thinking",
+      "phase": "ideate",
+      "summary": "Use AI - especially by voice - to brainstorm and widen the range of possibilities before narrowing. Talking through an idea out loud and letting the AI riff expands what you'd reach alone.",
+      "keyPoints": [
+        "Voice conversations let you ideate hands-free and faster than typing.",
+        "Go back and forth on an idea, then have the AI turn the conversation into a concrete artifact.",
+        "Ideation widens the option space; refinement comes after."
+      ],
+      "stories": [
+        "On his drive he has a voice conversation about an idea - an innovation center, a rocket ship downtown - then has it produce a one-page proposal on arrival."
+      ],
+      "tools": ["ChatGPT"],
+      "quotes": [
+        "Let's have a conversation around building an innovation center... and then I say, turn this into a one-page proposal."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "404-414" },
+      "relatedConcepts": ["2026-05-29-026", "2026-05-29-030"]
+    },
+    {
+      "key": "2026-05-29-035",
+      "id": "prototype-artifacts",
+      "title": "Prototype - make something to put in front of an audience",
+      "strand": "design-thinking",
+      "phase": "prototype",
+      "summary": "Prototyping means producing shareable artifacts - HTML pages, slideshows, dashboards, style guides - meant for public consumption. Claude is the tool of choice here because it writes real files into your folders.",
+      "keyPoints": [
+        "Prototypes are documents and interfaces meant for sharing, not just notes.",
+        "HTML is a favorite output: it renders in the browser, looks good, and is shareable/hostable.",
+        "Claude writes the artifacts as files on your computer, giving granular visibility and easy reuse."
+      ],
+      "stories": [
+        "Turned a competitor-research markdown report into an interactive HTML slideshow.",
+        "Built a clickable HTML dashboard with sources on the left and the slideshow on the right."
+      ],
+      "tools": ["Claude desktop", "VS Code"],
+      "quotes": [
+        "When it comes to the prototyping - creating those slideshows, the documents meant for public consumption - that's where I move into using Claude."
+      ],
+      "source": { "transcript": "May 29 at 1-31 PM.txt", "approxLines": "272-294" },
+      "relatedConcepts": ["2026-05-29-036", "2026-05-29-052", "2026-05-29-053", "2026-05-29-040"]
+    },
+    {
+      "key": "2026-05-29-036",
+      "id": "test-iterate-on-feedback",
+      "title": "Test - iterate on feedback",
+      "strand": "design-thinking",
+      "phase": "test",
+      "summary": "Get the prototype in front of people, gather feedback, and iterate. In practice this also means catching and fixing the wonky output AI produces - being specific until it's right.",
+      "keyPoints": [
+        "Use feedback to make the artifact better, then repeat the loop.",
+        "Converting between formats (HTML to PDF, report to slides) often gets wonky and takes a few corrective passes.",
+        "Uncovering problems as you go is part of the process, not a failure of it."
+      ],
+      "stories": [
+        "An HTML-to-PDF conversion broke in ugly places, so he developed rules for where PDFs should break.",
+        "Claude found and fixed its own bug - white card titles that inherited white text and vanished."
+      ],
+      "tools": ["Claude desktop"],
+      "quotes": [
+        "We're uncovering problems as we go forward, and the 'what if' idea, right?"
+      ],
+      "source": { "transcript": "May 29 at 1-31 PM.txt", "approxLines": "150-288" },
+      "relatedConcepts": ["2026-05-29-035", "2026-05-29-008", "2026-05-29-054"]
+    },
+    {
+      "key": "2026-05-29-037",
+      "id": "mobile-first-additive-design",
+      "title": "Mobile-first, additive design",
+      "strand": "design-thinking",
+      "phase": "prototype",
+      "summary": "Start with the smallest possible thing and add on, rather than starting big and chipping away. Designing from the constraint outward (like mobile-first) translates more cleanly across contexts.",
+      "keyPoints": [
+        "Old Yahoo crammed everything onto one page; usability came from pulling things out.",
+        "Mobile-first forces you to start minimal, then scale up to larger screens easily.",
+        "Additive design (start simple, add) beats subtractive design (start cluttered, remove); Google's single search box is the model."
+      ],
+      "stories": [
+        "1996 Yahoo as the cautionary tale; Google's simplicity as the counter-model."
+      ],
+      "tools": [],
+      "quotes": [
+        "Start as simple as possible, and then I can add on to it - it's additive versus subtractive."
+      ],
+      "source": { "transcript": "May 29 at 1-31 PM.txt", "approxLines": "104-108" },
+      "relatedConcepts": ["2026-05-29-035"]
+    },
+    {
+      "key": "2026-05-29-038",
+      "id": "process-over-product",
+      "title": "Process over product",
+      "strand": "design-thinking",
+      "phase": null,
+      "summary": "Understanding and being able to defend your process matters more than the polished end product. Having AI produce a deliverable you can't speak to fools no one.",
+      "keyPoints": [
+        "If you have AI build a presentation and just read the slides, you won't get the job or the yes.",
+        "In education, the only reliable way to tell who really did the work is to have them explain it (a code review / oral defense).",
+        "Telling people 'it's more about the process than the end product' has been the successful framing."
+      ],
+      "stories": [
+        "Caught two students before the AI era because their work, while different, shared a tell-tale structure - and twin sisters once turned in identical correct HTML.",
+        "Recorded himself reading AI-generated slides about nonprofits; it was 'cringe' and clearly didn't resonate.",
+        "Had Claude take his own LMS quiz and score 100 - proof the product alone proves nothing."
+      ],
+      "tools": [],
+      "quotes": [
+        "It's more about the process than the end product.",
+        "You just sit there and read from the slides? Sorry, you're not getting the job."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "118-134" },
+      "relatedConcepts": ["2026-05-29-042", "2026-05-29-050"]
+    },
+    {
+      "key": "2026-05-29-039",
+      "id": "build-repeatable-systems",
+      "title": "Build repeatable systems, not one-off outputs",
+      "strand": "cross-cutting",
+      "phase": null,
+      "summary": "Because AI is non-deterministic, asking it to 'build a course' each time yields inconsistent results. Instead, build the systems - templates, specs, checks - that turn AI into a repeatable process with more deterministic output.",
+      "keyPoints": [
+        "Don't ask for the whole deliverable each time; build the process that produces it consistently.",
+        "Systems add checks and balances so the 'entry-level employee' follows the templates and style guide.",
+        "Repeatable processes are where the biggest, most reliable gains come from."
+      ],
+      "stories": [
+        "His curriculum work succeeds by creating the systems that yield a repeatable, more deterministic process - 'I'll show you the back end of it.'"
+      ],
+      "tools": ["Claude desktop", "Claude in the terminal / Claude Code"],
+      "quotes": [
+        "What I've been doing... is to create the systems by which now I have a repeatable process."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "106-136" },
+      "relatedConcepts": ["2026-05-29-002", "2026-05-29-040", "2026-05-29-041", "2026-05-29-049"]
+    },
+    {
+      "key": "2026-05-29-040",
+      "id": "build-your-own-tools",
+      "title": "Build your own tools",
+      "strand": "cross-cutting",
+      "phase": null,
+      "summary": "Use AI to build your tooling, not just to produce end products. Like a machine shop that builds the machines that build other things, you create an organized, repeatable system you understand.",
+      "keyPoints": [
+        "Treat AI like the metal-bending machines at Yoder Brothers - tools for building other tools.",
+        "Building your own tooling gives you a knowledge base, consistency, and an understanding of how the machine works.",
+        "You can build simple organizational/visual tools (dashboards) - they don't have to be complex."
+      ],
+      "stories": [
+        "Built a daily news aggregator that pulls regional economic-development articles, prioritizes mentions of specific people, and maps locations.",
+        "Built a desktop/downloads auto-organizer that runs on a schedule.",
+        "Built a local clickable HTML dashboard - 'my own private version of what's out there on the web.'"
+      ],
+      "tools": ["Claude desktop", "Claude co-work", "Claude in the terminal / Claude Code"],
+      "quotes": [
+        "We're going to build our tooling so that we now have an organized, repeatable process built on the knowledge base.",
+        "You can build all of your own tools now."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "134-136" },
+      "relatedConcepts": ["2026-05-29-039", "2026-05-29-053", "2026-05-29-035"]
+    },
+    {
+      "key": "2026-05-29-041",
+      "id": "templates-as-source-of-truth",
+      "title": "Templates as the source of truth",
+      "strand": "cross-cutting",
+      "phase": null,
+      "summary": "Rather than pointing AI at one good document to mimic, create a dedicated template file (real content stripped to dummy text) that becomes the canonical source of truth - and push every new feature back into it.",
+      "keyPoints": [
+        "Take a document you're happy with, strip the content to placeholders/dummy text, and save that as the template.",
+        "When a new element appears in one document (e.g., a block quote), add it to the template rather than letting that document become the template.",
+        "Then have AI apply the template across every document in a folder - 'templatize, organize, then let Claude do the work.'"
+      ],
+      "stories": [
+        "A NotebookLM attempt to match a template only 'kind of looked like it'; Claude does a better job applying templates.",
+        "Scan an existing folder to extract the most-used font/color/layout, build a template, confirm it, then apply it to every document."
+      ],
+      "tools": ["Claude desktop", "NotebookLM"],
+      "quotes": [
+        "I'm actually going to create a template file that becomes the source of truth for the template.",
+        "Templatizing your work... is where I'm finding the most success."
+      ],
+      "source": { "transcript": "May 29 at 1-31 PM.txt", "approxLines": "374-390" },
+      "relatedConcepts": ["2026-05-29-039", "2026-05-29-051", "2026-05-29-049"]
+    },
+    {
+      "key": "2026-05-29-042",
+      "id": "prompt-log-and-change-log",
+      "title": "Prompt log & change log",
+      "strand": "cross-cutting",
+      "phase": null,
+      "summary": "When starting a project, have AI create a prompt log and a change log as markdown files. Reviewing what prompts you used and what changed over time makes you a better prompter and keeps the project traceable.",
+      "keyPoints": [
+        "The change log answers 'what changed over time' in the thing you're building.",
+        "The prompt log captures prompt + context + outcome, so you learn what your prompts actually did.",
+        "AI won't reliably update these on its own - you have to remind it, or tell it at session end to update the logs based on what you did."
+      ],
+      "stories": [
+        "Demoed creating both logs as a reusable markdown template, then later had to scold Claude for not tracking a change.",
+        "This very project's DESIGN-LOG.md is the same practice applied to building these course materials."
+      ],
+      "tools": ["Claude desktop", "Claude co-work", "VS Code"],
+      "quotes": [
+        "The first step... is create a log of my prompts and a change log for my project.",
+        "Me understanding what my prompts did and what they spit out helped me write better prompts."
+      ],
+      "source": { "transcript": "May 29 at 1-31 PM.txt", "approxLines": "50-136" },
+      "relatedConcepts": ["2026-05-29-043", "2026-05-29-024", "2026-05-29-038"]
+    },
+    {
+      "key": "2026-05-29-043",
+      "id": "claude-md-project-instructions",
+      "title": "CLAUDE.md & project instructions",
+      "strand": "cross-cutting",
+      "phase": null,
+      "summary": "Each Claude project/folder has a CLAUDE.md file holding its core instructions - the starting point and guardrails for work in that folder. Large or specific folders get their own CLAUDE.md to keep the AI focused.",
+      "keyPoints": [
+        "CLAUDE.md is where a project keeps its core instructions and guardrails.",
+        "Big, specific folders each get their own CLAUDE.md so the AI focuses on that folder's intent.",
+        "Even when you enter at a higher level, the folder's instructions reorient the AI when it gets there."
+      ],
+      "stories": [
+        "His curriculum-building folder has nested subfolders, each with its own CLAUDE.md to keep work focused."
+      ],
+      "tools": ["Claude desktop", "Claude in the terminal / Claude Code"],
+      "quotes": [
+        "Every Claude project, every folder, has a CLAUDE.md file... that's where it keeps its core instructions around this project."
+      ],
+      "source": { "transcript": "May 29 at 1-31 PM.txt", "approxLines": "52-396" },
+      "relatedConcepts": ["2026-05-29-044", "2026-05-29-045", "2026-05-29-039"]
+    },
+    {
+      "key": "2026-05-29-044",
+      "id": "work-in-folders-and-projects",
+      "title": "Work in folders and projects",
+      "strand": "cross-cutting",
+      "phase": null,
+      "summary": "Organize work into project folders on your computer (mirrored to the cloud) instead of scattered chats. Working in folders gives granular visibility into what AI creates, where files live, and an easy backup path.",
+      "keyPoints": [
+        "A Claude project is essentially a cloud folder for a specific effort; doing it on your computer gives you the files directly.",
+        "Claude writes real files into the folder, so you can open, edit, and reference them - and even edit a file directly instead of asking AI to.",
+        "Back the folder up to Google Drive so it's safe and accessible anywhere; the terminal gives the most granular visibility of all."
+      ],
+      "stories": [
+        "Created a 'creative problem solving' project pointed at a folder; every artifact (style guide, PDF, change log, competitor report) showed up there as a file."
+      ],
+      "tools": ["Claude desktop", "Claude in the terminal / Claude Code", "Google Drive"],
+      "quotes": [
+        "I'm working in folders on my computer for specific projects as a way to stay organized.",
+        "Claude is letting me get as close to the metal of the machine as possible."
+      ],
+      "source": { "transcript": "May 29 at 1-31 PM.txt", "approxLines": "4-258" },
+      "relatedConcepts": ["2026-05-29-043", "2026-05-29-045", "2026-05-29-017"]
+    },
+    {
+      "key": "2026-05-29-045",
+      "id": "information-architecture",
+      "title": "Information architecture - organize your digital life",
+      "strand": "cross-cutting",
+      "phase": null,
+      "summary": "Use AI to define your information architecture - folder structures, naming conventions, file organization - and then to follow those rules. The hard part of organization has always been the human part; AI can automate it.",
+      "keyPoints": [
+        "Use AI to design the folder/IA scheme (by type, by project) and then deploy and maintain it.",
+        "Consistent naming conventions should flow through everything.",
+        "After building in a flat/messy folder, have AI organize it - and have it fix the links it breaks while moving files."
+      ],
+      "stories": [
+        "Auto-organized a messy downloads folder by type (64 files), with a daily scheduled cleanup.",
+        "After building a dashboard, asked Claude to organize the folder into brand/research/logs subfolders and repair the now-broken links."
+      ],
+      "tools": ["Claude desktop", "Claude co-work"],
+      "quotes": [
+        "I'm using AI to help define my information architecture, my folder structure - and then deploying that.",
+        "The folder structure should be simple. The hard part is the human part of it."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "624-636" },
+      "relatedConcepts": ["2026-05-29-044", "2026-05-29-051", "2026-05-29-040"]
+    },
+    {
+      "key": "2026-05-29-046",
+      "id": "right-tool-for-the-job",
+      "title": "Right tool for the right job (don't tool-hop)",
+      "strand": "cross-cutting",
+      "phase": null,
+      "summary": "No single tool does everything well. Use specific tools for specific jobs - NotebookLM for research and understanding, Claude for building and organizing - and don't constantly hop between them.",
+      "keyPoints": [
+        "Research and the empathize/understand phase live in NotebookLM.",
+        "Building, organizing, and prototyping live in Claude.",
+        "Multitasking across many AI tools 'gets really sketchy' for beginners; focus on one thing until you understand it."
+      ],
+      "stories": [
+        "He keeps clear buckets: NotebookLM for understanding, Claude for prototyping and sharing."
+      ],
+      "tools": ["NotebookLM", "Claude desktop"],
+      "quotes": [
+        "There is no one tool that does all the things well across the board.",
+        "Use the specific tools for specific things."
+      ],
+      "source": { "transcript": "May 29 at 1-31 PM.txt", "approxLines": "2-4" },
+      "relatedConcepts": ["2026-05-29-033", "2026-05-29-035", "2026-05-29-047"]
+    },
+    {
+      "key": "2026-05-29-047",
+      "id": "find-two-or-three-tools",
+      "title": "Find 2-3 tools and stick with them",
+      "strand": "cross-cutting",
+      "phase": null,
+      "summary": "Don't try to keep up with every new AI tool. Pick two or three and learn them deeply; until you understand AI at a base level you can't even perceive the differences between tools.",
+      "keyPoints": [
+        "The pace of new tools is impossible to keep up with - don't try.",
+        "ChatGPT is the 'Google' of LLMs - a fine starting point.",
+        "Many paid tools are just skins over ChatGPT or Claude under the hood, so mastering the core tools means you don't need them."
+      ],
+      "stories": [
+        "A friend plays with every AI tool and can't keep up; the advice is to pick a few and go deep.",
+        "Slide Speak was great until Claude could just make slideshows as part of a wider package."
+      ],
+      "tools": ["ChatGPT", "Claude desktop"],
+      "quotes": [
+        "Find two, three, and just use those. Don't worry about trying to keep up with this AI nonsense."
+      ],
+      "source": { "transcript": "May 29 at 10-37 AM.txt", "approxLines": "400-403" },
+      "relatedConcepts": ["2026-05-29-046"]
+    },
+    {
+      "key": "2026-05-29-048",
+      "id": "sandbox-folder",
+      "title": "The sandbox folder - learn by breaking things",
+      "strand": "cross-cutting",
+      "phase": null,
+      "summary": "Keep a sandbox folder where you try to break things and experiment safely. Learn in small, low-stakes spaces - write a few bad poems before the great American novel - then bring what works into bigger projects.",
+      "keyPoints": [
+        "A dedicated sandbox is where you experiment without risking real work.",
+        "Don't start with your lifelong dream project; start small and playful.",
+        "Learning in small spaces and migrating successes into bigger projects is how he found success."
+      ],
+      "stories": [
+        "His curriculum-building setup includes a dedicated Sandbox folder alongside tools, templates, and tracking folders."
+      ],
+      "tools": ["Claude desktop"],
+      "quotes": [
+        "I would create a sandbox folder where you just try to break as much as you can.",
+        "Start by writing a couple of bad poems and using it to see what it can do."
+      ],
+      "source": { "transcript": "May 29 at 1-31 PM.txt", "approxLines": "214-218" },
+      "relatedConcepts": ["2026-05-29-040", "2026-05-29-044"]
+    },
+    {
+      "key": "2026-05-29-049",
+      "id": "curriculum-production-pipeline",
+      "title": "The curriculum production pipeline",
+      "strand": "cross-cutting",
+      "phase": null,
+      "summary": "His flagship system: a fully proceduralized, AI-generated, human-reviewed pipeline that turns a one-page government standard into complete courses - outline, lessons, content, guides, activities, slides, quizzes, and interactives - checked against the standard at every step.",
+      "keyPoints": [
+        "Start from the source of truth: the one-page Dept. of Labor/Commerce standard for a fundable job skill.",
+        "Standard -> course outline -> lesson outlines -> lesson content / instructor guide / activities / slides / quizzes / interactives, each step driven by its own written specification.",
+        "Every output is reviewed by a subject-matter expert and checked back against the standard; deviations are corrected.",
+        "Three automated checks run on the content (ABC / BAC / CAB) - each pass with a different primary, secondary, and tertiary focus.",
+        "A separate build process packages the markdown into module folders as PDFs for the LMS, plus student and instructor code repos."
+      ],
+      "stories": [
+        "20-30 courses, '100% AI generated, all human reviewed,' produced this way - 'the best, fastest, only way to do this as a repeatable process.'"
+      ],
+      "tools": ["Claude desktop", "Claude in the terminal / Claude Code", "GitHub"],
+      "quotes": [
+        "Everything is proceduralized... checked against the standard every single time.",
+        "Is a team of humans ever going to review it that many times? But our robot servants will."
+      ],
+      "source": { "transcript": "May 29 at 1-31 PM.txt", "approxLines": "390-434" },
+      "relatedConcepts": ["2026-05-29-039", "2026-05-29-041", "2026-05-29-050", "2026-05-29-029"]
+    },
+    {
+      "key": "2026-05-29-050",
+      "id": "human-in-the-loop-review",
+      "title": "Human-in-the-loop review (AI as an entry-level employee)",
+      "strand": "cross-cutting",
+      "phase": "test",
+      "summary": "Treat AI like a capable but unreliable entry-level employee: it does enormous work fast but doesn't always follow the rules, so it needs checks, balances, and human review against a source of truth.",
+      "keyPoints": [
+        "AI is the '$50 employee that just wants to go out back and smoke cigarettes' - keep it working, but verify.",
+        "It can fact-check a document against a standard and catch its own errors when the process is built right.",
+        "The human's job shifts to review and judgment; technology frees a good teacher to be great (look a kid in the eye and see if they get it)."
+      ],
+      "stories": [
+        "Runs three checks (ABC/BAC/CAB) on generated content so it's reviewed as many times as possible - something no human team would do.",
+        "Had to repeatedly remind Claude to update the change log - it 'forgot.'"
+      ],
+      "tools": ["Claude desktop"],
+      "quotes": [
+        "It is an entry-level employee that just wants to go out back and smoke cigarettes.",
+        "It will catch errors."
+      ],
+      "source": { "transcript": "May 29 at 1-31 PM.txt", "approxLines": "398-434" },
+      "relatedConcepts": ["2026-05-29-008", "2026-05-29-049", "2026-05-29-038"]
+    },
+    {
+      "key": "2026-05-29-051",
+      "id": "ai-works-best-from-organized-info",
+      "title": "AI works best from organized information",
+      "strand": "cross-cutting",
+      "phase": null,
+      "summary": "AI performs best when fed organized, existing information. If you don't have it organized, use AI to organize what you already have first.",
+      "keyPoints": [
+        "The coolest thing about AI is how well it works from organized, existing information.",
+        "No organized information yet? Use AI to organize your existing material as step one.",
+        "Scanning a folder of past work to extract patterns (font, color, layout) is a way to manufacture that organized base."
+      ],
+      "stories": [
+        "Has tens of thousands of proposal starts; has Claude scan the folder and build a template that works for all of them."
+      ],
+      "tools": ["Claude desktop"],
+      "quotes": [
+        "It works best from organized information... if you don't have existing organized information, use AI to organize your existing information."
+      ],
+      "source": { "transcript": "May 29 at 1-31 PM.txt", "approxLines": "154-156" },
+      "relatedConcepts": ["2026-05-29-041", "2026-05-29-045", "2026-05-29-033"]
+    },
+    {
+      "key": "2026-05-29-052",
+      "id": "markdown",
+      "title": "Markdown - semantic meaning via symbols",
+      "strand": "cross-cutting",
+      "phase": "prototype",
+      "summary": "Markdown is a lightweight way to give text semantic meaning with simple symbols - a cleaner cousin of HTML and the lingua franca of code documentation. It's the default format for the project's logs and outputs.",
+      "keyPoints": [
+        "A pound sign is heading level one, two pounds is level two, dashes make bullets, three dashes is a horizontal rule.",
+        "Like HTML but simpler - just an opening symbol instead of open/close tags.",
+        "Markdown headings map cleanly to Google Docs heading styles, which is why it's good for documentation."
+      ],
+      "stories": [
+        "Showed the prompt-log markdown in VS Code, then the same file rendered in the browser."
+      ],
+      "tools": ["VS Code"],
+      "quotes": [
+        "It's the lingua franca, the file type that's used for documentation in code.",
+        "It's just a simplified way to identify the semantic meaning of text."
+      ],
+      "source": { "transcript": "May 29 at 1-31 PM.txt", "approxLines": "78-86" },
+      "relatedConcepts": ["2026-05-29-042", "2026-05-29-053"]
+    },
+    {
+      "key": "2026-05-29-053",
+      "id": "html-artifact-and-github-pages",
+      "title": "HTML as a shareable artifact + GitHub Pages hosting",
+      "strand": "cross-cutting",
+      "phase": "prototype",
+      "summary": "HTML files render in the browser, look good, and can be shared or hosted. With GitHub and GitHub Pages you can turn that code into a live, auto-updating link - building your own private version of the web, locally first.",
+      "keyPoints": [
+        "An HTML file lives on your computer and opens in the browser like a web page; it's shareable and hostable.",
+        "GitHub stores code in the cloud (and tracks changes over time); GitHub Pages turns a repo into a deployable, auto-updating link.",
+        "Watch for broken references (images, embedded content) when you migrate a page - links must stay valid."
+      ],
+      "stories": [
+        "The TVSF analysis: turned ~17-20 dense funding reports into a clickable HTML site of charts and findings, deployed via GitHub Pages.",
+        "Fed Claude three reference websites to 'steal' a visual style for a page."
+      ],
+      "tools": ["Claude desktop", "GitHub", "GitHub Pages", "VS Code"],
+      "quotes": [
+        "I love HTML pages because it renders in the browser, it looks good.",
+        "When you update your code base, this link automatically updates."
+      ],
+      "source": { "transcript": "May 29 at 1-31 PM.txt", "approxLines": "290-368" },
+      "relatedConcepts": ["2026-05-29-035", "2026-05-29-052", "2026-05-29-040"]
+    },
+    {
+      "key": "2026-05-29-054",
+      "id": "being-specific-and-precise",
+      "title": "Being specific & precise (use the words it knows)",
+      "strand": "cross-cutting",
+      "phase": null,
+      "summary": "Vague prompts get vague results; precise, domain-correct language gets better, more deterministic output. Software terms are unusual words with very precise meanings - using them gives you fine control.",
+      "keyPoints": [
+        "The less specific the prompt, the more the AI makes assumptions you didn't intend.",
+        "Use the precise words it knows - 'orphan control,' 'page break,' 'every H2 starts a new page' - and it will comply.",
+        "Software is well-structured and logical; its jargon just has very precise meanings, and it has 'solved almost every problem' with specific rules."
+      ],
+      "stories": [
+        "Rules like 'every heading level two starts on a new page' and 'don't start an H3+ below 75% of the page' work because they're precise.",
+        "'Make a sexy interactive presentation' worked because experience taught him how to steer it; vague prompts elsewhere produced wrong assumptions."
+      ],
+      "tools": ["Claude desktop"],
+      "quotes": [
+        "The more precise words that you use, a hundred percent.",
+        "They use words that aren't normal words... but have very precise meanings."
+      ],
+      "source": { "transcript": "May 29 at 1-31 PM.txt", "approxLines": "144-180" },
+      "relatedConcepts": ["2026-05-29-025", "2026-05-29-018", "2026-05-29-036"]
+    },
+    {
+      "key": "2026-05-29-055",
+      "id": "connectors-and-apis",
+      "title": "Connectors & APIs (the storage-unit analogy)",
+      "strand": "cross-cutting",
+      "phase": null,
+      "summary": "Connectors let AI talk to other software through APIs - small, controlled windows into a big system. A company won't give full access to everything; an API exposes only the specific room you're allowed into.",
+      "keyPoints": [
+        "Ask the AI what it can connect to; availability varies (Claude connects to Google Drive and Gmail, but there's no NotebookLM or Trello connector).",
+        "An API is a small, deliberate window into a large system - giving full access would be a security risk.",
+        "More connections (windows/doors) means more to defend - each open pathway is another vulnerability; sometimes it's safer to just fetch the file yourself."
+      ],
+      "stories": [
+        "Storage-unit analogy: a big warehouse where every room is locked and you only get the key to your small unit.",
+        "Claude could click buttons in the browser to set up a Trello board even without a native connector."
+      ],
+      "tools": ["Claude desktop", "Google Drive", "Gmail", "NotebookLM"],
+      "quotes": [
+        "An API is just a small window in.",
+        "Any connection that's open - any window, any door you add to a building - is another vulnerability."
+      ],
+      "source": { "transcript": "May 29 at 1-31 PM.txt", "approxLines": "14-32" },
+      "relatedConcepts": ["2026-05-29-012", "2026-05-29-044", "2026-05-29-028"]
+    }
+  ]
+}
