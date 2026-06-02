@@ -85,6 +85,10 @@ once):
     the change. Enforced via lesson front matter (`locked: true` + `changePolicy`). The
     structure (Decision 10) and the intro convention (Decision 11) are codified in
     `lessons/_TEMPLATE.md`, which every new lesson is built from. *(2026-06-01)*
+13. **Learning objectives must be measurable and Bloom's-aligned.** Each objective uses one
+    action verb, is observable, states a single outcome (no compound objectives), avoids vague
+    verbs (understand/know/appreciate), and is tagged with its Bloom's level. Prefer a climb
+    Understand → Analyze → Apply → Evaluate/Create. Codified in `_TEMPLATE.md`. *(2026-06-01)*
 
 ---
 

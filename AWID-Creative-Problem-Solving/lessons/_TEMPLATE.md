@@ -46,7 +46,15 @@ relatedConcepts:                   # keys from concept-inventory.json; one per l
 <!-- Plain-language "what & why." Hook the learner: why does this matter to them? 2–4 short paragraphs. -->
 
 ## 2. Learning objectives
-<!-- "By the end of this lesson you will be able to…" — 4–7 measurable, verb-first items. -->
+<!--
+  "By the end of this lesson you will be able to…" — 4–7 items.
+  RULE: each objective uses ONE measurable, Bloom's-aligned verb and is observable.
+    - Start each with a single action verb (Explain, Distinguish, Demonstrate, Justify,
+      Design…). Avoid vague verbs (understand, know, appreciate) and "set expectations."
+    - One outcome per line — no compound "X and why Y" objectives.
+    - Prefer a deliberate climb up Bloom's (Understand → Analyze → Apply → Evaluate/Create).
+    - Tag each with its Bloom's level in italics, e.g. *(Apply)*.
+-->
 
 1.
 2.

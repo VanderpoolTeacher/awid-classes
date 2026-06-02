@@ -44,14 +44,14 @@ in this course: ethics, choosing tools, and the design-thinking process.
 
 By the end of this lesson you will be able to:
 
-1. Explain, in plain words, why AI "isn't magic" — it's code generated from huge amounts of
-   data and very fast computation.
-2. Describe the difference between **deterministic** and **non-deterministic** output, and say
-   which one AI is.
-3. Predict that the same prompt can produce different answers, and set your expectations
-   accordingly.
-4. Explain why you don't need the internal math to use AI well — and why a simple mental model
-   still matters for trust and ethics.
+1. **Explain** why AI "isn't magic" — that its responses are code generated from large amounts
+   of data and fast computation. *(Understand)*
+2. **Distinguish** deterministic from non-deterministic output, and **classify** AI as
+   non-deterministic. *(Understand → Analyze)*
+3. **Demonstrate** non-determinism by sending the same prompt more than once and comparing the
+   results. *(Apply)*
+4. **Justify** why a simple mental model of AI is enough to start using it well, without
+   knowing the underlying math. *(Evaluate)*
 
 ---
 
