@@ -1,9 +1,8 @@
 ---
 part: "activity"
-lesson: "03"
 module: "1"
 title: "Can You Trust It? — Activity Handout"
-derivedFrom: "../03-can-you-trust-it.md"
+derivedFrom: "./lesson.md"
 audience: "Beginners"
 materials: "Any chatbot (ChatGPT, Claude, or Gemini) and web access to verify."
 ---

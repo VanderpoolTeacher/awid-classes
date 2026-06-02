@@ -1,9 +1,8 @@
 ---
 part: "activity"
-lesson: "02"
 module: "0"
 title: "It's Not Magic — Activity Handout"
-derivedFrom: "../02-its-not-magic-how-ai-works.md"
+derivedFrom: "./lesson.md"
 audience: "Beginners"
 materials: "Any chatbot (ChatGPT, Claude, or Gemini) on a phone or computer."
 ---

@@ -42,17 +42,21 @@ differ, the master is the spec; the parts are the rendered deliverables.
 
 ## 3. Folder & naming conventions
 
+The folder structure **mirrors `course-outline-map.md`** — the path tells you the module.
+
 | Path | What |
 |---|---|
-| `lessons/NN-slug.md` | Master lesson. `NN` = two-digit **file/creation order**; `slug` = kebab-case. |
-| `lessons/NN-slug/` | Parts folder (same `NN-slug`). |
+| `lessons/module-<n>-<name>/` | Module folder, named from the outline (e.g., `module-0-framing`, `module-1-foundational-ai`). |
+| `lessons/module-<n>-<name>/<order>-<slug>/` | A lesson folder (e.g., `1-its-not-magic`). `<order>` = teaching order **within the module**; `<slug>` = kebab-case. |
+| `…/<lesson>/lesson.md` | The master lesson — always named `lesson.md`. |
+| `…/<lesson>/{lesson-text,activity,instructor-guide}.md`, `…/<lesson>/scorm/` | The parts. |
 | `lessons/_templates/` | Blank starters: `lesson.md`, `lesson-text.md`, `activity.md`, `instructor-guide.md`, `scorm/`. |
-| `lessons/view.html` | The reusable viewer. |
+| `lessons/view.html` | Reusable viewer (`?lesson=<module-folder>/<lesson-folder>`). |
 | `lessons/LESSON-SPEC.md` | This spec. |
 
-- **`lesson` (NN) vs `module`:** `lesson` is file/creation order; `module` (front-matter field)
-  is the course-sequence module (0–3) from `course-outline-map.md`. They may differ.
-- Underscore-prefixed names (`_templates`, `_TEMPLATE`) sort to the top and signal "not a lesson."
+- **No creation-order numbering.** Module folders and the in-module `<order>` prefix come from
+  the outline. The `module:` front-matter field must match the lesson's module folder.
+- Underscore-prefixed names (`_templates`) sort to the top and signal "not a lesson."
 
 ---
 
@@ -84,6 +88,12 @@ These consolidate Decisions 10–16 in `DESIGN-LOG.md`.
     saw earlier" or "we'll cover this later." If prior knowledge is needed, **present it inline.**
     The `prerequisites` field names required skills/tools, not other lessons. (Internal provenance
     metadata such as `derivedFrom` is a production pointer, not learner content, and is exempt.)
+11. **Reference the authoritative outline.** `course-outline-map.md` is the **approved** course
+    structure. When creating or updating content, reference it — don't invent a parallel scheme.
+    **Course → Module → Lesson must be connectable through documentation:** a lesson lives in its
+    module folder, declares its `module` (matching that folder), cites outline concept keys in
+    `relatedConcepts`, and is listed under its module in the outline. (This is structural/metadata
+    linkage, which is required — distinct from §4.10, which forbids *learner-facing* cross-refs.)
 
 ---
 
@@ -92,10 +102,10 @@ These consolidate Decisions 10–16 in `DESIGN-LOG.md`.
 For each artifact: **purpose · audience · format/location · required structure · front matter ·
 done criteria.**
 
-### 5.1 Master lesson — `NN-slug.md`
+### 5.1 Master lesson — `<lesson>/lesson.md`
 - **Purpose:** the blueprint/source of truth for the lesson.
 - **Audience:** the production team (you).
-- **Format/location:** Markdown at `lessons/NN-slug.md`. Template: `_templates/lesson.md`.
+- **Format/location:** `lessons/module-<n>-<name>/<lesson>/lesson.md`. Template: `_templates/lesson.md`.
 - **Required structure:** Overview (narrative) · Learning objectives · Key vocabulary · The
   lesson · Worked example · Hands-on activity · Common pitfalls · Discussion questions · Check
   for understanding · Key takeaways · Instructor notes.
@@ -137,7 +147,7 @@ done criteria.**
   `audience`, `totalTime`.
 - **Done when:** a new facilitator could run the lesson from it; answer key complete.
 
-### 5.5 SCORM interactive — `NN-slug/scorm/`
+### 5.5 SCORM interactive — `<lesson>/scorm/`
 - **Purpose:** the interactive, LMS-deliverable lesson.
 - **Audience:** learners (self-paced).
 - **Format/location:** `scorm/` with `index.html`, `styles.css`, `scorm-api.js`,
@@ -164,24 +174,26 @@ done criteria.**
 
 ## 6. Authoring workflow
 
-To create a new lesson (e.g., Module 1):
+To create a new lesson:
 
-1. **Open a GitHub issue** describing the lesson.
-2. **Branch** from `main`, named for the issue: `feature/<issue#>-<slug>`.
-3. **Copy the templates:** `cp lessons/_templates/lesson.md lessons/NN-slug.md`, and
-   `cp -r lessons/_templates lessons/NN-slug` then keep the part files (`lesson-text.md`,
-   `activity.md`, `instructor-guide.md`, `scorm/`) and remove `lesson.md` from the parts folder.
-4. **Fill the master** (`NN-slug.md`) first — it's the blueprint.
-5. **Produce the parts** from the master, satisfying each §5 spec.
-6. **Build the SCORM** content + questions; keep pass thresholds in sync.
-7. **Preview** locally with the viewer: `…/lessons/view.html?lesson=NN-slug`.
-8. **Log it** in `DESIGN-LOG.md`.
-9. **PR** that **closes the issue**; on merge it publishes to the live site and **locks** the
-   lesson.
+1. **Find its place in `course-outline-map.md`** — which module and where in the sequence.
+2. **Open a GitHub issue** describing the lesson.
+3. **Branch** from `main`, named for the issue: `feature/<issue#>-<slug>`.
+4. **Make the lesson folder** under the module: `lessons/module-<n>-<name>/<order>-<slug>/`, then
+   copy the part templates in: `cp -r lessons/_templates/* lessons/module-<n>-<name>/<order>-<slug>/`.
+5. **Fill `lesson.md`** (the master) first — it's the blueprint. Set `module:` to match the folder.
+6. **Produce the parts** from the master, satisfying each §5 spec (set `derivedFrom: "./lesson.md"`).
+7. **Build the SCORM** content + questions; keep pass thresholds in sync.
+8. **Link it in the outline** — add the lesson under its module in `course-outline-map.md`.
+9. **Preview** locally: `…/lessons/view.html?lesson=module-<n>-<name>/<order>-<slug>`.
+10. **Log it** in `DESIGN-LOG.md`.
+11. **PR** that **closes the issue**; on merge it publishes to the live site and **locks** the
+    lesson.
 
 ---
 
 ## 7. References
-- `DESIGN-LOG.md` — Decisions 10–16 (the conventions, with rationale and dates).
+- `course-outline-map.md` — **the authoritative course structure** (Course → Module → Lesson);
+  reference it when creating/updating content (§4.11).
 - `concept-inventory.json` — source-of-truth concepts; lessons cite their `relatedConcepts` keys.
-- `course-outline-map.md` — module structure and concept coverage.
+- `DESIGN-LOG.md` — Decisions 10–19 (the conventions, with rationale and dates).

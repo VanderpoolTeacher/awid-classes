@@ -1,9 +1,8 @@
 ---
 part: "instructor-guide"
-lesson: "NN"
 module: "<0–3>"
 title: "<Lesson title> — Instructor Guide"
-derivedFrom: "../NN-slug.md"
+derivedFrom: "./lesson.md"
 audience: "Facilitator / instructor"
 totalTime: "<e.g. 30–45 minutes>"
 ---

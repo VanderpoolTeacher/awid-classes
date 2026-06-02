@@ -11,9 +11,18 @@ against the 55 concepts distilled in [`concept-inventory.json`](./concept-invent
 - **⚠ GAP** marks places where the recordings gave us little or nothing — the targets for
   your supplemental design-thinking material.
 
+> **This document is the approved, authoritative course structure.** Lessons live in module
+> folders under `lessons/` (e.g., `lessons/module-0-framing/1-its-not-magic/`), and each
+> module's lessons are linked below. When creating or updating content, reference this outline
+> (see `lessons/LESSON-SPEC.md` §4.11). The navigation is **Course → Module → Lesson:** the
+> course catalog entry (`assets/data/classes.json`) → this map → the module sections → the
+> linked lesson folders.
+
 ---
 
 ## Module 0 — Framing: "It's not magic"
+
+**Lessons:** [1 · It's Not Magic](lessons/module-0-framing/1-its-not-magic/lesson.md)
 
 The opening move: set expectations and demystify before doing anything.
 
@@ -24,6 +33,8 @@ The opening move: set expectations and demystify before doing anything.
 ---
 
 ## Module 1 — Foundational AI understanding *(strand: foundational-ai)*
+
+**Lessons:** [1 · Can You Trust It?](lessons/module-1-foundational-ai/1-can-you-trust-it/lesson.md) *(covers 1b — trust & accuracy)* · _planned: 1a, 1c, 1d_
 
 ### 1a. How it actually works
 - `…-001` It's not magic, it's code
@@ -109,6 +120,8 @@ most phases rest on a single concept. These are the supplement targets.**
 ---
 
 ## Module 3 — Build systems, not outputs *(strand: cross-cutting — the "applied" engine)*
+
+**Lessons:** [1 · Git & GitHub Basics](lessons/module-3-build-systems/1-git-and-github-basics/lesson.md) *(tooling — 3c)*
 
 The distinctive thesis of this instructor: don't use AI to make one-off deliverables — build
 the repeatable system that makes them. This is where the workshop went deepest.

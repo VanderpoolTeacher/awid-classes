@@ -115,6 +115,12 @@ once):
     names skills/tools, not lessons. (Internal provenance metadata like `derivedFrom` is exempt —
     it's a production pointer, not learner content.) Codified in `LESSON-SPEC.md` §4.10 and the
     templates. *(2026-06-01)*
+19. **`course-outline-map.md` is the authoritative structure; lessons are organized by module.**
+    Lessons live in `lessons/module-<n>-<name>/<order>-<slug>/` with the master as `lesson.md`;
+    no creation-order filenames. **Course → Module → Lesson is connectable through docs:** the
+    outline lists each lesson, and each lesson declares its `module` and cites outline concept
+    keys. Reference the outline when creating/updating content. Codified in `LESSON-SPEC.md`
+    §3, §4.11, §6. *(2026-06-01)*
 
 ---
 
@@ -345,3 +351,19 @@ once):
 - **Result:** Lesson 3 complete and self-contained (grep clean); scorm manifest well-formed.
   **Next:** commit, open PR closing #7, merge to publish. Cleanup of published lessons tracked in
   #8.
+
+### 2026-06-01 — Step 14: Reorganize lessons by module (issue #10)
+
+- **Prompt (summary):** Organize the project by module with lessons as subfolders; the filenames
+  didn't match `course-outline-map.md`; make Course → Module → Lesson connectable through the
+  docs and reference the approved outline when creating content.
+- **Response/decision:** Merged PR #9 first so all three lessons were on `main`. On **issue #10 /
+  branch `feature/10-reorganize-by-module`**, moved every lesson into a module folder
+  (`module-0-framing/1-its-not-magic`, `module-1-foundational-ai/1-can-you-trust-it`,
+  `module-3-build-systems/1-git-and-github-basics`) with the master renamed to `lesson.md`;
+  dropped the creation-order filenames and the `lesson: NN` field; fixed `derivedFrom` →
+  `./lesson.md`; added `module: "3"` to the Git lesson. Made the outline the index (lesson links
+  under each module + an authoritative-structure note) and updated `view.html`, `LESSON-SPEC.md`
+  (§3, §4.11, §6, §7), and the templates. **Decision 19.**
+- **Result:** Folder paths now mirror the outline; Course → Module → Lesson is navigable through
+  docs. **Next:** validate (viewer + scorm), commit, PR closing #10.

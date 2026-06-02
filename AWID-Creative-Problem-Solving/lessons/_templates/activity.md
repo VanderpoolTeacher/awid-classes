@@ -1,9 +1,8 @@
 ---
 part: "activity"
-lesson: "NN"
 module: "<0–3>"
 title: "<Lesson title> — Activity Handout"
-derivedFrom: "../NN-slug.md"
+derivedFrom: "./lesson.md"
 audience: "<learner audience>"
 materials: "<what the learner needs — tools, accounts, supplies>"
 ---

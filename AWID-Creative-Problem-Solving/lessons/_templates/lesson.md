@@ -1,5 +1,4 @@
 ---
-lesson: "NN"                       # two-digit file number (creation order), e.g. "02"
 module: "<0–3>"                     # course module from course-outline-map.md
 title: "<Lesson title>"
 course: "Applied AI in Design Thinking (Creative Problem Solving)"

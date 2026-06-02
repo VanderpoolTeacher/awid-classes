@@ -1,9 +1,8 @@
 ---
 part: "lesson-text"
-lesson: "03"
 module: "1"
 title: "Can You Trust It? Hallucination, Bias, and Checking AI's Work — Lesson Text"
-derivedFrom: "../03-can-you-trust-it.md"
+derivedFrom: "./lesson.md"
 audience: "Beginners"
 readingLevel: "~5th grade"
 ---

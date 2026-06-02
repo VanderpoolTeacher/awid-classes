@@ -1,9 +1,8 @@
 ---
 part: "instructor-guide"
-lesson: "03"
 module: "1"
 title: "Can You Trust It? — Instructor Guide"
-derivedFrom: "../03-can-you-trust-it.md"
+derivedFrom: "./lesson.md"
 audience: "Facilitator / instructor"
 totalTime: "40–55 minutes"
 ---
