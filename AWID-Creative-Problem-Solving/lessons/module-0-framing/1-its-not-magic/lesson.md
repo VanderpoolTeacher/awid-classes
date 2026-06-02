@@ -16,7 +16,7 @@ relatedConcepts:
   - "2026-05-29-027"  # AI is running out of training data
 ---
 
-# Lesson 02 — Module 0: It's Not Magic: How AI Actually Works
+# Module 0 — It's Not Magic: How AI Actually Works
 
 > **How to read this lesson:** Every time we introduce a piece of technology, we use the
 > same three-part pattern — **What it is → What it does → How it fits into the ecosystem.**
@@ -103,7 +103,7 @@ real reason AI *feels* like magic.
 ### It's all code
 Everything you see on a screen — your phone, your TV, a chatbot's reply — is generated from
 **code**. AI isn't pulling answers out of thin air. It's writing code, fast, and showing you
-the result. As we'll say all course long: *it's not magic, it's code.*
+the result. As we keep saying: *it's not magic, it's code.*
 
 ### Why it can still feel magical
 Image generation is the best example. The AI doesn't draw line by line the way a person would.
@@ -113,15 +113,15 @@ so fast it looks impossible. Impressive? Yes. Magic? No — just speed and compu
 ### The twist: AI is non-deterministic
 Here's the big difference from 2 + 2. Ask an AI the **same** question twice and you'll likely
 get **different** answers. It doesn't look up one true result; it predicts a *likely* one — and
-"likely" wiggles each time. This is **non-deterministic** output. (It's why, later in the
-course, we build repeatable *systems* around AI when we need consistency — you can't just
-re-ask and expect the same thing.)
+"likely" wiggles each time. This is **non-deterministic** output. (It's why, when you need
+consistency, you build repeatable *systems* around AI — you can't just re-ask and expect the
+same thing.)
 
 ### Why this isn't a math class
 You don't need to know how a car engine is built to drive well — but knowing roughly how it
 works makes you a better, safer driver. Same here. You don't need the internal math to use AI.
 But a simple model — *code + data + speed, and it's non-deterministic* — is exactly what lets
-you use it wisely and judge its limits and ethics (the next modules).
+you use it wisely and judge its limits and ethics.
 
 ### A grounding reminder
 These systems are actually running **low on new text** to learn from, and have started
@@ -213,7 +213,7 @@ same answer."*)
 
 > **Framing:** This is the foundation module. Everything that follows — ethics, choosing tools,
 > the design-thinking process — rests on first demystifying AI. Spend the time here; it pays off
-> all course long.
+> well beyond this lesson.
 
 **Pacing:** Sections 1–4 ≈ 15–20 min; do the live "same prompt twice" demo (Section 5) for
 instant impact; hands-on (Section 6) ≈ 10–15 min; close with discussion + check.
@@ -222,8 +222,8 @@ instant impact; hands-on (Section 6) ≈ 10–15 min; close with discussion + ch
 - Run the **same-prompt-twice** demo live. Watching the answers differ teaches non-determinism
   faster than any explanation.
 - Keep hammering the through-line out loud: *"It's not magic, it's code."*
-- Set up the next modules: non-determinism → why we build repeatable systems (Module 3);
-  "not always right" → hallucination & verification (Module 1, ethics).
+- Plant two seeds for later: non-determinism points toward building repeatable systems, and
+  "not always right" points toward verification and ethics.
 - Resist going deep on the math even if asked. Redirect: "you don't need that to use it well."
 
 **Check-for-understanding answer key**
@@ -241,4 +241,4 @@ instant impact; hands-on (Section 6) ≈ 10–15 min; close with discussion + ch
 **Common misconceptions to watch for**
 - "Commit-to-memory facts": that AI "looks up" one true answer. (It predicts a likely one.)
 - That a more powerful model would become "deterministic." (Non-determinism is by design.)
-- That demystified = trustworthy. (Separate ideas — trust comes from verification, next module.)
+- That demystified = trustworthy. (Separate ideas — trust comes from verification.)

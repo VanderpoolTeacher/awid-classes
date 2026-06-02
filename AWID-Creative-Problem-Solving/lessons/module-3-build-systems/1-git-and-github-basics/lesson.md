@@ -17,7 +17,7 @@ relatedConcepts:
   - "2026-05-29-038"  # Process over product
 ---
 
-# Lesson 01 — Git & GitHub Basics
+# Module 3 — Git & GitHub Basics
 
 > **How to read this lesson:** Every time we introduce a piece of technology, we use the
 > same three-part pattern — **What it is → What it does → How it fits into the ecosystem.**

@@ -91,13 +91,12 @@ four takeaways.
 ## Common misconceptions to watch for
 - "AI looks up the one true answer." → It **predicts** a likely one.
 - "A more powerful model would be deterministic." → Non-determinism is **by design.**
-- "Demystified means trustworthy." → Separate ideas. Trust comes from **verification** (next
-  module). Flag this explicitly so learners don't over-trust.
+- "Demystified means trustworthy." → Separate ideas. Trust comes from **verification**. Flag this
+  explicitly so learners don't over-trust.
 
-## Transition to the next module
+## Closing thought
 "Now that AI isn't magic — it's a fast pattern-machine that can be confidently wrong — the next
-question is the important one: **when can you trust it, and when can't you?** That's ethics and
-verification, Module 1."
+question is the important one: **when can you trust it, and when can't you?**"
 
 ## If you have less time
 Cut the activity to just Part 1 (same-prompt test) and keep the opening narrative + live demo +

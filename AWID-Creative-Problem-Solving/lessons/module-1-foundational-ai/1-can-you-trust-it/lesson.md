@@ -15,7 +15,7 @@ relatedConcepts:
   - "2026-05-29-021"  # The "tells" of AI & forensic detection
 ---
 
-# Lesson 03 — Module 1: Can You Trust It?
+# Module 1 — Can You Trust It?
 
 > **How to read this lesson:** Every time we introduce a piece of technology, we use the
 > same three-part pattern — **What it is → What it does → How it fits into the ecosystem.**

@@ -61,7 +61,7 @@ generated from **code**: precise, step-by-step instructions a computer follows. 
 reach into thin air and pull out an answer. It **writes code, very fast, and shows you the
 result.**
 
-Say it with us, because we'll repeat it all course long: **it's not magic, it's code.**
+Say it with us, and remember it: **it's not magic, it's code.**
 
 Even pictures work this way. When AI makes an image, it isn't drawing line by line the way you
 would with a pencil. It computes a whole field of "crazy colored pixels" and snaps them into
@@ -96,8 +96,7 @@ won't get it back the same way.
 
 This matters more than it sounds. It means you **can't just re-ask and expect the same thing.**
 If you ever need AI to do something the *same* way every time, you don't just cross your
-fingers — you build a little system around it with checks and rules. (That's a big idea we come
-back to later in the course.)
+fingers — you build a little system around it with checks and rules.
 
 ## You don't need to know the engine to drive the car
 
