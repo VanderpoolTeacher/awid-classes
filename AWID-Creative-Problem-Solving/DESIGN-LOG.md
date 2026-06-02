@@ -228,5 +228,29 @@ once):
   `locked: true` + a `changePolicy` in front matter requiring a GitHub issue for any change.
   Backfilled the policy fields into Lesson 01.
 - **Result:** `lessons/_TEMPLATE.md` created; Lesson 01 front matter updated with `created`,
-  `locked`, and `changePolicy`. Pattern is now reusable. **Next:** decide whether to commit/
-  publish the lesson + template (recommend a fresh branch, since `main` is the live public site).
+  `locked`, and `changePolicy`. Pattern is now reusable.
+
+### 2026-06-01 — Step 8: Dedicated content-creation branch
+
+- **Prompt (summary):** Work on a branch specific to the content-creation process; put the
+  current work on it.
+- **Response/decision:** Created `feature/content-creation` off `main`. Staged the course
+  folder (recordings gitignored, so excluded), committed the template + Lesson 01 + updated log
+  as `0d79ed7`, and pushed the branch. `main` (the live site) untouched — feature-branch pushes
+  don't deploy, so we can iterate freely here.
+- **Result:** Content now lives on `feature/content-creation`, backed up on GitHub. This is the
+  ongoing lane for authoring lessons.
+
+### 2026-06-01 — Step 9: Module 0 lesson — "It's Not Magic"
+
+- **Prompt (summary):** "Let's do module 0."
+- **Response/decision:** Authored the Module 0 framing lesson from the template, covering the
+  three tightly-linked concepts `2026-05-29-003` (demystifying), `-001` (it's not magic), and
+  `-002` (non-deterministic), with `-019` and `-027` as support. Applied the "What → Does →
+  Fits" convention to AI, LLM, and Code. Added a `module` field to the template and the lesson
+  to tie lessons to the course-outline-map modules.
+- **Result:** Wrote `lessons/02-its-not-magic-how-ai-works.md` (module 0). Note on numbering:
+  `lesson` = file/creation order (Git basics = 01, Module 0 = 02); `module` = course sequence.
+  They intentionally differ — Git basics is module-3/tooling content authored first. Open
+  question for the user: keep this scheme, or renumber files to match course order (nothing is
+  locked on `main` yet). **Next:** commit Module 0 to the content branch; pick the next lesson.
