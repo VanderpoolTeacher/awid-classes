@@ -89,6 +89,15 @@ once):
     action verb, is observable, states a single outcome (no compound objectives), avoids vague
     verbs (understand/know/appreciate), and is tagged with its Bloom's level. Prefer a climb
     Understand → Analyze → Apply → Evaluate/Create. Codified in `_TEMPLATE.md`. *(2026-06-01)*
+14. **Lessons open with a narrative and call back to it in the wrap-up.** Each lesson begins
+    with a short, concrete story/scene (ideally a real class moment/metaphor) that sets up the
+    tension; the wrap-up (Key takeaways) resolves it. Lesson prose should draw on the
+    instructor's real metaphors and demos. Codified in `_TEMPLATE.md`. *(2026-06-01)*
+15. **Each lesson decomposes into parts (SCORM 1.2).** The master lesson `.md` is the blueprint/
+    source of truth; produced deliverables live in a per-lesson folder: `lesson-text.md`
+    (learner reading), `activity.md` (student handout), `instructor-guide.md` (facilitation),
+    and `scorm/` (a self-contained, vanilla-JS interactive packaged for **SCORM 1.2** — runs
+    standalone or in an LMS). *(2026-06-01)*
 
 ---
 
@@ -258,3 +267,22 @@ once):
   They intentionally differ — Git basics is module-3/tooling content authored first. Open
   question for the user: keep this scheme, or renumber files to match course order (nothing is
   locked on `main` yet). **Next:** commit Module 0 to the content branch; pick the next lesson.
+
+### 2026-06-01 — Step 10: Decompose Module 0 into parts + SCORM interactive
+
+- **Prompt (summary):** Extrapolate the lesson into its parts — lesson text, activity docs, an
+  interactive HTML that becomes a SCORM package, and instructor guide. Use SCORM 1.2. Expand the
+  lesson text to be more robust using class content/metaphors. Start each lesson with a narrative
+  and call back to it in the wrap-up.
+- **Response/decision:** Established the decomposition pattern (Decision 15) and the narrative
+  convention (Decision 14). Built the parts under
+  `lessons/02-its-not-magic-how-ai-works/`. Expanded the lesson text with the instructor's real
+  metaphors (the deterministic "2+2" box, "only so many ways to arrange words / the load of
+  bull——", music/notes, the car-and-engine, running-out-of-data) and framed it with the AI
+  "podcast voices" narrative, paid off in the wrap-up. SCORM interactive is self-contained
+  vanilla JS with a 5-question check that reports `lesson_status` + `score.raw`; no-ops safely
+  standalone.
+- **Result:** Created `lesson-text.md`, `activity.md`, `instructor-guide.md`, and `scorm/`
+  (`index.html`, `styles.css`, `scorm-api.js`, `imsmanifest.xml`, `README.md`). Updated
+  `_TEMPLATE.md` with the narrative convention. **Next:** commit/push to the content branch;
+  optionally test the SCORM package; decide whether to decompose other lessons / pick the next.

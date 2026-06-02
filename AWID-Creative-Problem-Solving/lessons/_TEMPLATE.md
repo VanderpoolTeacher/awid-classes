@@ -43,7 +43,13 @@ relatedConcepts:                   # keys from concept-inventory.json; one per l
 ---
 
 ## 1. Overview
-<!-- Plain-language "what & why." Hook the learner: why does this matter to them? 2–4 short paragraphs. -->
+<!--
+  START WITH A NARRATIVE. Open every lesson with a short, concrete story or scene (ideally a
+  real moment from the class — a demo, a metaphor, a "the room went quiet" moment) that sets up
+  the lesson's tension. Don't explain it yet; let it hook. Then state the plain-language
+  "what & why." The wrap-up (Section 10) MUST call back to this narrative and resolve it.
+  2–4 short paragraphs. Pull in the instructor's real metaphors and examples where possible.
+-->
 
 ## 2. Learning objectives
 <!--
@@ -104,7 +110,10 @@ relatedConcepts:                   # keys from concept-inventory.json; one per l
 1.
 
 ## 10. Key takeaways
-<!-- 3–6 bullets that reinforce the must-remember points. -->
+<!--
+  CALL BACK TO THE OPENING NARRATIVE first — revisit the Section 1 story and resolve it with
+  what the learner now knows. Then 3–6 bullets reinforcing the must-remember points.
+-->
 
 -
 

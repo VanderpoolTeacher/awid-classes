@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>It's Not Magic: How AI Actually Works</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="scorm-api.js"></script>
+</head>
+<body>
+  <main class="lesson" id="lesson">
+    <header class="lesson__header">
+      <p class="lesson__eyebrow">Module 0 · Creative Problem Solving</p>
+      <h1 class="lesson__title">It's Not Magic: How AI Actually Works</h1>
+      <div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+    </header>
+
+    <!-- Each <section class="step"> is one screen. JS shows one at a time. -->
+
+    <section class="step" data-step>
+      <h2>🎙️ A story to start with</h2>
+      <p>The room got quiet, and two voices started talking — warm, funny, a little nerdy. A man
+         and a woman, hosting what sounded exactly like a podcast: <em>"How do you teach an old
+         industrial giant to dance?"</em></p>
+      <p>Here's the thing: <strong>neither of them is real.</strong> No microphones. No people. A
+         tool read a stack of boring documents and produced two AI voices chatting like old
+         friends. The room split in half — amazed, and a little spooked. It <em>felt</em> like
+         magic.</p>
+      <p class="callout">It isn't. By the end, you'll know exactly why. Let's pull back the
+         curtain.</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>Computers used to be boringly predictable</h2>
+      <p>For most of history, a computer was a predictable box. Inputs in, work happens, the
+         <strong>same</strong> output comes out — every time. <strong>2 + 2 is always 4.</strong>
+         Water is water. That sameness has a name: <strong>deterministic.</strong></p>
+      <p>Spreadsheets, calculators, the cash register — reliable, repeatable, and clearly not
+         alive. Nobody thinks a calculator is magic.</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>What changed? Scale, not sorcery</h2>
+      <p>The basic idea didn't change. What exploded is the <strong>scale</strong> of two things:</p>
+      <ul>
+        <li><strong>Data</strong> — a nearly endless ocean of what people have written online.</li>
+        <li><strong>Compute</strong> — speed. What took a mainframe <em>days</em> now happens
+            instantly.</li>
+      </ul>
+      <p>That speed is why AI <em>feels</em> magical. And everything on your screen — including an
+         AI's reply — is generated from <strong>code.</strong> AI writes code, fast, and shows you
+         the result. <strong>It's not magic, it's code.</strong></p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>Making sentences isn't that mysterious</h2>
+      <p>People are more predictable than we admit. If someone says <em>"that's a load of
+         bull——,"</em> your brain already knows the next word. There are only so many ways to
+         arrange words into a sentence that makes sense (music's the same with notes).</p>
+      <p>That's basically what a chatbot does: a very fast machine for guessing <strong>what word
+         probably comes next</strong>, over and over. Suddenly those two podcast voices look a lot
+         less mysterious.</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>The twist: it won't give the same answer twice</h2>
+      <p>Ask AI the <strong>same question twice</strong> and you'll usually get <strong>two
+         different answers.</strong> It predicts a <em>likely</em> response, and "likely" wiggles
+         each time. We call this <strong>non-deterministic.</strong></p>
+      <p>So you can't just re-ask and expect the same thing. And you don't need the deep math to
+         use it — like driving a car without knowing the engine. Keep this model:
+         <strong>code + data + speed, and non-deterministic.</strong></p>
+    </section>
+
+    <!-- Knowledge check -->
+    <section class="step step--quiz" data-step hidden>
+      <h2>Quick check</h2>
+      <p class="muted">Answer all five, then submit. You'll need 60% to pass.</p>
+      <form id="quizForm" class="quiz"></form>
+      <button type="button" id="submitQuiz" class="btn">Submit answers</button>
+      <div id="quizResult" class="quiz__result" role="status" hidden></div>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>🎙️ Back to those two voices</h2>
+      <p>No people, no mics. A tool read documents (<strong>data</strong>), used huge
+         <strong>compute</strong> to predict natural sentences, and turned it into
+         <strong>code</strong> that played as voices. Run it again, you'd get a different chat —
+         because it's <strong>non-deterministic.</strong> Magic? Not even a little.</p>
+      <p><strong>Remember:</strong></p>
+      <ul>
+        <li>It's <strong>not magic — it's code</strong>, from huge data + fast compute.</li>
+        <li>AI is <strong>non-deterministic</strong>: same prompt, different answers.</li>
+        <li><strong>Speed</strong> makes it feel magical; the substance is ordinary code.</li>
+        <li>You don't need the math — a simple model is enough to use it wisely.</li>
+      </ul>
+      <p class="callout" id="completeNote">Lesson complete ✓ — your progress has been sent to the
+         learning system.</p>
+    </section>
+
+    <nav class="lesson__nav">
+      <button type="button" id="prevBtn" class="btn btn--ghost" disabled>← Back</button>
+      <span class="lesson__count" id="stepCount"></span>
+      <button type="button" id="nextBtn" class="btn">Next →</button>
+    </nav>
+  </main>
+
+  <script>
+    // ---- Quiz data ----
+    var QUESTIONS = [
+      {
+        q: "Which of these is NON-deterministic?",
+        options: ["A calculator doing 2 + 2", "Asking a chatbot the same question twice", "Adding a column in a spreadsheet"],
+        answer: 1
+      },
+      {
+        q: "What two things grew to make modern AI possible?",
+        options: ["Luck and magic", "Data and compute (speed)", "Bigger screens and faster typing"],
+        answer: 1
+      },
+      {
+        q: "True or false: an AI's answer 'magically appears' on the screen.",
+        options: ["True", "False — it's generated code shown fast"],
+        answer: 1
+      },
+      {
+        q: "Why don't you need the deep math to use AI well?",
+        options: ["Because the math is fake", "Like driving a car without knowing the engine — a simple model is enough", "Because AI has no math in it"],
+        answer: 1
+      },
+      {
+        q: "A chatbot mostly works by…",
+        options: ["Looking up the one true answer", "Predicting what word probably comes next, very fast", "Asking a human in another room"],
+        answer: 1
+      }
+    ];
+    var PASS_PERCENT = 60;
+
+    // ---- Build quiz ----
+    var form = document.getElementById("quizForm");
+    QUESTIONS.forEach(function (item, qi) {
+      var fs = document.createElement("fieldset");
+      fs.className = "quiz__q";
+      var legend = document.createElement("legend");
+      legend.textContent = (qi + 1) + ". " + item.q;
+      fs.appendChild(legend);
+      item.options.forEach(function (opt, oi) {
+        var id = "q" + qi + "o" + oi;
+        var label = document.createElement("label");
+        label.className = "quiz__opt";
+        label.htmlFor = id;
+        var input = document.createElement("input");
+        input.type = "radio"; input.name = "q" + qi; input.id = id; input.value = oi;
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(" " + opt));
+        fs.appendChild(label);
+      });
+      form.appendChild(fs);
+    });
+
+    // ---- Step navigation ----
+    var steps = Array.prototype.slice.call(document.querySelectorAll("[data-step]"));
+    var current = 0;
+    var prevBtn = document.getElementById("prevBtn");
+    var nextBtn = document.getElementById("nextBtn");
+    var stepCount = document.getElementById("stepCount");
+    var progressBar = document.getElementById("progressBar");
+
+    function render() {
+      steps.forEach(function (s, i) { s.hidden = i !== current; });
+      prevBtn.disabled = current === 0;
+      nextBtn.style.visibility = current === steps.length - 1 ? "hidden" : "visible";
+      stepCount.textContent = (current + 1) + " / " + steps.length;
+      progressBar.style.width = ((current) / (steps.length - 1) * 100) + "%";
+      window.scrollTo(0, 0);
+    }
+    prevBtn.addEventListener("click", function () { if (current > 0) { current--; render(); } });
+    nextBtn.addEventListener("click", function () { if (current < steps.length - 1) { current++; render(); } });
+
+    // ---- Grade quiz + report to SCORM ----
+    var graded = false;
+    document.getElementById("submitQuiz").addEventListener("click", function () {
+      var correct = 0;
+      QUESTIONS.forEach(function (item, qi) {
+        var chosen = form.querySelector('input[name="q' + qi + '"]:checked');
+        if (chosen && Number(chosen.value) === item.answer) correct++;
+      });
+      var pct = Math.round((correct / QUESTIONS.length) * 100);
+      var passed = pct >= PASS_PERCENT;
+      var result = document.getElementById("quizResult");
+      result.hidden = false;
+      result.className = "quiz__result " + (passed ? "is-pass" : "is-fail");
+      result.textContent = "You scored " + pct + "% (" + correct + "/" + QUESTIONS.length + "). " +
+        (passed ? "Passed! Continue to finish." : "Below 60% — review and try again, then continue.");
+
+      // Report to the LMS (no-ops safely if running standalone).
+      SCORM.setScore(pct);
+      SCORM.complete(passed);
+      graded = true;
+    });
+
+    // ---- Boot ----
+    SCORM.init();
+    render();
+  </script>
+</body>
+</html>
