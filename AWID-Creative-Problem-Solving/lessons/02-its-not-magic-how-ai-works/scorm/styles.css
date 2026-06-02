@@ -98,6 +98,17 @@ body {
 .quiz__result.is-pass { background: #dcfce7; color: var(--pass); }
 .quiz__result.is-fail { background: #fef2f2; color: var(--fail); }
 
+/* Per-question feedback shown after submitting */
+.quiz__fb {
+  margin: 10px 0 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+.quiz__fb.is-correct { background: #dcfce7; color: var(--pass); }
+.quiz__fb.is-wrong { background: #fef2f2; color: var(--fail); }
+
 /* Buttons + nav */
 .btn {
   font: inherit;

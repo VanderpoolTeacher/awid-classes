@@ -12,19 +12,18 @@ readingLevel: "~5th grade"
 
 ## A story to start with
 
-The room got quiet, and then two voices started talking.
-
-They were warm, funny, a little bit nerdy — a man and a woman hosting what sounded exactly
-like a podcast. *"How do you teach an old industrial giant to dance?"* one of them joked. They
-riffed back and forth about a city's land-use plan like they'd been doing it for years.
+Picture this. You press play, and two voices start talking — warm, funny, a little nerdy. A
+man and a woman, hosting what sounds exactly like a podcast. *"How do you teach an old
+industrial giant to dance?"* one of them jokes. They riff back and forth about a city's
+land-use plan like they've been doing it for years.
 
 Here's the thing: **neither of them is real.** No microphones. No studio. No people. A tool
-had read a stack of boring documents and, a minute later, produced two AI voices chatting like
-old friends. You could feel the room split down the middle — half amazed, half a little
-spooked. It *felt* like magic.
+read a stack of dry documents and, a minute later, produced two AI voices chatting like old
+friends. The first time you hear it, it's hard not to feel a little split — half amazed, half
+spooked. It *feels* like magic.
 
-It isn't. And by the end of this lesson, you'll know exactly why those two voices aren't magic
-at all. Let's pull back the curtain.
+It isn't. By the end, you'll know exactly why those two voices aren't magic at all. Let's pull
+back the curtain.
 
 ---
 
@@ -93,8 +92,8 @@ and you'll usually get **two different answers.**
 
 That's because it isn't looking up one true result. It's predicting a *likely* one — and
 "likely" wiggles a little each time. We call this **non-deterministic**: same input, possibly
-different output. As the instructor put it after generating something in class: *"I ask it the
-same exact question — I won't get that again."*
+different output. Generate something, then ask for the exact same thing again, and you simply
+won't get it back the same way.
 
 This matters more than it sounds. It means you **can't just re-ask and expect the same thing.**
 If you ever need AI to do something the *same* way every time, you don't just cross your
@@ -128,7 +127,7 @@ not all-knowing. It's a fast pattern-machine standing on a big — but limited �
 
 ## Wrapping up: back to those two voices
 
-Remember the two podcast hosts from the start — the ones that made the room go quiet?
+Remember those two podcast hosts from the start?
 
 Now you can explain them. There were no people and no microphones. A tool read a stack of
 documents (**data**), used a huge amount of **compute** to predict natural-sounding

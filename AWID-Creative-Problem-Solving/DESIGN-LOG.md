@@ -98,6 +98,11 @@ once):
     (learner reading), `activity.md` (student handout), `instructor-guide.md` (facilitation),
     and `scorm/` (a self-contained, vanilla-JS interactive packaged for **SCORM 1.2** — runs
     standalone or in an LMS). *(2026-06-01)*
+16. **Keep narrative distance from the physical class.** Lesson content freely uses the stories,
+    metaphors, and expressions from the delivered class, but does NOT explicitly reference the
+    session itself ("the room," "in class," "the instructor said"). Tell the stories as
+    illustrative scenes, not as a recap. Interactive quizzes give **per-question feedback**, not
+    just a score. *(2026-06-01)*
 
 ---
 

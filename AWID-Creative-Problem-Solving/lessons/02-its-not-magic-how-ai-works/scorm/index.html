@@ -19,13 +19,13 @@
 
     <section class="step" data-step>
       <h2>🎙️ A story to start with</h2>
-      <p>The room got quiet, and two voices started talking — warm, funny, a little nerdy. A man
-         and a woman, hosting what sounded exactly like a podcast: <em>"How do you teach an old
+      <p>Press play, and two voices start talking — warm, funny, a little nerdy. A man
+         and a woman, hosting what sounds exactly like a podcast: <em>"How do you teach an old
          industrial giant to dance?"</em></p>
       <p>Here's the thing: <strong>neither of them is real.</strong> No microphones. No people. A
          tool read a stack of boring documents and produced two AI voices chatting like old
-         friends. The room split in half — amazed, and a little spooked. It <em>felt</em> like
-         magic.</p>
+         friends. The first time you hear it, it's hard not to feel a little split — amazed, and
+         a little spooked. It <em>felt</em> like magic.</p>
       <p class="callout">It isn't. By the end, you'll know exactly why. Let's pull back the
          curtain.</p>
     </section>
@@ -111,33 +111,39 @@
       {
         q: "Which of these is NON-deterministic?",
         options: ["A calculator doing 2 + 2", "Asking a chatbot the same question twice", "Adding a column in a spreadsheet"],
-        answer: 1
+        answer: 1,
+        feedback: "A calculator and a spreadsheet give the same result every time. A chatbot predicts a likely answer, so it can differ each time."
       },
       {
         q: "What two things grew to make modern AI possible?",
         options: ["Luck and magic", "Data and compute (speed)", "Bigger screens and faster typing"],
-        answer: 1
+        answer: 1,
+        feedback: "The basic input → process → output idea is old. What changed is the huge amount of data and the speed to process it."
       },
       {
         q: "True or false: an AI's answer 'magically appears' on the screen.",
         options: ["True", "False — it's generated code shown fast"],
-        answer: 1
+        answer: 1,
+        feedback: "Every reply is generated code shown to you very fast. Impressive, but not magic."
       },
       {
         q: "Why don't you need the deep math to use AI well?",
         options: ["Because the math is fake", "Like driving a car without knowing the engine — a simple model is enough", "Because AI has no math in it"],
-        answer: 1
+        answer: 1,
+        feedback: "You can drive without knowing the engine. The model 'code + data + speed, non-deterministic' is enough to use it well."
       },
       {
         q: "A chatbot mostly works by…",
         options: ["Looking up the one true answer", "Predicting what word probably comes next, very fast", "Asking a human in another room"],
-        answer: 1
+        answer: 1,
+        feedback: "It's a fast 'what word probably comes next' machine, trained on mountains of text — not a lookup of one true answer."
       }
     ];
     var PASS_PERCENT = 60;
 
     // ---- Build quiz ----
     var form = document.getElementById("quizForm");
+    var fbEls = [];
     QUESTIONS.forEach(function (item, qi) {
       var fs = document.createElement("fieldset");
       fs.className = "quiz__q";
@@ -155,6 +161,10 @@
         label.appendChild(document.createTextNode(" " + opt));
         fs.appendChild(label);
       });
+      var fb = document.createElement("p");
+      fb.className = "quiz__fb"; fb.hidden = true;
+      fs.appendChild(fb);
+      fbEls.push(fb);
       form.appendChild(fs);
     });
 
@@ -183,7 +193,18 @@
       var correct = 0;
       QUESTIONS.forEach(function (item, qi) {
         var chosen = form.querySelector('input[name="q' + qi + '"]:checked');
-        if (chosen && Number(chosen.value) === item.answer) correct++;
+        var isCorrect = chosen && Number(chosen.value) === item.answer;
+        if (isCorrect) correct++;
+        var fb = fbEls[qi];
+        fb.hidden = false;
+        if (isCorrect) {
+          fb.className = "quiz__fb is-correct";
+          fb.textContent = "✓ Correct. " + item.feedback;
+        } else {
+          fb.className = "quiz__fb is-wrong";
+          fb.textContent = "✗ Not quite — the answer is “" + item.options[item.answer] +
+            ".” " + item.feedback;
+        }
       });
       var pct = Math.round((correct / QUESTIONS.length) * 100);
       var passed = pct >= PASS_PERCENT;
