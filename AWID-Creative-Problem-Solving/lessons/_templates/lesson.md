@@ -5,7 +5,7 @@ title: "<Lesson title>"
 course: "Applied AI in Design Thinking (Creative Problem Solving)"
 duration: "<e.g. 45–60 minutes>"
 audience: "<who this is for; default to a beginner, ~5th-grade reading level>"
-prerequisites: "<what a learner needs first, or 'None.'>"
+prerequisites: "<required skills/tools, or 'None.' — never name another lesson>"
 created: "<YYYY-MM-DD the lesson is created>"
 locked: true
 changePolicy: "Once created, this lesson is locked. It may not be changed without an open, approved GitHub issue. Link the issue number in the commit that makes the change."
@@ -33,6 +33,10 @@ relatedConcepts:                   # keys from concept-inventory.json; one per l
 
   Write at roughly a fifth-grade reading level unless the audience calls for otherwise
   (concept 2026-05-29-029). Ground examples in something real whenever possible.
+
+  SELF-CONTAINED: never reference another lesson/module ("as we saw in Module 0",
+  "we'll cover this later"). If prior knowledge is needed, present it inline. See the
+  full convention in ../LESSON-SPEC.md §4.10.
   =================================================================================
 -->
 

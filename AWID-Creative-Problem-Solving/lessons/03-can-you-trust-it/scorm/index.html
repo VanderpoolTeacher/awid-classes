@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Can You Trust It? Hallucination, Bias &amp; Checking AI's Work</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="scorm-api.js"></script>
+</head>
+<body>
+  <main class="lesson" id="lesson">
+    <header class="lesson__header">
+      <p class="lesson__eyebrow">Module 1 · Creative Problem Solving</p>
+      <h1 class="lesson__title">Can You Trust It?</h1>
+      <div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+    </header>
+
+    <section class="step" data-step>
+      <h2>⚖️ A story to start with</h2>
+      <p>A lawyer is up against a deadline. To save time, he asks an AI to summarize past court
+         cases that back his argument. Out it comes — polished, confident, with real-sounding
+         names, citations, and quotes. He files it.</p>
+      <p>One problem: <strong>the cases don't exist.</strong> The AI invented them, in language so
+         professional nobody double-checked. Then the judge checks. Now his credibility — maybe
+         his career — is on the line.</p>
+      <p class="callout">AI is a fast prediction machine: it produces text that's
+         <em>likely-sounding</em>, not guaranteed-true. So can you trust it — and how do you check?</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>Confident does not mean correct</h2>
+      <p>The trap in one line: <strong>AI is often most convincing exactly when it's wrong.</strong></p>
+      <p>It was built to sound fluent and sure of itself. Fluency is its talent — not truth. When
+         it's wrong, the answer doesn't come out shaky. It comes out clean, confident, and
+         professional. That smooth confidence is what fools smart people.</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>Why it makes things up</h2>
+      <p>It predicts the next words from patterns, over and over. When it doesn't actually "know"
+         something, it doesn't stop and admit it — it predicts the most <em>plausible-looking</em>
+         answer and hands it over.</p>
+      <p>Ask for sources and it can invent real-looking citations. Ask for case law and it can
+         write cases that never happened. The word for this is <strong>hallucination</strong>:
+         stating something false as if it were true. No malice — just a prediction machine filling
+         a gap with something that fits the pattern.</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>The tells — and the quieter problem, bias</h2>
+      <p><strong>Tells</strong> that output may be wrong: fabricated specifics (citations/quotes you
+         can't find), answers that fit your wish a little too perfectly, and in images — extra
+         fingers, melted text, details that fall apart when you zoom in.</p>
+      <p><strong>Bias</strong> is the quiet risk. Because AI learns from human data, it inherits
+         human skew — early image tools couldn't make a balanced classroom. "Confident" doesn't
+         mean "fair," and the unfair parts are easy to miss because nothing looks broken.</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>The fix: verify, and match effort to stakes</h2>
+      <p><strong>Never publish or act on AI output without checking it against a trusted source
+         first.</strong> Do it on the back end — after the draft, before it goes out. Check the
+         claims (do those sources exist?), and constrain the inputs (give it trusted documents, not
+         "the whole internet").</p>
+      <p><strong>Match your effort to the stakes.</strong> Brainstorming a bake-sale name? Relax. A
+         legal brief, a number in a proposal, anything public with your name on it? Verify hard.
+         Judging the stakes is the whole skill.</p>
+    </section>
+
+    <section class="step step--quiz" data-step hidden>
+      <h2>Quick check</h2>
+      <p class="muted">Answer all five, then submit. You'll need 60% to pass.</p>
+      <form id="quizForm" class="quiz"></form>
+      <button type="button" id="submitQuiz" class="btn">Submit answers</button>
+      <div id="quizResult" class="quiz__result" role="status" hidden></div>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>⚖️ Back to the lawyer</h2>
+      <p>The AI wasn't malicious — it did its one job: predict text that <em>looks</em> like a
+         right answer. It looked so professional he skipped the back-end check, and the stakes were
+         sky-high. One step — <em>do these cases exist?</em> — would have saved him.</p>
+      <p>Treat AI like a brilliant intern whose work you always proofread before your name goes on
+         it.</p>
+      <p><strong>Remember:</strong></p>
+      <ul>
+        <li><strong>Confident ≠ correct</strong> — it's often most convincing when wrong.</li>
+        <li><strong>Hallucination</strong> = confident, plausible-sounding fabrication.</li>
+        <li>Watch the <strong>tells</strong>; stay alert to <strong>bias</strong>.</li>
+        <li><strong>Verify on the back end</strong>, and <strong>match effort to the stakes</strong>.</li>
+      </ul>
+      <p class="callout">Lesson complete ✓ — your progress has been sent to the learning system.</p>
+    </section>
+
+    <nav class="lesson__nav">
+      <button type="button" id="prevBtn" class="btn btn--ghost" disabled>← Back</button>
+      <span class="lesson__count" id="stepCount"></span>
+      <button type="button" id="nextBtn" class="btn">Next →</button>
+    </nav>
+  </main>
+
+  <script>
+    var QUESTIONS = [
+      {
+        q: "What is an AI \"hallucination\"?",
+        options: ["When AI refuses to answer", "When AI states something false as if it's true", "When AI runs slowly"],
+        answer: 1,
+        feedback: "It's confident, plausible-sounding fabrication — invented facts, sources, even court cases."
+      },
+      {
+        q: "AI is often MOST convincing when…",
+        options: ["it's right", "it's wrong", "it's offline"],
+        answer: 1,
+        feedback: "Fluency is its talent, not truth — wrong answers still come out clean and confident."
+      },
+      {
+        q: "AI gives you three sources. Before you use them, you should…",
+        options: ["trust them — they look real", "search for each one to confirm it exists", "ask the AI if it's sure"],
+        answer: 1,
+        feedback: "If you can't find a source independently, treat it as fabricated until proven otherwise."
+      },
+      {
+        q: "How is bias different from hallucination?",
+        options: ["They're the same thing", "Bias is a quiet, systematic skew from training data; hallucination is a loud false statement", "Bias only happens in images"],
+        answer: 1,
+        feedback: "Bias is quiet and systematic; a hallucination is a loud, checkable falsehood."
+      },
+      {
+        q: "When should you verify the hardest?",
+        options: ["Low-stakes brainstorming", "High-stakes work going public with your name on it", "You never need to verify"],
+        answer: 1,
+        feedback: "Match effort to stakes — verify hard when a wrong answer would be costly."
+      }
+    ];
+    var PASS_PERCENT = 60;
+
+    var form = document.getElementById("quizForm");
+    var fbEls = [];
+    QUESTIONS.forEach(function (item, qi) {
+      var fs = document.createElement("fieldset");
+      fs.className = "quiz__q";
+      var legend = document.createElement("legend");
+      legend.textContent = (qi + 1) + ". " + item.q;
+      fs.appendChild(legend);
+      item.options.forEach(function (opt, oi) {
+        var id = "q" + qi + "o" + oi;
+        var label = document.createElement("label");
+        label.className = "quiz__opt"; label.htmlFor = id;
+        var input = document.createElement("input");
+        input.type = "radio"; input.name = "q" + qi; input.id = id; input.value = oi;
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(" " + opt));
+        fs.appendChild(label);
+      });
+      var fb = document.createElement("p");
+      fb.className = "quiz__fb"; fb.hidden = true;
+      fs.appendChild(fb); fbEls.push(fb);
+      form.appendChild(fs);
+    });
+
+    var steps = Array.prototype.slice.call(document.querySelectorAll("[data-step]"));
+    var current = 0;
+    var prevBtn = document.getElementById("prevBtn");
+    var nextBtn = document.getElementById("nextBtn");
+    var stepCount = document.getElementById("stepCount");
+    var progressBar = document.getElementById("progressBar");
+    function render() {
+      steps.forEach(function (s, i) { s.hidden = i !== current; });
+      prevBtn.disabled = current === 0;
+      nextBtn.style.visibility = current === steps.length - 1 ? "hidden" : "visible";
+      stepCount.textContent = (current + 1) + " / " + steps.length;
+      progressBar.style.width = (current / (steps.length - 1) * 100) + "%";
+      window.scrollTo(0, 0);
+    }
+    prevBtn.addEventListener("click", function () { if (current > 0) { current--; render(); } });
+    nextBtn.addEventListener("click", function () { if (current < steps.length - 1) { current++; render(); } });
+
+    document.getElementById("submitQuiz").addEventListener("click", function () {
+      var correct = 0;
+      QUESTIONS.forEach(function (item, qi) {
+        var chosen = form.querySelector('input[name="q' + qi + '"]:checked');
+        var isCorrect = chosen && Number(chosen.value) === item.answer;
+        if (isCorrect) correct++;
+        var fb = fbEls[qi];
+        fb.hidden = false;
+        if (isCorrect) {
+          fb.className = "quiz__fb is-correct";
+          fb.textContent = "✓ Correct. " + item.feedback;
+        } else {
+          fb.className = "quiz__fb is-wrong";
+          fb.textContent = "✗ Not quite — the answer is “" + item.options[item.answer] + ".” " + item.feedback;
+        }
+      });
+      var pct = Math.round((correct / QUESTIONS.length) * 100);
+      var passed = pct >= PASS_PERCENT;
+      var result = document.getElementById("quizResult");
+      result.hidden = false;
+      result.className = "quiz__result " + (passed ? "is-pass" : "is-fail");
+      result.textContent = "You scored " + pct + "% (" + correct + "/" + QUESTIONS.length + "). " +
+        (passed ? "Passed! Continue to finish." : "Below " + PASS_PERCENT + "% — review and try again, then continue.");
+      SCORM.setScore(pct);
+      SCORM.complete(passed);
+    });
+
+    SCORM.init();
+    render();
+  </script>
+</body>
+</html>

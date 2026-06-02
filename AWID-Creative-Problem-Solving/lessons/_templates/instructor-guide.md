@@ -47,8 +47,9 @@ totalTime: "<e.g. 30–45 minutes>"
 ## Common misconceptions to watch for
 -
 
-## Transition to the next module
-<!-- One or two sentences bridging to what's next. -->
+## Closing thought
+<!-- A dependency-free wrap-up. Do NOT reference other lessons/modules by name (LESSON-SPEC §4.10);
+     if you preview a theme, keep it general so this guide never depends on another lesson. -->
 
 ## If you have less time
 <!-- What to cut and what to protect. -->

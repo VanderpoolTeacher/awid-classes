@@ -79,6 +79,11 @@ These consolidate Decisions 10–16 in `DESIGN-LOG.md`.
 9. **Immutability.** Once a lesson is published to `main` it is **locked** (`locked: true` +
    `changePolicy` in front matter). Changes require an approved **GitHub issue**, referenced in
    the commit. (Templates and this spec are tools — they may evolve without an issue.)
+10. **Self-contained — no cross-content references.** Content never references another lesson or
+    module (by name or number), never assumes another lesson was completed, and never says "as we
+    saw earlier" or "we'll cover this later." If prior knowledge is needed, **present it inline.**
+    The `prerequisites` field names required skills/tools, not other lessons. (Internal provenance
+    metadata such as `derivedFrom` is a production pointer, not learner content, and is exempt.)
 
 ---
 
@@ -127,7 +132,7 @@ done criteria.**
 - **Format/location:** Markdown in the parts folder. Template: `_templates/instructor-guide.md`.
 - **Required structure:** why this lesson exists · objectives · materials/setup · timing table ·
   facilitation walk-through · check-for-understanding **answer key** · misconceptions ·
-  transition · if-less-time.
+  closing thought (no cross-references) · if-less-time.
 - **Front matter:** `part: instructor-guide`, `lesson`, `module`, `title`, `derivedFrom`,
   `audience`, `totalTime`.
 - **Done when:** a new facilitator could run the lesson from it; answer key complete.
