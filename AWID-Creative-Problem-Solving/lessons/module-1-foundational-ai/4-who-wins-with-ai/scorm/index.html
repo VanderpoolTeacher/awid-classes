@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Who Wins With AI? Using It as a Tool</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="scorm-api.js"></script>
+</head>
+<body>
+  <main class="lesson" id="lesson">
+    <header class="lesson__header">
+      <p class="lesson__eyebrow">Module 1 · Creative Problem Solving</p>
+      <h1 class="lesson__title">Who Wins With AI?</h1>
+      <div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+    </header>
+
+    <section class="step" data-step>
+      <h2>🖥️ A story to start with</h2>
+      <p>The first computers were built to do one thing: calculate where battleship shells would
+         land. Room-sized, expensive, run by specialists.</p>
+      <p>Then businesses got them — and here's the surprise. The people who got the most out of
+         them weren't the engineers who built them. They were the <strong>accountants,
+         salespeople, and clerks</strong> — people who knew a <em>job</em> and used the new tool
+         to do it faster.</p>
+      <p class="callout">That pattern is repeating with AI. The worry "I'm not technical, so AI
+         isn't for me" gets it backwards.</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>The tool doesn't supply the judgment</h2>
+      <p>AI is a tool. A hammer is dangerous in careless hands and powerful in skilled ones — the
+         difference is the <em>person</em>. AI will confidently do whatever you point it at, well
+         or badly.</p>
+      <p>So the real question isn't "what can AI do?" It's <strong>"what do you bring to it?"</strong></p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>You bring expertise + intent</h2>
+      <p>The winners with AI usually <strong>know a field deeply and know what they want</strong> —
+         not the ones with the most technical skill. A great teacher pulls more useful help out of
+         AI for a lesson than a brilliant programmer who's never taught.</p>
+      <p>Just like the accountants out-using the engineers: your real-world expertise is the
+         scarce ingredient. AI supplies speed; <strong>you</strong> supply the judgment.</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>Get closer to the controls</h2>
+      <p>Tools hide their inner workings so they're easy to use — that's <strong>abstraction</strong>
+         (why you can drive without understanding the engine). But you usually get whatever the
+         <em>default</em> hands you.</p>
+      <p>Steer it: <strong>be specific</strong> ("cut to 100 words for a sixth-grader, keep the
+         three points") and <strong>ask for structure</strong> (a list, a table) when it matters.
+         You don't need to be technical — you need to be <strong>clear.</strong></p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>Agents — and knowing your edge</h2>
+      <p>AI increasingly doesn't just answer — it can <strong>act.</strong> An <em>agent</em> takes
+         steps for you (browse, fill a form, complete a task); a good one states its plan and
+         <strong>pauses for your approval</strong> before anything important.</p>
+      <p>And know where your expertise <em>ends.</em> A confident non-expert plus a confident AI is
+         how bad decisions happen fast — for high-stakes or out-of-field work, bring in a real
+         human expert.</p>
+    </section>
+
+    <section class="step step--quiz" data-step hidden>
+      <h2>Quick check</h2>
+      <p class="muted">Answer all five, then submit. You'll need 60% to pass.</p>
+      <form id="quizForm" class="quiz"></form>
+      <button type="button" id="submitQuiz" class="btn">Submit answers</button>
+      <div id="quizResult" class="quiz__result" role="status" hidden></div>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>🖥️ Back to the accountants</h2>
+      <p>The accountants got more out of the first computers than the engineers did — because they
+         knew the job. That's you. You don't need to build the tool or understand its guts. You
+         need to <strong>know your field, know what you want, and steer clearly</strong> — then
+         check the work against what you know.</p>
+      <p><strong>Remember:</strong></p>
+      <ul>
+        <li>AI is a <strong>tool</strong>; the value is in the hands holding it.</li>
+        <li>A <strong>domain expert</strong> who's clear about the goal beats a technical novice.</li>
+        <li><strong>Get closer to the controls</strong> — be specific, ask for structure.</li>
+        <li>Know the <strong>edge of your expertise</strong>; high-stakes work needs a human expert.</li>
+      </ul>
+      <p class="callout">Lesson complete ✓ — your progress has been sent to the learning system.</p>
+    </section>
+
+    <nav class="lesson__nav">
+      <button type="button" id="prevBtn" class="btn btn--ghost" disabled>← Back</button>
+      <span class="lesson__count" id="stepCount"></span>
+      <button type="button" id="nextBtn" class="btn">Next →</button>
+    </nav>
+  </main>
+
+  <script>
+    var QUESTIONS = [
+      {
+        q: "Why does the person matter more than the tool when using AI?",
+        options: ["The tool is slow", "AI supplies speed but not judgment — the person sets the goal and catches errors", "The person types faster"],
+        answer: 1,
+        feedback: "AI gives speed and options; you supply the goal, the judgment, and the error-catching."
+      },
+      {
+        q: "Who often gets the most out of AI?",
+        options: ["The most technical person in the room", "A domain expert who knows what they want", "Whoever has the newest computer"],
+        answer: 1,
+        feedback: "Domain expertise — knowing what 'good' looks like — beats raw technical skill."
+      },
+      {
+        q: "\"Get closer to the controls\" means…",
+        options: ["Learn to code first", "Be specific and ask for structure to steer the output", "Always use a bigger model"],
+        answer: 1,
+        feedback: "Vague in, vague out — precise instructions and structure steer the result."
+      },
+      {
+        q: "Before doing something important, a good AI agent should…",
+        options: ["Just do it as fast as possible", "State its plan and pause for your approval", "Hide what it's doing"],
+        answer: 1,
+        feedback: "Agents take real actions — a good one shows its plan and waits for your okay."
+      },
+      {
+        q: "When should you NOT trust AI on your own?",
+        options: ["When brainstorming low-stakes ideas", "When you're outside your expertise or the stakes are high", "When it's a free tool"],
+        answer: 1,
+        feedback: "Outside your domain or high-stakes? Loop in a human expert."
+      }
+    ];
+    var PASS_PERCENT = 60;
+
+    var form = document.getElementById("quizForm");
+    var fbEls = [];
+    QUESTIONS.forEach(function (item, qi) {
+      var fs = document.createElement("fieldset");
+      fs.className = "quiz__q";
+      var legend = document.createElement("legend");
+      legend.textContent = (qi + 1) + ". " + item.q;
+      fs.appendChild(legend);
+      item.options.forEach(function (opt, oi) {
+        var id = "q" + qi + "o" + oi;
+        var label = document.createElement("label");
+        label.className = "quiz__opt"; label.htmlFor = id;
+        var input = document.createElement("input");
+        input.type = "radio"; input.name = "q" + qi; input.id = id; input.value = oi;
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(" " + opt));
+        fs.appendChild(label);
+      });
+      var fb = document.createElement("p");
+      fb.className = "quiz__fb"; fb.hidden = true;
+      fs.appendChild(fb); fbEls.push(fb);
+      form.appendChild(fs);
+    });
+
+    var steps = Array.prototype.slice.call(document.querySelectorAll("[data-step]"));
+    var current = 0;
+    var prevBtn = document.getElementById("prevBtn");
+    var nextBtn = document.getElementById("nextBtn");
+    var stepCount = document.getElementById("stepCount");
+    var progressBar = document.getElementById("progressBar");
+    function render() {
+      steps.forEach(function (s, i) { s.hidden = i !== current; });
+      prevBtn.disabled = current === 0;
+      nextBtn.style.visibility = current === steps.length - 1 ? "hidden" : "visible";
+      stepCount.textContent = (current + 1) + " / " + steps.length;
+      progressBar.style.width = (current / (steps.length - 1) * 100) + "%";
+      window.scrollTo(0, 0);
+    }
+    prevBtn.addEventListener("click", function () { if (current > 0) { current--; render(); } });
+    nextBtn.addEventListener("click", function () { if (current < steps.length - 1) { current++; render(); } });
+
+    document.getElementById("submitQuiz").addEventListener("click", function () {
+      var correct = 0;
+      QUESTIONS.forEach(function (item, qi) {
+        var chosen = form.querySelector('input[name="q' + qi + '"]:checked');
+        var isCorrect = chosen && Number(chosen.value) === item.answer;
+        if (isCorrect) correct++;
+        var fb = fbEls[qi];
+        fb.hidden = false;
+        if (isCorrect) {
+          fb.className = "quiz__fb is-correct";
+          fb.textContent = "✓ Correct. " + item.feedback;
+        } else {
+          fb.className = "quiz__fb is-wrong";
+          fb.textContent = "✗ Not quite — the answer is “" + item.options[item.answer] + ".” " + item.feedback;
+        }
+      });
+      var pct = Math.round((correct / QUESTIONS.length) * 100);
+      var passed = pct >= PASS_PERCENT;
+      var result = document.getElementById("quizResult");
+      result.hidden = false;
+      result.className = "quiz__result " + (passed ? "is-pass" : "is-fail");
+      result.textContent = "You scored " + pct + "% (" + correct + "/" + QUESTIONS.length + "). " +
+        (passed ? "Passed! Continue to finish." : "Below " + PASS_PERCENT + "% — review and try again, then continue.");
+      SCORM.setScore(pct);
+      SCORM.complete(passed);
+    });
+
+    SCORM.init();
+    render();
+  </script>
+</body>
+</html>

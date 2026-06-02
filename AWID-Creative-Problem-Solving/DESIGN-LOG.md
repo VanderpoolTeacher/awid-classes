@@ -408,3 +408,16 @@ once):
   linked under Module 1 in the outline.
 - **Result:** Lesson complete. **Next:** commit, PR closing #15. Module 1 now has 3 of ~4 lessons
   (1b ×2, 1c); 1a and 1d remain.
+
+### 2026-06-02 — Step 18: Module 1 Lesson 4 — "Who Wins With AI?" (issue #17)
+
+- **Prompt (summary):** "merge and go" — merged Lesson 3 (PR #16) and built the final Module 1
+  lesson (1d).
+- **Response/decision:** Built on **issue #17 / branch `feature/17-who-wins-with-ai`** the AI-as-
+  a-tool lesson (1d). Per LESSON-SPEC from `_templates/`:
+  `module-1-foundational-ai/4-who-wins-with-ai/` with `lesson.md` + parts + SCORM 1.2 interactive
+  (5-question check with feedback). Concepts `…-015/014/016/028`. Narrative hook: the first
+  computers, where accountants/clerks (domain experts), not engineers, won. Self-contained;
+  linked under Module 1 in the outline.
+- **Result:** Lesson complete. **Module 1 is now fully drafted** (1b ×2, 1c, 1d); only the
+  optional deeper-dive 1a remains. **Next:** commit, PR closing #17.
