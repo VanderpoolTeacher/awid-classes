@@ -15,6 +15,8 @@ readingLevel: "~5th grade"
   narrative. Keep narrative distance — tell stories as illustrative scenes, never as a recap
   of the delivered class ("the room," "in class," "the instructor said"). No instructor notes,
   no activity, no quiz here — those are separate parts.
+  Self-contained: never reference other lessons/modules; present any needed prior knowledge
+  inline (LESSON-SPEC §4.10).
 -->
 
 # <Lesson title>

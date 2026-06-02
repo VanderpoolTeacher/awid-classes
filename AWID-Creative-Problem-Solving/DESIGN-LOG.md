@@ -109,6 +109,12 @@ once):
     `_TEMPLATE.md` — plus `lesson-text.md`, `activity.md`, `instructor-guide.md`, `scorm/`). New
     lessons are authored by copying `_templates/` and following the spec. Templates and the spec
     are tools and may evolve without a GitHub issue. *(2026-06-01)*
+18. **Content is self-contained — no cross-content references.** No piece of content references
+    another lesson/module (by name or number), assumes another was completed, or says "as we saw
+    earlier / we'll cover later." Needed prior knowledge is presented **inline**; `prerequisites`
+    names skills/tools, not lessons. (Internal provenance metadata like `derivedFrom` is exempt —
+    it's a production pointer, not learner content.) Codified in `LESSON-SPEC.md` §4.10 and the
+    templates. *(2026-06-01)*
 
 ---
 
@@ -322,3 +328,20 @@ once):
   placeholders.
 - **Result:** Spec + full template set in place. **Next:** commit on the branch, open a PR that
   closes #5, then merge to publish.
+
+### 2026-06-01 — Step 13: Module 1 Lesson — "Can You Trust It?" (issue #7) + no-cross-ref rule
+
+- **Prompt (summary):** Build Module 1 on a new branch. Mid-build: add a rule that content never
+  references other content (present prior knowledge inline). Create a cleanup issue for the
+  already-published lessons, and keep going on Lesson 3.
+- **Response/decision:** Module 1 is large (~29 concepts) → built as a sequence; started with the
+  trust/accuracy lesson on **issue #7 / branch `feature/7-can-you-trust-it`**. Built the master
+  (`03-can-you-trust-it.md`) and all parts under `03-can-you-trust-it/`: `lesson-text.md`,
+  `activity.md`, `instructor-guide.md`, and `scorm/` (SCORM 1.2, 5-question check with feedback).
+  Concepts `…-007/008/020/021`. Added **Decision 18** (self-contained content — no cross-content
+  references) to `LESSON-SPEC.md` §4.10 and the templates, and applied it to Lesson 3 (removed all
+  Module 0 references; prior knowledge presented inline). Filed **issue #8** to retrofit the
+  already-published lessons (which predate the rule and are locked).
+- **Result:** Lesson 3 complete and self-contained (grep clean); scorm manifest well-formed.
+  **Next:** commit, open PR closing #7, merge to publish. Cleanup of published lessons tracked in
+  #8.
