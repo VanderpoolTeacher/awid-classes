@@ -284,5 +284,16 @@ once):
   standalone.
 - **Result:** Created `lesson-text.md`, `activity.md`, `instructor-guide.md`, and `scorm/`
   (`index.html`, `styles.css`, `scorm-api.js`, `imsmanifest.xml`, `README.md`). Updated
-  `_TEMPLATE.md` with the narrative convention. **Next:** commit/push to the content branch;
-  optionally test the SCORM package; decide whether to decompose other lessons / pick the next.
+  `_TEMPLATE.md` with the narrative convention.
+
+### 2026-06-01 — Step 11: Lesson viewer web page
+
+- **Prompt (summary):** Create a web page to view the lesson with.
+- **Response/decision:** Built a reusable lesson viewer `lessons/view.html` (no external
+  dependencies): tabs for Lesson / Activity / Instructor Guide + a button to launch the SCORM
+  interactive. It fetches and renders the part `.md` files with a small built-in Markdown
+  parser (headings, lists, tables, blockquotes, code, inline), so the source `.md` stays the
+  single source of truth. Parameterized by `?lesson=<folder>`, defaulting to Module 0.
+- **Result:** `lessons/view.html` created. Verified over a local server — viewer + all parts
+  return HTTP 200. Open at `…/lessons/view.html`. **Next:** commit/push; pick the next lesson
+  or decompose Lesson 01.
