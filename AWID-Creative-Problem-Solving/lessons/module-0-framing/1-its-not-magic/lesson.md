@@ -1,5 +1,4 @@
 ---
-lesson: "02"
 module: "0"
 title: "Module 0 — It's Not Magic: How AI Actually Works"
 course: "Applied AI in Design Thinking (Creative Problem Solving)"

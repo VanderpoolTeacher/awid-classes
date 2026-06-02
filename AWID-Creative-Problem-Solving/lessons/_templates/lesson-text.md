@@ -1,9 +1,8 @@
 ---
 part: "lesson-text"
-lesson: "NN"
 module: "<0–3>"
 title: "<Lesson title> — Lesson Text"
-derivedFrom: "../NN-slug.md"
+derivedFrom: "./lesson.md"
 audience: "<learner audience; default beginner>"
 readingLevel: "~5th grade"
 ---

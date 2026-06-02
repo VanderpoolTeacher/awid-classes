@@ -1,5 +1,5 @@
 ---
-lesson: "01"
+module: "3"
 title: "Git & GitHub Basics — Tracking and Sharing Your Work"
 course: "Applied AI in Design Thinking (Creative Problem Solving)"
 duration: "45–60 minutes"

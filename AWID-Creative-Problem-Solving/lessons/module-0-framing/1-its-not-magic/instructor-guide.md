@@ -1,9 +1,8 @@
 ---
 part: "instructor-guide"
-lesson: "02"
 module: "0"
 title: "It's Not Magic — Instructor Guide"
-derivedFrom: "../02-its-not-magic-how-ai-works.md"
+derivedFrom: "./lesson.md"
 audience: "Facilitator / instructor"
 totalTime: "30–45 minutes"
 ---

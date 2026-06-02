@@ -1,5 +1,4 @@
 ---
-lesson: "03"
 module: "1"
 title: "Module 1 — Can You Trust It? Hallucination, Bias, and Checking AI's Work"
 course: "Applied AI in Design Thinking (Creative Problem Solving)"

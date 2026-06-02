@@ -1,9 +1,8 @@
 ---
 part: "lesson-text"
-lesson: "02"
 module: "0"
 title: "It's Not Magic: How AI Actually Works — Lesson Text"
-derivedFrom: "../02-its-not-magic-how-ai-works.md"
+derivedFrom: "./lesson.md"
 audience: "Beginners — no math, coding, or data-science background needed"
 readingLevel: "~5th grade"
 ---
