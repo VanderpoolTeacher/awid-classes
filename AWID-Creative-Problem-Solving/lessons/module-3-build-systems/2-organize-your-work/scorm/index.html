@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Organize Your Work: Folders, Logs &amp; a Sandbox</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="scorm-api.js"></script>
+</head>
+<body>
+  <main class="lesson" id="lesson">
+    <header class="lesson__header">
+      <p class="lesson__eyebrow">Module 3 · Creative Problem Solving</p>
+      <h1 class="lesson__title">Organize Your Work</h1>
+      <div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+    </header>
+
+    <section class="step" data-step>
+      <h2>🗂️ A story to start with</h2>
+      <p>Open your Downloads folder. Be honest. It's probably a graveyard — hundreds of files named
+         <code>document(3)-FINAL-v2.pdf</code>, screenshots from months ago, things you'll never
+         find again.</p>
+      <p>The frustrating part: the tools to stay organized have always existed. Folders aren't new.
+         The hard part was never the technology — it was <em>us.</em></p>
+      <p class="callout">That changes when you pair a little structure with AI, which is happy to
+         do the tedious part.</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>The mess is a habit problem, not a tools problem</h2>
+      <p>We've always had folders. Digital life turns into a junk drawer because organizing is
+         boring work we skip. The fix isn't more willpower — it's a simple structure plus a helper
+         (AI) that doesn't mind the boring part.</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>Work in project folders — with a structure</h2>
+      <p>Give each effort its own <strong>project folder</strong>, everything in one place. AI
+         works far better pointed at <em>one clear folder</em> than at your whole scattered drive.</p>
+      <p>A pile in one folder is still a pile. <strong>Information architecture</strong> is the
+         structure — a logical place for each thing, consistent names. Let AI help: "here's my
+         mess, propose folders and a naming convention."</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>Keep a log</h2>
+      <p>A short <strong>log</strong> of what you did and why (and what you asked AI) sounds like
+         overhead — it's the opposite. It's how future-you understands the work without re-doing
+         the thinking, and how you answer "why did we do it this way?" months later.</p>
+      <p>Two lines a day. (This course was built with exactly that kind of running log.)</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>Keep a sandbox — and why this is the foundation</h2>
+      <p>A <strong>sandbox</strong> folder is a no-stakes place to experiment and break things on
+         purpose. Don't run experiments inside your real work — play in the sandbox, then promote
+         what works.</p>
+      <p>Organization isn't busywork. Templates live in folders; repeatable systems run on
+         organized inputs. Get this base right and the powerful stuff stops being fragile.</p>
+    </section>
+
+    <section class="step step--quiz" data-step hidden>
+      <h2>Quick check</h2>
+      <p class="muted">Answer all five, then submit. You'll need 60% to pass.</p>
+      <form id="quizForm" class="quiz"></form>
+      <button type="button" id="submitQuiz" class="btn">Submit answers</button>
+      <div id="quizResult" class="quiz__result" role="status" hidden></div>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>🗂️ Back to the Downloads graveyard</h2>
+      <p>You don't fix it with one heroic cleanup that lasts a week. You fix it with a little
+         structure and a helper: point AI at the mess, let it propose folders and names, keep real
+         work in project folders, jot a two-line log, and play in a sandbox. The pile stops growing
+         because the <em>system</em> — not your willpower — keeps it in order.</p>
+      <p><strong>Remember:</strong></p>
+      <ul>
+        <li>The mess is a <strong>habit</strong> problem — AI can do the tedious part.</li>
+        <li><strong>Project folders</strong> + an <strong>information architecture.</strong></li>
+        <li>Keep a <strong>log</strong> and a <strong>sandbox.</strong></li>
+        <li>Organization is the <strong>foundation</strong> templates and systems stand on.</li>
+      </ul>
+      <p class="callout">Lesson complete ✓ — your progress has been sent to the learning system.</p>
+    </section>
+
+    <nav class="lesson__nav">
+      <button type="button" id="prevBtn" class="btn btn--ghost" disabled>← Back</button>
+      <span class="lesson__count" id="stepCount"></span>
+      <button type="button" id="nextBtn" class="btn">Next →</button>
+    </nav>
+  </main>
+
+  <script>
+    var QUESTIONS = [
+      {
+        q: "Why does working in a focused project folder help you AND the AI?",
+        options: ["It looks tidy", "It keeps a project's pieces together and gives AI a clear, contained context", "It automatically deletes old files"],
+        answer: 1,
+        feedback: "Point AI at one clear folder, not your whole scattered drive."
+      },
+      {
+        q: "Information architecture is…",
+        options: ["The number of folders you have", "The structure and naming that makes things findable", "A type of AI model"],
+        answer: 1,
+        feedback: "A logical place for everything, with consistent names."
+      },
+      {
+        q: "A project log is…",
+        options: ["A list of every file", "A short note of what you did and why — for future-you and teammates", "A backup of your data"],
+        answer: 1,
+        feedback: "Two lines a day saves the 'why did we do this?' headache later."
+      },
+      {
+        q: "What's a sandbox for?",
+        options: ["Storing your finished work", "Experimenting and breaking things safely, away from real work", "Sharing files with clients"],
+        answer: 1,
+        feedback: "Play there; promote what works into the real project."
+      },
+      {
+        q: "Which organizing job can you hand to AI?",
+        options: ["Deciding your life goals", "Proposing a folder structure and sorting a messy folder", "Nothing about organizing"],
+        answer: 1,
+        feedback: "Organizing is exactly the tedious part AI is happy to do."
+      }
+    ];
+    var PASS_PERCENT = 60;
+
+    var form = document.getElementById("quizForm");
+    var fbEls = [];
+    QUESTIONS.forEach(function (item, qi) {
+      var fs = document.createElement("fieldset");
+      fs.className = "quiz__q";
+      var legend = document.createElement("legend");
+      legend.textContent = (qi + 1) + ". " + item.q;
+      fs.appendChild(legend);
+      item.options.forEach(function (opt, oi) {
+        var id = "q" + qi + "o" + oi;
+        var label = document.createElement("label");
+        label.className = "quiz__opt"; label.htmlFor = id;
+        var input = document.createElement("input");
+        input.type = "radio"; input.name = "q" + qi; input.id = id; input.value = oi;
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(" " + opt));
+        fs.appendChild(label);
+      });
+      var fb = document.createElement("p");
+      fb.className = "quiz__fb"; fb.hidden = true;
+      fs.appendChild(fb); fbEls.push(fb);
+      form.appendChild(fs);
+    });
+
+    var steps = Array.prototype.slice.call(document.querySelectorAll("[data-step]"));
+    var current = 0;
+    var prevBtn = document.getElementById("prevBtn");
+    var nextBtn = document.getElementById("nextBtn");
+    var stepCount = document.getElementById("stepCount");
+    var progressBar = document.getElementById("progressBar");
+    function render() {
+      steps.forEach(function (s, i) { s.hidden = i !== current; });
+      prevBtn.disabled = current === 0;
+      nextBtn.style.visibility = current === steps.length - 1 ? "hidden" : "visible";
+      stepCount.textContent = (current + 1) + " / " + steps.length;
+      progressBar.style.width = (current / (steps.length - 1) * 100) + "%";
+      window.scrollTo(0, 0);
+    }
+    prevBtn.addEventListener("click", function () { if (current > 0) { current--; render(); } });
+    nextBtn.addEventListener("click", function () { if (current < steps.length - 1) { current++; render(); } });
+
+    document.getElementById("submitQuiz").addEventListener("click", function () {
+      var correct = 0;
+      QUESTIONS.forEach(function (item, qi) {
+        var chosen = form.querySelector('input[name="q' + qi + '"]:checked');
+        var isCorrect = chosen && Number(chosen.value) === item.answer;
+        if (isCorrect) correct++;
+        var fb = fbEls[qi];
+        fb.hidden = false;
+        if (isCorrect) {
+          fb.className = "quiz__fb is-correct";
+          fb.textContent = "✓ Correct. " + item.feedback;
+        } else {
+          fb.className = "quiz__fb is-wrong";
+          fb.textContent = "✗ Not quite — the answer is “" + item.options[item.answer] + ".” " + item.feedback;
+        }
+      });
+      var pct = Math.round((correct / QUESTIONS.length) * 100);
+      var passed = pct >= PASS_PERCENT;
+      var result = document.getElementById("quizResult");
+      result.hidden = false;
+      result.className = "quiz__result " + (passed ? "is-pass" : "is-fail");
+      result.textContent = "You scored " + pct + "% (" + correct + "/" + QUESTIONS.length + "). " +
+        (passed ? "Passed! Continue to finish." : "Below " + PASS_PERCENT + "% — review and try again, then continue.");
+      SCORM.setScore(pct);
+      SCORM.complete(passed);
+    });
+
+    SCORM.init();
+    render();
+  </script>
+</body>
+</html>
