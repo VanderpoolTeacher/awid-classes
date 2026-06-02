@@ -71,6 +71,20 @@ once):
 9. **Redaction is a required step before any transcript is published.** If a transcript ever
    needs to go public, it must first be redacted (names + personal/sensitive content
    stripped) and committed as a separate redacted copy — never the raw file. *(2026-06-01)*
+10. **Lessons follow a fixed template structure.** Front matter (incl. `relatedConcepts`
+    keys) → Overview → Learning objectives → Key vocabulary → The lesson → Worked example →
+    Hands-on activity → Common pitfalls → Discussion questions → Check for understanding →
+    Key takeaways → Instructor notes. Markdown, stored in `lessons/`. Lesson 01 is the
+    prototype; a blank `lessons/_TEMPLATE.md` will be extracted from it. *(2026-06-01)*
+11. **Introduce every technology/concept with "What it is → What it does → How it fits."**
+    A required convention in lessons: define the thing, say what it does, then place it in
+    its ecosystem (e.g., "Git is version-control software that tracks a codebase's changes
+    and sits in the software development life cycle"). *(2026-06-01)*
+12. **Lessons are immutable once created.** A published lesson may not be changed without an
+    open, approved **GitHub issue**; the issue number is referenced in the commit that makes
+    the change. Enforced via lesson front matter (`locked: true` + `changePolicy`). The
+    structure (Decision 10) and the intro convention (Decision 11) are codified in
+    `lessons/_TEMPLATE.md`, which every new lesson is built from. *(2026-06-01)*
 
 ---
 
@@ -171,4 +185,48 @@ once):
   public repo — they contain attendees' real names and candid conversation. Unstaged them and
   added `recordings/` to `.gitignore` (Decisions 8 & 9). Committing only the three derived
   artifacts plus the `.gitignore` policy change.
-- **Result:** *(in progress — commit + push next)*
+- **Result:** Committed the 3 artifacts + `.gitignore` as `b9b040e` and pushed branch
+  `feature/course-concept-inventory` to GitHub. Verified no transcripts are tracked.
+
+### 2026-06-01 — Step 5: Merge slideshow into `main` & clean up branches
+
+- **Prompt (summary):** Asked what was going on with `feature/1-overview-slideshow`, then to
+  merge it into `main`, then to clean up the feature branches. Narrated slowly for the recording.
+- **Response/decision:** Found that `feature/1` (the overview slideshow) was complete but **not
+  on `main`** despite a "MERGED" PR label — `main` actually held unrelated feature-banner work.
+  Merged `feature/1` into `main` locally (clean, no conflicts). On push, GitHub **rejected** it:
+  while we worked, PR #3 (our concept branch, which was *stacked on* `feature/1`) had been merged
+  into `origin/main`, carrying the slideshow up too. Chose the safe path — fetch, inspect, and
+  **align local `main` to `origin/main`** (`reset --hard`) rather than force — discarding our now
+  redundant local merge. Then deleted both feature branches: `feature/1` with safe `-d`;
+  `feature/course-concept-inventory` needed `-D` because of one orphaned local commit that had
+  accidentally bundled the pre-existing logo/spec changes we'd deliberately excluded.
+- **Result:** `main` (local = GitHub) now holds the slideshow **and** the concept files, in sync.
+  Only `main` remains; feature branches gone locally and on GitHub. Transcripts still local-only.
+  Lesson reinforced on camera: rejections/`-d` refusals are safety features — fetch, look, then act.
+
+### 2026-06-01 — Step 6: First lesson + lesson-template conventions
+
+- **Prompt (summary):** Create a lesson on what we did with Git/GitHub (basic understanding) —
+  to also serve as the basis for a reusable lesson template structure. Approved the proposed
+  outline and added a rule: introduce every technology/concept with "what it is, what it does,
+  how it fits into the ecosystem."
+- **Response/decision:** Wrote `lessons/01-git-and-github-basics.md` against the approved
+  structure (Decision 10), applying the "What → Does → Fits" convention (Decision 11) to Git and
+  GitHub and an ecosystem-aware vocabulary table. Grounded every example in the real session
+  (stage/commit/push, branch, merge, the rejected push, `-d` vs `-D`, the privacy catch). Linked
+  it back to concept-inventory keys via `relatedConcepts` front matter.
+- **Result:** Lesson 01 written. Doubles as the template prototype.
+
+### 2026-06-01 — Step 7: Formalize the lesson pattern + immutability policy
+
+- **Prompt (summary):** "Establish this as a pattern." Also: lesson front matter must state that
+  once created, a lesson cannot be changed without a GitHub issue.
+- **Response/decision:** Extracted `lessons/_TEMPLATE.md` — the reusable skeleton encoding the
+  fixed section order (Decision 10) and the "What → Does → Fits" intro convention (Decision 11)
+  as in-file author guidance. Added an immutability policy (Decision 12): lessons carry
+  `locked: true` + a `changePolicy` in front matter requiring a GitHub issue for any change.
+  Backfilled the policy fields into Lesson 01.
+- **Result:** `lessons/_TEMPLATE.md` created; Lesson 01 front matter updated with `created`,
+  `locked`, and `changePolicy`. Pattern is now reusable. **Next:** decide whether to commit/
+  publish the lesson + template (recommend a fresh branch, since `main` is the live public site).
