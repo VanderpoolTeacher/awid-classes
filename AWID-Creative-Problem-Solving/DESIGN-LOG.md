@@ -395,3 +395,16 @@ once):
   contained (Decision 18); linked under Module 1 in the outline (Decision 19).
 - **Result:** Lesson complete; manifest well-formed, self-contained grep clean. **Next:** commit,
   PR closing #13.
+
+### 2026-06-02 — Step 17: Module 1 Lesson 3 — "Your Data Isn't Private" (issue #15)
+
+- **Prompt (summary):** "merge and go" — merged Lesson 2 (PR #14) and continued the build-out.
+- **Response/decision:** Built the third Module 1 lesson (sub-area 1c — data, privacy &
+  governance) on **issue #15 / branch `feature/15-your-data-isnt-private`**. Authored per
+  LESSON-SPEC from `_templates/`: `module-1-foundational-ai/3-your-data-isnt-private/` with
+  `lesson.md` + parts (lesson-text, activity, instructor-guide) + SCORM 1.2 interactive
+  (5-question check with feedback). Concepts `…-009/010/011/012/013`. Narrative hook: the
+  customer-list paste into a free chatbot ("the riskiest click is paste"). Self-contained;
+  linked under Module 1 in the outline.
+- **Result:** Lesson complete. **Next:** commit, PR closing #15. Module 1 now has 3 of ~4 lessons
+  (1b ×2, 1c); 1a and 1d remain.

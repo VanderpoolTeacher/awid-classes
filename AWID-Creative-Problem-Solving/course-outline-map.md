@@ -34,7 +34,7 @@ The opening move: set expectations and demystify before doing anything.
 
 ## Module 1 — Foundational AI understanding *(strand: foundational-ai)*
 
-**Lessons:** [1 · Can You Trust It?](lessons/module-1-foundational-ai/1-can-you-trust-it/lesson.md) *(1b — trust & accuracy)* · [2 · Whose Work Is It?](lessons/module-1-foundational-ai/2-whose-work-is-it/lesson.md) *(1b — ethics & ownership)* · _planned: 1a, 1c, 1d_
+**Lessons:** [1 · Can You Trust It?](lessons/module-1-foundational-ai/1-can-you-trust-it/lesson.md) *(1b — trust & accuracy)* · [2 · Whose Work Is It?](lessons/module-1-foundational-ai/2-whose-work-is-it/lesson.md) *(1b — ethics & ownership)* · [3 · Your Data Isn't Private](lessons/module-1-foundational-ai/3-your-data-isnt-private/lesson.md) *(1c — data & privacy)* · _planned: 1a, 1d_
 
 ### 1a. How it actually works
 - `…-001` It's not magic, it's code

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Data Isn't Private: Privacy, Permissions &amp; What Not to Feed AI</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="scorm-api.js"></script>
+</head>
+<body>
+  <main class="lesson" id="lesson">
+    <header class="lesson__header">
+      <p class="lesson__eyebrow">Module 1 · Creative Problem Solving</p>
+      <h1 class="lesson__title">Your Data Isn't Private</h1>
+      <div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+    </header>
+
+    <section class="step" data-step>
+      <h2>📋 A story to start with</h2>
+      <p>It's late, the report's due, and you've got a messy spreadsheet — customer names, emails,
+         notes. You copy it, paste it into a free chatbot, and type "clean this up and summarize."
+         Ten seconds later — beautiful. Done.</p>
+      <p>And in those ten seconds, you may have handed hundreds of people's private information to
+         a company you don't control — stored, maybe used to train future models, possibly kept
+         <strong>forever.</strong> You can't pull it back.</p>
+      <p class="callout">The most dangerous click in AI isn't a download. It's <strong>paste.</strong></p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>Nothing you put online is truly private</h2>
+      <p>Anything you put on the internet may not be private, and it tends not to disappear. These
+         systems copy, cache, log, and back up data — that's how they work.</p>
+      <p>A simple way to say it: <em>everything you do on a computer can be tracked, and once it's
+         out there, you can't fully take it back.</em> Public AI tools are part of that same
+         internet.</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>Be deliberate — and use the placeholder trick</h2>
+      <p>Before you paste, ask one question: <strong>is this mine to share?</strong> If it has
+         other people's names, emails, health or money details — strip it, anonymize it, or don't
+         paste it.</p>
+      <p>The <strong>placeholder trick:</strong> swap real names and numbers for stand-ins
+         ("Customer A," "$X"), get your summary, then restore the real details yourself, locally.
+         The AI helps — but never sees the private parts.</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>Some data is protected by law; free tools want your data</h2>
+      <p>In many fields it's the law: health info is protected by <strong>HIPAA</strong>, student
+         records by <strong>FERPA</strong>. If you work in a regulated space, know the rules
+         <em>before</em> you point AI at the data.</p>
+      <p>And <strong>free tools usually reserve the right to use your data</strong> — often to
+         train future models. Read the terms. On a free personal account, assume anything you type
+         could be used and kept.</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>At work, governance comes first</h2>
+      <p>In a business, the data isn't yours — it's the company's, and competitors must never get
+         it. Organizations set up <strong>governance</strong>: rules for what data exists, who can
+         see it, and which tools may touch it.</p>
+      <p>So the question isn't only "can AI do this?" It's <strong>"is this data cleared for this
+         tool?"</strong></p>
+    </section>
+
+    <section class="step step--quiz" data-step hidden>
+      <h2>Quick check</h2>
+      <p class="muted">Answer all five, then submit. You'll need 60% to pass.</p>
+      <form id="quizForm" class="quiz"></form>
+      <button type="button" id="submitQuiz" class="btn">Submit answers</button>
+      <div id="quizResult" class="quiz__result" role="status" hidden></div>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>📋 Back to that paste</h2>
+      <p>The tool did its job. The problem was the <em>decision</em> to paste private data into a
+         place the user didn't control. One small habit fixes it: swap the names for placeholders
+         first, or check whether the data was cleared for that tool. Same great summary — nobody's
+         information leaves the building.</p>
+      <p><strong>Remember:</strong></p>
+      <ul>
+        <li><strong>Anything online may not be private</strong> — and it doesn't disappear.</li>
+        <li>Keep <strong>personal/regulated/confidential</strong> data out; <strong>anonymize</strong> when you can.</li>
+        <li><strong>Free usually means your data is fair game</strong> — read the terms.</li>
+        <li>At work, <strong>governance decides</strong> what's allowed.</li>
+      </ul>
+      <p class="callout">Lesson complete ✓ — your progress has been sent to the learning system.</p>
+    </section>
+
+    <nav class="lesson__nav">
+      <button type="button" id="prevBtn" class="btn btn--ghost" disabled>← Back</button>
+      <span class="lesson__count" id="stepCount"></span>
+      <button type="button" id="nextBtn" class="btn">Next →</button>
+    </nav>
+  </main>
+
+  <script>
+    var QUESTIONS = [
+      {
+        q: "Why isn't data you paste into a public AI tool guaranteed to stay private?",
+        options: ["The tool deletes it instantly", "Tools store/log it and may reuse it, and online data persists", "It's encrypted forever"],
+        answer: 1,
+        feedback: "Public tools store and may reuse what you submit, and online data doesn't reliably disappear."
+      },
+      {
+        q: "Which should you keep OUT of a public AI tool?",
+        options: ["A generic history question", "A list of customers' names and emails", "A made-up example with no real people"],
+        answer: 1,
+        feedback: "Other people's personal information (PII) should never go into a public tool."
+      },
+      {
+        q: "The placeholder trick is…",
+        options: ["Pasting everything and hoping for the best", "Swapping real names/numbers for stand-ins before pasting, then restoring locally", "Only ever using paid tools"],
+        answer: 1,
+        feedback: "The AI helps without ever seeing the private parts."
+      },
+      {
+        q: "A FREE AI tool warrants extra caution because…",
+        options: ["It runs slower", "It usually reserves the right to use and keep your data", "It has fewer features"],
+        answer: 1,
+        feedback: "Free usually means your data is fair game — often to train future models."
+      },
+      {
+        q: "Health records are protected by which rule?",
+        options: ["FERPA", "HIPAA", "There's no rule for that"],
+        answer: 1,
+        feedback: "HIPAA protects health data; FERPA protects student records."
+      }
+    ];
+    var PASS_PERCENT = 60;
+
+    var form = document.getElementById("quizForm");
+    var fbEls = [];
+    QUESTIONS.forEach(function (item, qi) {
+      var fs = document.createElement("fieldset");
+      fs.className = "quiz__q";
+      var legend = document.createElement("legend");
+      legend.textContent = (qi + 1) + ". " + item.q;
+      fs.appendChild(legend);
+      item.options.forEach(function (opt, oi) {
+        var id = "q" + qi + "o" + oi;
+        var label = document.createElement("label");
+        label.className = "quiz__opt"; label.htmlFor = id;
+        var input = document.createElement("input");
+        input.type = "radio"; input.name = "q" + qi; input.id = id; input.value = oi;
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(" " + opt));
+        fs.appendChild(label);
+      });
+      var fb = document.createElement("p");
+      fb.className = "quiz__fb"; fb.hidden = true;
+      fs.appendChild(fb); fbEls.push(fb);
+      form.appendChild(fs);
+    });
+
+    var steps = Array.prototype.slice.call(document.querySelectorAll("[data-step]"));
+    var current = 0;
+    var prevBtn = document.getElementById("prevBtn");
+    var nextBtn = document.getElementById("nextBtn");
+    var stepCount = document.getElementById("stepCount");
+    var progressBar = document.getElementById("progressBar");
+    function render() {
+      steps.forEach(function (s, i) { s.hidden = i !== current; });
+      prevBtn.disabled = current === 0;
+      nextBtn.style.visibility = current === steps.length - 1 ? "hidden" : "visible";
+      stepCount.textContent = (current + 1) + " / " + steps.length;
+      progressBar.style.width = (current / (steps.length - 1) * 100) + "%";
+      window.scrollTo(0, 0);
+    }
+    prevBtn.addEventListener("click", function () { if (current > 0) { current--; render(); } });
+    nextBtn.addEventListener("click", function () { if (current < steps.length - 1) { current++; render(); } });
+
+    document.getElementById("submitQuiz").addEventListener("click", function () {
+      var correct = 0;
+      QUESTIONS.forEach(function (item, qi) {
+        var chosen = form.querySelector('input[name="q' + qi + '"]:checked');
+        var isCorrect = chosen && Number(chosen.value) === item.answer;
+        if (isCorrect) correct++;
+        var fb = fbEls[qi];
+        fb.hidden = false;
+        if (isCorrect) {
+          fb.className = "quiz__fb is-correct";
+          fb.textContent = "✓ Correct. " + item.feedback;
+        } else {
+          fb.className = "quiz__fb is-wrong";
+          fb.textContent = "✗ Not quite — the answer is “" + item.options[item.answer] + ".” " + item.feedback;
+        }
+      });
+      var pct = Math.round((correct / QUESTIONS.length) * 100);
+      var passed = pct >= PASS_PERCENT;
+      var result = document.getElementById("quizResult");
+      result.hidden = false;
+      result.className = "quiz__result " + (passed ? "is-pass" : "is-fail");
+      result.textContent = "You scored " + pct + "% (" + correct + "/" + QUESTIONS.length + "). " +
+        (passed ? "Passed! Continue to finish." : "Below " + PASS_PERCENT + "% — review and try again, then continue.");
+      SCORM.setScore(pct);
+      SCORM.complete(passed);
+    });
+
+    SCORM.init();
+    render();
+  </script>
+</body>
+</html>
