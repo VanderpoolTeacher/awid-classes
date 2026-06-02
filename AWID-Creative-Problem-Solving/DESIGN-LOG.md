@@ -367,3 +367,18 @@ once):
   (§3, §4.11, §6, §7), and the templates. **Decision 19.**
 - **Result:** Folder paths now mirror the outline; Course → Module → Lesson is navigable through
   docs. **Next:** validate (viewer + scorm), commit, PR closing #10.
+
+### 2026-06-02 — Step 15: Self-contained cleanup of published lessons (issue #8)
+
+- **Prompt (summary):** Merge the reorg and keep going — taken as the #8 cleanup of the published
+  lessons that predate the self-contained rule (Decision 18).
+- **Response/decision:** On **issue #8 / branch `feature/8-self-contained-cleanup`** (after
+  merging the reorg PR #11), removed every cross-content reference from the published Module 0
+  lesson (master, lesson-text, instructor-guide): "all course long," "the next modules," "later in
+  the course," "Module 1/Module 3," "next module" — rephrased to present the idea inline or drop
+  the forward-reference; renamed the instructor-guide's "Transition to the next module" →
+  "Closing thought." Also fixed three stale `# Lesson NN —` H1 headings left over from the reorg
+  (Module 0/1/Git) → `# Module N — …`. Audited the Git lesson (no cross-refs).
+- **Result:** Broad grep across published lessons returns only self-labels (a lesson naming its
+  own module). All published content now complies with Decisions 18 and 19. **Next:** commit, PR
+  closing #8.
