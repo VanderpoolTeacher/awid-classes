@@ -421,3 +421,17 @@ once):
   linked under Module 1 in the outline.
 - **Result:** Lesson complete. **Module 1 is now fully drafted** (1b ×2, 1c, 1d); only the
   optional deeper-dive 1a remains. **Next:** commit, PR closing #17.
+
+### 2026-06-02 — Step 19: Module 3 Lesson 1 — "Build Systems, Not Outputs" (issue #19)
+
+- **Prompt (summary):** "merge and go" — merged Lesson 4 (PR #18, completing Module 1's core) and
+  moved to Module 3 (rich in the transcripts; Module 2 awaits the parked DT supplement).
+- **Response/decision:** Built Module 3's signature lesson (3a — the core thesis) on **issue #19 /
+  branch `feature/19-build-systems-not-outputs`**: `module-3-build-systems/1-build-systems-not-
+  outputs/` with `lesson.md` + parts + SCORM 1.2 interactive (5-question check with feedback).
+  Concepts `…-039/040/051/041`. Narrative hook: "build me a course" ×10 → ten mismatched results,
+  so build the mold, not the part (machine-shop analogy). Also **re-sequenced** the existing Git
+  lesson `1-git-and-github-basics` → `2-git-and-github-basics` so the module reads in teaching
+  order (thesis before tooling); updated the outline links. Self-contained.
+- **Result:** Module 3 now has 2 lessons in order (thesis, then Git tooling). **Next:** commit, PR
+  closing #19.
