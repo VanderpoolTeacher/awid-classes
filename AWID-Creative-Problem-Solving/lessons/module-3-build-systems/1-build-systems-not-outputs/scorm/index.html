@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Build Systems, Not Outputs</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="scorm-api.js"></script>
+</head>
+<body>
+  <main class="lesson" id="lesson">
+    <header class="lesson__header">
+      <p class="lesson__eyebrow">Module 3 · Creative Problem Solving</p>
+      <h1 class="lesson__title">Build Systems, Not Outputs</h1>
+      <div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+    </header>
+
+    <section class="step" data-step>
+      <h2>🏭 A story to start with</h2>
+      <p>Ask an AI to "build me a course." It hands you something. Ask again tomorrow — and you get
+         something <em>different.</em> Different structure, style, order. Do it ten times and you've
+         got ten one-off documents that don't match.</p>
+      <p>That's not a glitch — AI makes a fresh, <em>likely</em> answer each time, not the same one
+         twice.</p>
+      <p class="callout">The shift: stop asking AI for the finished thing. Use it to build the
+         <strong>system</strong> that produces the finished thing.</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>Why one-off requests drift</h2>
+      <p>Ask for the whole finished thing and you're at the mercy of AI's unpredictability — fine
+         for one quick task, a disaster when you need ten lessons, reports, or proposals that
+         belong to the same family. They won't match.</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>Build the system</h2>
+      <p>The fix isn't a cleverer prompt — it's to <strong>build the system that makes the
+         outputs.</strong> A machine shop doesn't carve each part by hand; it builds the
+         <em>machines</em> that stamp out consistent parts.</p>
+      <p>With AI, your "machines" are <strong>templates, rules, and organized inputs.</strong> You
+         invest once in the system; then every output comes out of the same mold.</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>Templates: your single source of truth</h2>
+      <p>Don't tell AI "make more like this document" — that drifts. Take a good document, strip
+         the content down to a <strong>labeled placeholder skeleton</strong>, and save that as the
+         template. Now it's the one source of truth.</p>
+      <p>When you find an improvement, <strong>push it back into the template</strong> — don't let
+         a random output quietly become your new standard.</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>AI works best from organized information</h2>
+      <p><strong>Messy in, messy out.</strong> If your inputs are a scattered pile, so are your
+         outputs.</p>
+      <p>No organized information yet? That's a perfect first job <em>for</em> AI — have it help
+         organize what you've got, then build your system on the clean base. First time costs
+         more; every time after is faster, more consistent, and easier to fix.</p>
+    </section>
+
+    <section class="step step--quiz" data-step hidden>
+      <h2>Quick check</h2>
+      <p class="muted">Answer all five, then submit. You'll need 60% to pass.</p>
+      <form id="quizForm" class="quiz"></form>
+      <button type="button" id="submitQuiz" class="btn">Submit answers</button>
+      <div id="quizResult" class="quiz__result" role="status" hidden></div>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>🏭 Back to "build me a course"</h2>
+      <p>You don't fix ten mismatched courses with a better request — you fix it by building the
+         <strong>system:</strong> a template that defines the shape, organized inputs to draw from,
+         and a simple process to run them through. Ask once for the mold, not over and over for the
+         part. The AI stays unpredictable; your results stop being.</p>
+      <p><strong>Remember:</strong></p>
+      <ul>
+        <li>AI is <strong>non-deterministic</strong>; one-off requests <strong>drift.</strong></li>
+        <li>Build the <strong>system</strong>, not the one-off output.</li>
+        <li><strong>Templates are the source of truth</strong> — push improvements back in.</li>
+        <li><strong>Organize first</strong> (with AI if needed), then build.</li>
+      </ul>
+      <p class="callout">Lesson complete ✓ — your progress has been sent to the learning system.</p>
+    </section>
+
+    <nav class="lesson__nav">
+      <button type="button" id="prevBtn" class="btn btn--ghost" disabled>← Back</button>
+      <span class="lesson__count" id="stepCount"></span>
+      <button type="button" id="nextBtn" class="btn">Next →</button>
+    </nav>
+  </main>
+
+  <script>
+    var QUESTIONS = [
+      {
+        q: "Why do repeated one-off requests to AI produce inconsistent results?",
+        options: ["AI gets tired over time", "AI is non-deterministic — it makes a fresh, likely answer each time", "Your internet is slow"],
+        answer: 1,
+        feedback: "Same request, different output each time — that's just how AI works."
+      },
+      {
+        q: "What's the difference between an output and a system?",
+        options: ["There isn't one", "An output is one finished thing; a system is the reusable process that makes consistent outputs", "A system is just a longer prompt"],
+        answer: 1,
+        feedback: "Build the mold (the system), not each part (the output)."
+      },
+      {
+        q: "A template-as-source-of-truth is…",
+        options: ["Whatever your latest good output was", "A master pattern stripped to placeholders — and you push improvements back into it", "A finished document you copy each time"],
+        answer: 1,
+        feedback: "Strip it to placeholders, keep it canonical, and feed improvements back in."
+      },
+      {
+        q: "Why organize your inputs first?",
+        options: ["It just looks nicer", "Messy in, messy out — AI works best from organized information", "It's legally required"],
+        answer: 1,
+        feedback: "If inputs are a mess, have AI help organize them, then build on the clean base."
+      },
+      {
+        q: "Which task is worth turning into a system?",
+        options: ["A one-time apology note", "A weekly report you make every week", "A single one-off tweet"],
+        answer: 1,
+        feedback: "Repeated work earns the up-front cost; genuine one-time tasks don't."
+      }
+    ];
+    var PASS_PERCENT = 60;
+
+    var form = document.getElementById("quizForm");
+    var fbEls = [];
+    QUESTIONS.forEach(function (item, qi) {
+      var fs = document.createElement("fieldset");
+      fs.className = "quiz__q";
+      var legend = document.createElement("legend");
+      legend.textContent = (qi + 1) + ". " + item.q;
+      fs.appendChild(legend);
+      item.options.forEach(function (opt, oi) {
+        var id = "q" + qi + "o" + oi;
+        var label = document.createElement("label");
+        label.className = "quiz__opt"; label.htmlFor = id;
+        var input = document.createElement("input");
+        input.type = "radio"; input.name = "q" + qi; input.id = id; input.value = oi;
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(" " + opt));
+        fs.appendChild(label);
+      });
+      var fb = document.createElement("p");
+      fb.className = "quiz__fb"; fb.hidden = true;
+      fs.appendChild(fb); fbEls.push(fb);
+      form.appendChild(fs);
+    });
+
+    var steps = Array.prototype.slice.call(document.querySelectorAll("[data-step]"));
+    var current = 0;
+    var prevBtn = document.getElementById("prevBtn");
+    var nextBtn = document.getElementById("nextBtn");
+    var stepCount = document.getElementById("stepCount");
+    var progressBar = document.getElementById("progressBar");
+    function render() {
+      steps.forEach(function (s, i) { s.hidden = i !== current; });
+      prevBtn.disabled = current === 0;
+      nextBtn.style.visibility = current === steps.length - 1 ? "hidden" : "visible";
+      stepCount.textContent = (current + 1) + " / " + steps.length;
+      progressBar.style.width = (current / (steps.length - 1) * 100) + "%";
+      window.scrollTo(0, 0);
+    }
+    prevBtn.addEventListener("click", function () { if (current > 0) { current--; render(); } });
+    nextBtn.addEventListener("click", function () { if (current < steps.length - 1) { current++; render(); } });
+
+    document.getElementById("submitQuiz").addEventListener("click", function () {
+      var correct = 0;
+      QUESTIONS.forEach(function (item, qi) {
+        var chosen = form.querySelector('input[name="q' + qi + '"]:checked');
+        var isCorrect = chosen && Number(chosen.value) === item.answer;
+        if (isCorrect) correct++;
+        var fb = fbEls[qi];
+        fb.hidden = false;
+        if (isCorrect) {
+          fb.className = "quiz__fb is-correct";
+          fb.textContent = "✓ Correct. " + item.feedback;
+        } else {
+          fb.className = "quiz__fb is-wrong";
+          fb.textContent = "✗ Not quite — the answer is “" + item.options[item.answer] + ".” " + item.feedback;
+        }
+      });
+      var pct = Math.round((correct / QUESTIONS.length) * 100);
+      var passed = pct >= PASS_PERCENT;
+      var result = document.getElementById("quizResult");
+      result.hidden = false;
+      result.className = "quiz__result " + (passed ? "is-pass" : "is-fail");
+      result.textContent = "You scored " + pct + "% (" + correct + "/" + QUESTIONS.length + "). " +
+        (passed ? "Passed! Continue to finish." : "Below " + PASS_PERCENT + "% — review and try again, then continue.");
+      SCORM.setScore(pct);
+      SCORM.complete(passed);
+    });
+
+    SCORM.init();
+    render();
+  </script>
+</body>
+</html>

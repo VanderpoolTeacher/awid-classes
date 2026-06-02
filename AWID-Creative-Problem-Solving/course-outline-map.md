@@ -121,7 +121,7 @@ most phases rest on a single concept. These are the supplement targets.**
 
 ## Module 3 — Build systems, not outputs *(strand: cross-cutting — the "applied" engine)*
 
-**Lessons:** [1 · Git & GitHub Basics](lessons/module-3-build-systems/1-git-and-github-basics/lesson.md) *(tooling — 3c)*
+**Lessons:** [1 · Build Systems, Not Outputs](lessons/module-3-build-systems/1-build-systems-not-outputs/lesson.md) *(3a — the core thesis)* · [2 · Git & GitHub Basics](lessons/module-3-build-systems/2-git-and-github-basics/lesson.md) *(3c — tooling)*
 
 The distinctive thesis of this instructor: don't use AI to make one-off deliverables — build
 the repeatable system that makes them. This is where the workshop went deepest.
