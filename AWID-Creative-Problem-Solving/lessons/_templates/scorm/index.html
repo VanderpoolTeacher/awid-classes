@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- TODO: lesson title -->
+  <title>{{LESSON TITLE}}</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="scorm-api.js"></script>
+</head>
+<body>
+  <!--
+    SCORM 1.2 interactive TEMPLATE. See LESSON-SPEC.md.
+    Fill in: <title>, the eyebrow/title in the header, the content <section class="step"> blocks
+    (open with the narrative, end with a wrap-up callback), and the QUESTIONS array below.
+    Keep PASS_PERCENT in sync with masteryscore in imsmanifest.xml.
+    The engine (nav + quiz + feedback + LMS reporting) needs no changes.
+  -->
+  <main class="lesson" id="lesson">
+    <header class="lesson__header">
+      <p class="lesson__eyebrow">{{MODULE · COURSE}}</p>
+      <h1 class="lesson__title">{{LESSON TITLE}}</h1>
+      <div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+    </header>
+
+    <!-- ===== CONTENT: one <section class="step"> per screen ===== -->
+
+    <section class="step" data-step>
+      <h2>{{🎙️ Opening narrative heading}}</h2>
+      <p>{{Open with a concrete, vivid scene. Don't explain it yet.}}</p>
+      <p class="callout">{{Promise the payoff at the end.}}</p>
+    </section>
+
+    <!-- TODO: add teaching <section class="step" data-step hidden> … </section> blocks -->
+
+    <!-- ===== KNOWLEDGE CHECK (leave as-is; edit only QUESTIONS below) ===== -->
+    <section class="step step--quiz" data-step hidden>
+      <h2>Quick check</h2>
+      <p class="muted">Answer all questions, then submit. You'll need <span id="passNote"></span> to pass.</p>
+      <form id="quizForm" class="quiz"></form>
+      <button type="button" id="submitQuiz" class="btn">Submit answers</button>
+      <div id="quizResult" class="quiz__result" role="status" hidden></div>
+    </section>
+
+    <!-- ===== WRAP-UP: call back to the opening narrative ===== -->
+    <section class="step" data-step hidden>
+      <h2>{{🎙️ Wrap-up — callback}}</h2>
+      <p>{{Revisit the opening scene and resolve it with what the learner now knows.}}</p>
+      <p class="callout">Lesson complete ✓ — your progress has been sent to the learning system.</p>
+    </section>
+
+    <nav class="lesson__nav">
+      <button type="button" id="prevBtn" class="btn btn--ghost" disabled>← Back</button>
+      <span class="lesson__count" id="stepCount"></span>
+      <button type="button" id="nextBtn" class="btn">Next →</button>
+    </nav>
+  </main>
+
+  <script>
+    // ===== EDIT THIS: one object per question. Every question needs `feedback`. =====
+    var QUESTIONS = [
+      {
+        q: "{{Question text?}}",
+        options: ["{{wrong}}", "{{correct}}", "{{wrong}}"],
+        answer: 1,                       // index of the correct option
+        feedback: "{{Short why — shown after submitting.}}"
+      }
+      // …add more questions…
+    ];
+    var PASS_PERCENT = 60;               // keep in sync with masteryscore in imsmanifest.xml
+
+    // ===== ENGINE (no edits needed) ============================================
+    document.getElementById("passNote").textContent = PASS_PERCENT + "%";
+    var form = document.getElementById("quizForm");
+    var fbEls = [];
+    QUESTIONS.forEach(function (item, qi) {
+      var fs = document.createElement("fieldset");
+      fs.className = "quiz__q";
+      var legend = document.createElement("legend");
+      legend.textContent = (qi + 1) + ". " + item.q;
+      fs.appendChild(legend);
+      item.options.forEach(function (opt, oi) {
+        var id = "q" + qi + "o" + oi;
+        var label = document.createElement("label");
+        label.className = "quiz__opt"; label.htmlFor = id;
+        var input = document.createElement("input");
+        input.type = "radio"; input.name = "q" + qi; input.id = id; input.value = oi;
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(" " + opt));
+        fs.appendChild(label);
+      });
+      var fb = document.createElement("p");
+      fb.className = "quiz__fb"; fb.hidden = true;
+      fs.appendChild(fb); fbEls.push(fb);
+      form.appendChild(fs);
+    });
+
+    var steps = Array.prototype.slice.call(document.querySelectorAll("[data-step]"));
+    var current = 0;
+    var prevBtn = document.getElementById("prevBtn");
+    var nextBtn = document.getElementById("nextBtn");
+    var stepCount = document.getElementById("stepCount");
+    var progressBar = document.getElementById("progressBar");
+    function render() {
+      steps.forEach(function (s, i) { s.hidden = i !== current; });
+      prevBtn.disabled = current === 0;
+      nextBtn.style.visibility = current === steps.length - 1 ? "hidden" : "visible";
+      stepCount.textContent = (current + 1) + " / " + steps.length;
+      progressBar.style.width = (current / (steps.length - 1) * 100) + "%";
+      window.scrollTo(0, 0);
+    }
+    prevBtn.addEventListener("click", function () { if (current > 0) { current--; render(); } });
+    nextBtn.addEventListener("click", function () { if (current < steps.length - 1) { current++; render(); } });
+
+    document.getElementById("submitQuiz").addEventListener("click", function () {
+      var correct = 0;
+      QUESTIONS.forEach(function (item, qi) {
+        var chosen = form.querySelector('input[name="q' + qi + '"]:checked');
+        var isCorrect = chosen && Number(chosen.value) === item.answer;
+        if (isCorrect) correct++;
+        var fb = fbEls[qi];
+        fb.hidden = false;
+        if (isCorrect) {
+          fb.className = "quiz__fb is-correct";
+          fb.textContent = "✓ Correct. " + item.feedback;
+        } else {
+          fb.className = "quiz__fb is-wrong";
+          fb.textContent = "✗ Not quite — the answer is “" + item.options[item.answer] + ".” " + item.feedback;
+        }
+      });
+      var pct = Math.round((correct / QUESTIONS.length) * 100);
+      var passed = pct >= PASS_PERCENT;
+      var result = document.getElementById("quizResult");
+      result.hidden = false;
+      result.className = "quiz__result " + (passed ? "is-pass" : "is-fail");
+      result.textContent = "You scored " + pct + "% (" + correct + "/" + QUESTIONS.length + "). " +
+        (passed ? "Passed! Continue to finish." : "Below " + PASS_PERCENT + "% — review and try again, then continue.");
+      SCORM.setScore(pct);
+      SCORM.complete(passed);
+    });
+
+    SCORM.init();
+    render();
+  </script>
+</body>
+</html>
