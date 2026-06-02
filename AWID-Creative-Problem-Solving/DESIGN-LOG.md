@@ -103,6 +103,12 @@ once):
     session itself ("the room," "in class," "the instructor said"). Tell the stories as
     illustrative scenes, not as a recap. Interactive quizzes give **per-question feedback**, not
     just a score. *(2026-06-01)*
+17. **The lesson system is specified and templated.** `lessons/LESSON-SPEC.md` is the
+    authoritative spec (pipeline, conventions, per-document specs, authoring workflow);
+    `lessons/_templates/` holds blank starters for every artifact (`lesson.md` — moved from
+    `_TEMPLATE.md` — plus `lesson-text.md`, `activity.md`, `instructor-guide.md`, `scorm/`). New
+    lessons are authored by copying `_templates/` and following the spec. Templates and the spec
+    are tools and may evolve without a GitHub issue. *(2026-06-01)*
 
 ---
 
@@ -302,3 +308,17 @@ once):
 - **Result:** `lessons/view.html` created. Verified over a local server — viewer + all parts
   return HTTP 200. Open at `…/lessons/view.html`. **Next:** commit/push; pick the next lesson
   or decompose Lesson 01.
+
+### 2026-06-01 — Step 12: Lesson-system spec + templates (issue #5)
+
+- **Prompt (summary):** Build out the template and specification for all the document types so
+  everything going forward follows the same pattern — and do it via a GitHub issue + branch.
+- **Response/decision:** Opened **issue #5**, branched `feature/5-lesson-system-spec`. Wrote
+  `lessons/LESSON-SPEC.md` (philosophy, production pipeline, folder/naming conventions,
+  cross-cutting conventions consolidating Decisions 10–16, per-document specs with done-criteria,
+  and the authoring workflow). Created `lessons/_templates/` blank starters for every part and
+  moved the master `_TEMPLATE.md` → `_templates/lesson.md` (Decision 17). Reusable `scorm-api.js`
+  and `styles.css` copied as-is; `index.html`/`imsmanifest.xml`/`README.md` templated with
+  placeholders.
+- **Result:** Spec + full template set in place. **Next:** commit on the branch, open a PR that
+  closes #5, then merge to publish.

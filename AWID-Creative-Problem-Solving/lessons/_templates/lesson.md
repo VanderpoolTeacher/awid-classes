@@ -17,6 +17,7 @@ relatedConcepts:                   # keys from concept-inventory.json; one per l
   ============================ HOW TO USE THIS TEMPLATE ============================
   This is the fixed structure for every lesson. Keep all numbered sections and their
   order. Fill each one in; delete the guidance comments as you go.
+  Full system spec (pipeline, per-part specs, workflow): ../LESSON-SPEC.md
 
   TWO REQUIRED CONVENTIONS
   1. "What it is -> What it does -> How it fits."  Every time you introduce a
