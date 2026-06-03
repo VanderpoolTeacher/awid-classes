@@ -447,3 +447,17 @@ once):
   3a→3b→3c (order now stable; pipeline 3d will be lesson 4). Self-contained; outline updated.
 - **Result:** Module 3 has 3 lessons in teaching order (thesis, organize, git); only 3d (the
   production pipeline) remains. **Next:** commit, PR closing #21.
+
+### 2026-06-03 — Step 21: Module 3 Lesson 4 — "The Production Pipeline" (issue #23)
+
+- **Prompt (summary):** "merge and go" — merged the organize lesson (PR #22) and built the
+  capstone 3d lesson.
+- **Response/decision:** Built the production-pipeline lesson (3d) on **issue #23 / branch
+  `feature/23-the-production-pipeline`**: `module-3-build-systems/4-the-production-pipeline/` with
+  `lesson.md` + parts + SCORM 1.2 interactive (5-question check with feedback). Concepts
+  `…-049/050/008/039`. Narrative hook: one page (a standard) becoming a whole course through a
+  chain of AI stages, each human-reviewed and checked against the standard. Self-contained;
+  outline updated (no re-sequence needed — pipeline is lesson 4).
+- **Result:** **Module 3 complete** (4 lessons: thesis, organize, git, pipeline). Course now has
+  Modules 0, 1, and 3 substantially built; Module 2 (design thinking) awaits the parked
+  supplement; optional 1a remains. **Next:** commit, PR closing #23.

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!--
+  SCORM 1.2 manifest. This file MUST sit at the root of the zipped package.
+  masteryscore (60) matches PASS_PERCENT in index.html.
+-->
+<manifest identifier="AWID-CPS-M3-PRODUCTIONPIPELINE" version="1.2"
+  xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+  xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd
+                      http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd
+                      http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+  </metadata>
+
+  <organizations default="ORG-CPS-M3-PIPE">
+    <organization identifier="ORG-CPS-M3-PIPE">
+      <title>The Production Pipeline: From One Idea to a Finished Whole</title>
+      <item identifier="ITEM-1" identifierref="RES-1" isvisible="true">
+        <title>The Production Pipeline: From One Idea to a Finished Whole</title>
+        <adlcp:masteryscore>60</adlcp:masteryscore>
+      </item>
+    </organization>
+  </organizations>
+
+  <resources>
+    <resource identifier="RES-1" type="webcontent" adlcp:scormtype="sco" href="index.html">
+      <file href="index.html" />
+      <file href="styles.css" />
+      <file href="scorm-api.js" />
+    </resource>
+  </resources>
+</manifest>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Production Pipeline: From One Idea to a Finished Whole</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="scorm-api.js"></script>
+</head>
+<body>
+  <main class="lesson" id="lesson">
+    <header class="lesson__header">
+      <p class="lesson__eyebrow">Module 3 · Creative Problem Solving</p>
+      <h1 class="lesson__title">The Production Pipeline</h1>
+      <div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+    </header>
+
+    <section class="step" data-step>
+      <h2>🏭 A story to start with</h2>
+      <p>Picture one sheet of paper — a standard that says "to be certified, a learner must do
+         these five things." That's the seed.</p>
+      <p>Now picture it becoming a <em>whole course</em> — outline, a dozen lessons, guides,
+         activities, slides, quizzes — all AI-produced, all human-reviewed, all checked back
+         against that one page, every step.</p>
+      <p class="callout">That's a <strong>production pipeline</strong>: small repeatable steps, AI
+         does the lifting, a human checks each stage.</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>Chain small steps, not one giant prompt</h2>
+      <p>Ask AI to "make the whole course" in one shot and you get a mess — too much at once,
+         impossible to check or fix.</p>
+      <p>A pipeline breaks it into stages: standard → outline → lesson outlines → content →
+         guides/activities/slides/quizzes. Each stage is a focused task AI does well, and a small
+         thing <em>you</em> can review before it feeds the next.</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>Keep a human in the loop</h2>
+      <p>Treat AI like a <strong>fast, capable entry-level employee</strong>: lots of output,
+         quickly — and it doesn't always follow the rules. So you don't let it ship
+         unsupervised.</p>
+      <p>At each stage, a human reviews and signs off. Your job shifts from <em>doing</em> the work
+         to <em>reviewing</em> it — exactly where your expertise is worth the most.</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>Check every stage against the source of truth</h2>
+      <p>What keeps a fast pipeline honest is a <strong>source of truth</strong> — the standard the
+         work must match. Check each stage against it: did the outline cover all five skills? Does
+         this lesson still serve the standard?</p>
+      <p>Errors <strong>compound</strong> — a wrong outline poisons every lesson built from it — so
+         catch drift early. AI can run the check; a human confirms.</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>The capstone — and one caution</h2>
+      <p>A pipeline is a <strong>repeatable system</strong> running on <strong>organized inputs and
+         templates</strong>, wrapped in <strong>human review.</strong> That's this whole module in
+         one machine — one person producing what used to take a team, consistent and checked.</p>
+      <p>The caution: a pipeline makes mistakes fast too. A pipeline with no review is a
+         <strong>confident error machine.</strong> Speed <em>plus</em> checkpoints is the win.</p>
+    </section>
+
+    <section class="step step--quiz" data-step hidden>
+      <h2>Quick check</h2>
+      <p class="muted">Answer all five, then submit. You'll need 60% to pass.</p>
+      <form id="quizForm" class="quiz"></form>
+      <button type="button" id="submitQuiz" class="btn">Submit answers</button>
+      <div id="quizResult" class="quiz__result" role="status" hidden></div>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>🏭 Back to the one page</h2>
+      <p>The one-page-to-course magic only works because of the shape: small stages instead of one
+         giant ask, a human signing off at each, and every step checked against that page so
+         nothing drifts. Take any of those away and it falls apart.</p>
+      <p><strong>Remember:</strong></p>
+      <ul>
+        <li><strong>Chain small steps</strong>, not one giant prompt.</li>
+        <li><strong>Keep a human in the loop</strong> — your job is review and sign-off.</li>
+        <li><strong>Check every stage against a source of truth</strong> — catch drift early.</li>
+        <li>The capstone: <strong>system + organized inputs + human review = real, checked leverage.</strong></li>
+      </ul>
+      <p class="callout">Lesson complete ✓ — your progress has been sent to the learning system.</p>
+    </section>
+
+    <nav class="lesson__nav">
+      <button type="button" id="prevBtn" class="btn btn--ghost" disabled>← Back</button>
+      <span class="lesson__count" id="stepCount"></span>
+      <button type="button" id="nextBtn" class="btn">Next →</button>
+    </nav>
+  </main>
+
+  <script>
+    var QUESTIONS = [
+      {
+        q: "Why chain small stages instead of one giant prompt?",
+        options: ["To be slower on purpose", "Each stage is focused and checkable; one giant prompt is too much to review or fix", "AI prefers short prompts"],
+        answer: 1,
+        feedback: "Small stages are tasks AI does well and that you can actually review before the next step."
+      },
+      {
+        q: "\"Human-in-the-loop\" means…",
+        options: ["AI works completely alone", "A person reviews and approves the work at key stages", "Humans type everything themselves"],
+        answer: 1,
+        feedback: "AI is the fast entry-level employee; the human reviews and signs off."
+      },
+      {
+        q: "The source of truth in a pipeline is…",
+        options: ["The AI's best guess", "The standard/spec the work must match — you check each stage against it", "Whatever the final output says"],
+        answer: 1,
+        feedback: "Check each stage against it to catch drift before it compounds."
+      },
+      {
+        q: "Why catch drift early?",
+        options: ["It doesn't really matter", "Errors compound — a wrong early stage poisons everything built on it", "To save paper"],
+        answer: 1,
+        feedback: "A wrong outline poisons every lesson built from it — fix early."
+      },
+      {
+        q: "A pipeline with no human checkpoints is…",
+        options: ["Maximally efficient", "A confident error machine — it makes mistakes as fast as good work", "Impossible to build"],
+        answer: 1,
+        feedback: "Speed plus checkpoints is the win; speed alone is the trap."
+      }
+    ];
+    var PASS_PERCENT = 60;
+
+    var form = document.getElementById("quizForm");
+    var fbEls = [];
+    QUESTIONS.forEach(function (item, qi) {
+      var fs = document.createElement("fieldset");
+      fs.className = "quiz__q";
+      var legend = document.createElement("legend");
+      legend.textContent = (qi + 1) + ". " + item.q;
+      fs.appendChild(legend);
+      item.options.forEach(function (opt, oi) {
+        var id = "q" + qi + "o" + oi;
+        var label = document.createElement("label");
+        label.className = "quiz__opt"; label.htmlFor = id;
+        var input = document.createElement("input");
+        input.type = "radio"; input.name = "q" + qi; input.id = id; input.value = oi;
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(" " + opt));
+        fs.appendChild(label);
+      });
+      var fb = document.createElement("p");
+      fb.className = "quiz__fb"; fb.hidden = true;
+      fs.appendChild(fb); fbEls.push(fb);
+      form.appendChild(fs);
+    });
+
+    var steps = Array.prototype.slice.call(document.querySelectorAll("[data-step]"));
+    var current = 0;
+    var prevBtn = document.getElementById("prevBtn");
+    var nextBtn = document.getElementById("nextBtn");
+    var stepCount = document.getElementById("stepCount");
+    var progressBar = document.getElementById("progressBar");
+    function render() {
+      steps.forEach(function (s, i) { s.hidden = i !== current; });
+      prevBtn.disabled = current === 0;
+      nextBtn.style.visibility = current === steps.length - 1 ? "hidden" : "visible";
+      stepCount.textContent = (current + 1) + " / " + steps.length;
+      progressBar.style.width = (current / (steps.length - 1) * 100) + "%";
+      window.scrollTo(0, 0);
+    }
+    prevBtn.addEventListener("click", function () { if (current > 0) { current--; render(); } });
+    nextBtn.addEventListener("click", function () { if (current < steps.length - 1) { current++; render(); } });
+
+    document.getElementById("submitQuiz").addEventListener("click", function () {
+      var correct = 0;
+      QUESTIONS.forEach(function (item, qi) {
+        var chosen = form.querySelector('input[name="q' + qi + '"]:checked');
+        var isCorrect = chosen && Number(chosen.value) === item.answer;
+        if (isCorrect) correct++;
+        var fb = fbEls[qi];
+        fb.hidden = false;
+        if (isCorrect) {
+          fb.className = "quiz__fb is-correct";
+          fb.textContent = "✓ Correct. " + item.feedback;
+        } else {
+          fb.className = "quiz__fb is-wrong";
+          fb.textContent = "✗ Not quite — the answer is “" + item.options[item.answer] + ".” " + item.feedback;
+        }
+      });
+      var pct = Math.round((correct / QUESTIONS.length) * 100);
+      var passed = pct >= PASS_PERCENT;
+      var result = document.getElementById("quizResult");
+      result.hidden = false;
+      result.className = "quiz__result " + (passed ? "is-pass" : "is-fail");
+      result.textContent = "You scored " + pct + "% (" + correct + "/" + QUESTIONS.length + "). " +
+        (passed ? "Passed! Continue to finish." : "Below " + PASS_PERCENT + "% — review and try again, then continue.");
+      SCORM.setScore(pct);
+      SCORM.complete(passed);
+    });
+
+    SCORM.init();
+    render();
+  </script>
+</body>
+</html>
