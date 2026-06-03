@@ -435,3 +435,15 @@ once):
   order (thesis before tooling); updated the outline links. Self-contained.
 - **Result:** Module 3 now has 2 lessons in order (thesis, then Git tooling). **Next:** commit, PR
   closing #19.
+
+### 2026-06-02 — Step 20: Module 3 Lesson 2 — "Organize Your Work" (issue #21)
+
+- **Prompt (summary):** "merge and go" — merged Module 3 thesis (PR #20) and continued with 3b.
+- **Response/decision:** Built the organizing-the-work lesson (3b) on **issue #21 / branch
+  `feature/21-organize-your-work`**: `module-3-build-systems/2-organize-your-work/` with
+  `lesson.md` + parts + SCORM 1.2 interactive (5-question check with feedback). Concepts
+  `…-044/045/042/048`. Narrative hook: the Downloads-folder graveyard — a habit problem, not a
+  tools problem. Re-sequenced Git `2-` → `3-git-and-github-basics` so Module 3 reads
+  3a→3b→3c (order now stable; pipeline 3d will be lesson 4). Self-contained; outline updated.
+- **Result:** Module 3 has 3 lessons in teaching order (thesis, organize, git); only 3d (the
+  production pipeline) remains. **Next:** commit, PR closing #21.
