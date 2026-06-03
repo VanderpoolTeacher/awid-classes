@@ -461,3 +461,15 @@ once):
 - **Result:** **Module 3 complete** (4 lessons: thesis, organize, git, pipeline). Course now has
   Modules 0, 1, and 3 substantially built; Module 2 (design thinking) awaits the parked
   supplement; optional 1a remains. **Next:** commit, PR closing #23.
+
+### 2026-06-03 — Step 22: Module 1 Lesson 1a — "How AI Works, Up Close" (issue #25)
+
+- **Prompt (summary):** "go" — built the optional 1a deeper-dive to fully close Module 1.
+- **Response/decision:** Built on **issue #25 / branch `feature/25-how-ai-works-up-close`** the
+  1a lesson: `module-1-foundational-ai/1-how-ai-works-up-close/` with `lesson.md` + parts + SCORM
+  1.2 interactive (5-question check with feedback). Concepts `…-024/025/019/027`. Narrative hook:
+  the long chat where the AI "forgets" the opening instruction (the context window overflowing).
+  **Re-sequenced** the existing four Module 1 lessons (1→2, 2→3, 3→4, 4→5) so 1a takes slot 1 and
+  the module reads in teaching order 1a→1b→1c→1d. Self-contained; outline reordered.
+- **Result:** **Module 1 now complete** (5 lessons, in order). Modules 0, 1, 3 fully built;
+  Module 2 remains parked on the design-thinking supplement. **Next:** commit, PR closing #25.
