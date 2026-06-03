@@ -4,6 +4,31 @@ Static promotional and registration site for **Anthony Wayne Innovation & Design
 
 Parent brand: <https://mvanderpool.com/aw-innovation-and-design>
 
+## Course materials
+
+This repo also holds the **course materials** for *Applied AI in Design Thinking (Creative
+Problem Solving)*, under [`AWID-Creative-Problem-Solving/`](AWID-Creative-Problem-Solving/).
+These are built from the recorded class and organized by module → lesson:
+
+- **Module 0 — Framing:** It's Not Magic
+- **Module 1 — Foundational AI:** How AI Works Up Close · Can You Trust It? · Whose Work Is It? ·
+  Your Data Isn't Private · Who Wins With AI?
+- **Module 3 — Build Systems:** Build Systems Not Outputs · Organize Your Work · Git & GitHub
+  Basics · The Production Pipeline
+- *Module 2 — Design Thinking: planned (awaiting supplemental material).*
+
+Each lesson lives in its module folder and ships as a set: a master `lesson.md`, learner
+`lesson-text.md`, an `activity.md`, an `instructor-guide.md`, and a self-contained **SCORM 1.2**
+interactive in `scorm/`. Key references:
+
+- [`AWID-Creative-Problem-Solving/lessons/LESSON-SPEC.md`](AWID-Creative-Problem-Solving/lessons/LESSON-SPEC.md) — how lessons are produced (the authoritative spec).
+- [`AWID-Creative-Problem-Solving/course-outline-map.md`](AWID-Creative-Problem-Solving/course-outline-map.md) — the approved Course → Module → Lesson structure.
+- [`AWID-Creative-Problem-Solving/lessons/view.html`](AWID-Creative-Problem-Solving/lessons/view.html) — a browser viewer for any lesson's parts.
+- [`AWID-Creative-Problem-Solving/DESIGN-LOG.md`](AWID-Creative-Problem-Solving/DESIGN-LOG.md) — the running design & decision log.
+
+See [`AWID-Creative-Problem-Solving/README.md`](AWID-Creative-Problem-Solving/README.md) for the
+full overview.
+
 ## Local development
 
 No build step. Serve the directory with any static file server:
