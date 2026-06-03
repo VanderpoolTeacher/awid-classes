@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How AI Works, Up Close: Memory, Context &amp; Images</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="scorm-api.js"></script>
+</head>
+<body>
+  <main class="lesson" id="lesson">
+    <header class="lesson__header">
+      <p class="lesson__eyebrow">Module 1 · Creative Problem Solving</p>
+      <h1 class="lesson__title">How AI Works, Up Close</h1>
+      <div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+    </header>
+
+    <section class="step" data-step>
+      <h2>🧠 A story to start with</h2>
+      <p>You're deep in a long chat. Early on you said, "I'm writing for sixth-graders, keep it
+         simple." Forty messages later, it's handing you dense, jargon-packed paragraphs — like it
+         completely forgot.</p>
+      <p>It didn't get dumber. It ran out of <strong>memory.</strong></p>
+      <p class="callout">A quick look under the hood — memory, context, images, and where its
+         knowledge runs out — turns confusing moments into predictable ones.</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>AI has a limited working memory</h2>
+      <p>An AI has a <strong>context window</strong> — a limited amount of text it can pay
+         attention to at once. Your whole current conversation lives inside it.</p>
+      <p>When the chat overflows the window, the <strong>earliest</strong> things — like your
+         opening instruction — quietly drop out. It can't "see" them anymore. Like cramming so
+         much into your head that the first details slip away.</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>Work with the memory</h2>
+      <p>Once you know that, the fixes are obvious:</p>
+      <ul>
+        <li><strong>Restate key context</strong> when it matters.</li>
+        <li><strong>Start a fresh chat</strong> for a new task instead of bloating one.</li>
+        <li>Keep important instructions <strong>near where you need them.</strong></li>
+      </ul>
+      <p>You're not fighting the tool — you're feeding its memory on purpose.</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>Context is how you aim it</h2>
+      <p>AI can't read your mind. The more it knows about your <strong>goal, audience, and
+         situation</strong>, the better it helps.</p>
+      <p>"Write something about dogs" leaves it guessing. "A friendly 100-word intro about dog
+         adoption for a shelter newsletter" gives it everything it needs. Context is the aim.</p>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>Images, and the edge of its knowledge</h2>
+      <p>Image generation isn't drawing line by line — it computes a whole field of pixels into
+         something you recognize, astonishingly fast. Impressive, not magic.</p>
+      <p>And its knowledge is a huge but <strong>finite</strong> pile, <strong>frozen</strong> at
+         training time (models are even running low on fresh text). Big, but bounded — and it may
+         miss recent events.</p>
+    </section>
+
+    <section class="step step--quiz" data-step hidden>
+      <h2>Quick check</h2>
+      <p class="muted">Answer all five, then submit. You'll need 60% to pass.</p>
+      <form id="quizForm" class="quiz"></form>
+      <button type="button" id="submitQuiz" class="btn">Submit answers</button>
+      <div id="quizResult" class="quiz__result" role="status" hidden></div>
+    </section>
+
+    <section class="step" data-step hidden>
+      <h2>🧠 Back to the forgetful chat</h2>
+      <p>Now you know what happened: the conversation overflowed its context window, and your
+         opening instruction fell out. And you know the fix — restate it, or start fresh. A
+         frustrating mystery becomes a two-second move.</p>
+      <p><strong>Remember:</strong></p>
+      <ul>
+        <li>The <strong>context window</strong> is AI's limited memory — long chats forget the earliest things.</li>
+        <li><strong>Work with it</strong>: restate key context, start fresh for new tasks.</li>
+        <li><strong>Context is how you aim it</strong> — goal + audience + constraints.</li>
+        <li>AI's knowledge is <strong>big but finite and frozen</strong>; images are fast computation.</li>
+      </ul>
+      <p class="callout">Lesson complete ✓ — your progress has been sent to the learning system.</p>
+    </section>
+
+    <nav class="lesson__nav">
+      <button type="button" id="prevBtn" class="btn btn--ghost" disabled>← Back</button>
+      <span class="lesson__count" id="stepCount"></span>
+      <button type="button" id="nextBtn" class="btn">Next →</button>
+    </nav>
+  </main>
+
+  <script>
+    var QUESTIONS = [
+      {
+        q: "Why do long AI chats \"forget\" what you said earlier?",
+        options: ["The AI gets bored", "Its context window (working memory) overflows and the earliest context drops out", "The internet resets"],
+        answer: 1,
+        feedback: "It's a memory limit, not the AI getting dumber — restate or restart."
+      },
+      {
+        q: "A good way to work with AI's limited memory is to…",
+        options: ["Type faster", "Restate key context and start fresh chats for new tasks", "Use more emojis"],
+        answer: 1,
+        feedback: "Feed its memory on purpose; don't fight it."
+      },
+      {
+        q: "Why does giving more context produce better results?",
+        options: ["AI can read your mind", "AI can't read your mind — goal + audience + constraints aim it", "Longer is always better"],
+        answer: 1,
+        feedback: "Context is how you aim the tool at what you actually want."
+      },
+      {
+        q: "Is an AI's knowledge unlimited?",
+        options: ["Yes, it knows everything", "No — it's finite and frozen at the time it was trained", "Only on weekends"],
+        answer: 1,
+        feedback: "Big but bounded — and it may miss recent events."
+      },
+      {
+        q: "How does image generation actually work?",
+        options: ["It draws line by line like a person", "It computes a field of pixels into a recognizable image, fast", "It photographs real scenes"],
+        answer: 1,
+        feedback: "Fast pixel computation — impressive, not magic."
+      }
+    ];
+    var PASS_PERCENT = 60;
+
+    var form = document.getElementById("quizForm");
+    var fbEls = [];
+    QUESTIONS.forEach(function (item, qi) {
+      var fs = document.createElement("fieldset");
+      fs.className = "quiz__q";
+      var legend = document.createElement("legend");
+      legend.textContent = (qi + 1) + ". " + item.q;
+      fs.appendChild(legend);
+      item.options.forEach(function (opt, oi) {
+        var id = "q" + qi + "o" + oi;
+        var label = document.createElement("label");
+        label.className = "quiz__opt"; label.htmlFor = id;
+        var input = document.createElement("input");
+        input.type = "radio"; input.name = "q" + qi; input.id = id; input.value = oi;
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(" " + opt));
+        fs.appendChild(label);
+      });
+      var fb = document.createElement("p");
+      fb.className = "quiz__fb"; fb.hidden = true;
+      fs.appendChild(fb); fbEls.push(fb);
+      form.appendChild(fs);
+    });
+
+    var steps = Array.prototype.slice.call(document.querySelectorAll("[data-step]"));
+    var current = 0;
+    var prevBtn = document.getElementById("prevBtn");
+    var nextBtn = document.getElementById("nextBtn");
+    var stepCount = document.getElementById("stepCount");
+    var progressBar = document.getElementById("progressBar");
+    function render() {
+      steps.forEach(function (s, i) { s.hidden = i !== current; });
+      prevBtn.disabled = current === 0;
+      nextBtn.style.visibility = current === steps.length - 1 ? "hidden" : "visible";
+      stepCount.textContent = (current + 1) + " / " + steps.length;
+      progressBar.style.width = (current / (steps.length - 1) * 100) + "%";
+      window.scrollTo(0, 0);
+    }
+    prevBtn.addEventListener("click", function () { if (current > 0) { current--; render(); } });
+    nextBtn.addEventListener("click", function () { if (current < steps.length - 1) { current++; render(); } });
+
+    document.getElementById("submitQuiz").addEventListener("click", function () {
+      var correct = 0;
+      QUESTIONS.forEach(function (item, qi) {
+        var chosen = form.querySelector('input[name="q' + qi + '"]:checked');
+        var isCorrect = chosen && Number(chosen.value) === item.answer;
+        if (isCorrect) correct++;
+        var fb = fbEls[qi];
+        fb.hidden = false;
+        if (isCorrect) {
+          fb.className = "quiz__fb is-correct";
+          fb.textContent = "✓ Correct. " + item.feedback;
+        } else {
+          fb.className = "quiz__fb is-wrong";
+          fb.textContent = "✗ Not quite — the answer is “" + item.options[item.answer] + ".” " + item.feedback;
+        }
+      });
+      var pct = Math.round((correct / QUESTIONS.length) * 100);
+      var passed = pct >= PASS_PERCENT;
+      var result = document.getElementById("quizResult");
+      result.hidden = false;
+      result.className = "quiz__result " + (passed ? "is-pass" : "is-fail");
+      result.textContent = "You scored " + pct + "% (" + correct + "/" + QUESTIONS.length + "). " +
+        (passed ? "Passed! Continue to finish." : "Below " + PASS_PERCENT + "% — review and try again, then continue.");
+      SCORM.setScore(pct);
+      SCORM.complete(passed);
+    });
+
+    SCORM.init();
+    render();
+  </script>
+</body>
+</html>

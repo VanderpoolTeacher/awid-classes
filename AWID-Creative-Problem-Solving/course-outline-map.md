@@ -34,7 +34,7 @@ The opening move: set expectations and demystify before doing anything.
 
 ## Module 1 — Foundational AI understanding *(strand: foundational-ai)*
 
-**Lessons:** [1 · Can You Trust It?](lessons/module-1-foundational-ai/1-can-you-trust-it/lesson.md) *(1b — trust & accuracy)* · [2 · Whose Work Is It?](lessons/module-1-foundational-ai/2-whose-work-is-it/lesson.md) *(1b — ethics & ownership)* · [3 · Your Data Isn't Private](lessons/module-1-foundational-ai/3-your-data-isnt-private/lesson.md) *(1c — data & privacy)* · [4 · Who Wins With AI?](lessons/module-1-foundational-ai/4-who-wins-with-ai/lesson.md) *(1d — AI as a tool)* · _planned: 1a_
+**Lessons:** [1 · How AI Works, Up Close](lessons/module-1-foundational-ai/1-how-ai-works-up-close/lesson.md) *(1a — how it works)* · [2 · Can You Trust It?](lessons/module-1-foundational-ai/2-can-you-trust-it/lesson.md) *(1b — trust & accuracy)* · [3 · Whose Work Is It?](lessons/module-1-foundational-ai/3-whose-work-is-it/lesson.md) *(1b — ethics & ownership)* · [4 · Your Data Isn't Private](lessons/module-1-foundational-ai/4-your-data-isnt-private/lesson.md) *(1c — data & privacy)* · [5 · Who Wins With AI?](lessons/module-1-foundational-ai/5-who-wins-with-ai/lesson.md) *(1d — AI as a tool)*
 
 ### 1a. How it actually works
 - `…-001` It's not magic, it's code
