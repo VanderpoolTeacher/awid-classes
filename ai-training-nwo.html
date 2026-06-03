@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Training in Northwest Ohio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* AWID — Anthony Wayne Innovation & Design brand */
+  :root{
+    --primary:#1F3A93; --primary-dark:#16306C; --spotlight:#EA580C;
+    --bg:#FFFFFF; --section:#F5F7FB; --text:#1A1A1A; --muted:#555555; --line:#E5E7EB;
+    --shadow-sm:0 1px 2px rgba(0,0,0,.04); --shadow-md:0 4px 12px rgba(0,0,0,.08);
+    --font-body:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:var(--font-body);
+    background:linear-gradient(180deg,var(--section) 0%,#fff 60%);
+    color:var(--text); overflow:hidden; -webkit-font-smoothing:antialiased;
+  }
+  .deck{height:100vh;width:100vw;position:relative}
+  .slide{
+    position:absolute;inset:0;display:none;flex-direction:column;
+    padding:6vh 7vw 9vh;opacity:0;transition:opacity .35s ease;
+    overflow-y:auto;
+  }
+  .slide.active{display:flex;opacity:1}
+  h1{font-size:clamp(2rem,5.2vw,3.6rem);line-height:1.1;letter-spacing:-.01em;font-weight:800;color:var(--primary)}
+  h2{font-size:clamp(1.5rem,3.4vw,2.5rem);font-weight:700;letter-spacing:-.01em;margin-bottom:.2em;color:var(--primary)}
+  h2 .pill{font-size:.42em;vertical-align:middle}
+  .sub{color:var(--muted);font-size:clamp(1rem,1.6vw,1.35rem);margin-top:.6em;font-weight:500}
+  .kicker{color:var(--primary);font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;margin-bottom:1.2em}
+  .grid{display:grid;gap:18px;margin-top:1.4em}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .card{
+    background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-sm);
+    border-radius:12px;padding:20px 22px;position:relative;transition:box-shadow .15s,transform .05s
+  }
+  .card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+  .card h3{font-size:1.18rem;margin-bottom:.25em;display:flex;align-items:center;gap:.5em;color:var(--text);font-weight:700}
+  .card .inst{color:var(--primary);font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.5em}
+  .card p{color:var(--muted);font-size:.98rem;line-height:1.5}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:.8em}
+  .tag{font-size:.72rem;padding:3px 11px;border-radius:999px;background:var(--section);color:#444;border:1px solid var(--line);font-weight:500}
+  .tag.deg{background:#EAF0FB;color:var(--primary);border-color:#cdddf6}
+  .tag.cert{background:#E8F4EC;color:#1f5d39;border-color:#bfe0cc}
+  .tag.online{background:#EEF1F6;color:#3c4a63;border-color:#d8dee9}
+  .tag.inperson{background:#FDEBDD;color:#B8480C;border-color:#f6cba6}
+  .pill{display:inline-block;padding:4px 12px;border-radius:999px;font-size:.8rem;font-weight:700;background:#EAF0FB;color:var(--primary);border:1px solid #cdddf6}
+  .pill.green{background:#E8F4EC;color:#1f5d39;border-color:#bfe0cc}
+  .pill.warn{background:#FDEBDD;color:#B8480C;border-color:#f6cba6}
+  ul.clean{list-style:none;margin-top:1em;display:grid;gap:.9em}
+  ul.clean li{padding-left:1.6em;position:relative;color:#333;font-size:1.05rem;line-height:1.45}
+  ul.clean li::before{content:"";position:absolute;left:0;top:.5em;width:8px;height:8px;border-radius:50%;background:var(--primary)}
+  ul.clean li.warn::before{background:var(--spotlight)}
+  ul.clean li b{color:var(--text)}
+  .big-stats{display:flex;gap:40px;flex-wrap:wrap;margin-top:1.8em}
+  .stat .n{font-size:clamp(2.4rem,5vw,3.6rem);font-weight:800;color:var(--spotlight);line-height:1}
+  .stat .l{color:var(--muted);font-size:.9rem;margin-top:.3em;max-width:170px}
+  .src{font-size:.74rem;color:#8a93a6;margin-top:.7em;word-break:break-all}
+  .center{justify-content:center;align-items:flex-start}
+  .footer{position:absolute;bottom:18px;left:7vw;right:7vw;display:flex;justify-content:space-between;align-items:center;color:#8a93a6;font-size:.78rem;border-top:1px solid var(--line);padding-top:12px}
+  .nav{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:20}
+  .nav button{background:#fff;border:1px solid var(--line);color:var(--primary);width:40px;height:40px;border-radius:8px;font-size:1.1rem;cursor:pointer;box-shadow:var(--shadow-sm)}
+  .nav button:hover{background:var(--section)}
+  .progress{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,var(--primary),var(--spotlight));z-index:30;transition:width .35s}
+  .lead{font-size:clamp(1.05rem,1.8vw,1.35rem);color:#333;max-width:62ch;line-height:1.55;margin-top:1em}
+  table{width:100%;border-collapse:collapse;margin-top:1.2em;font-size:.92rem}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
+  th{color:var(--primary);text-transform:uppercase;letter-spacing:.08em;font-size:.72rem}
+  td{color:#333}
+  td b{color:var(--text)}
+  .badge-warn{display:inline-block;background:#FDEBDD;color:#B8480C;border:1px solid #f6cba6;padding:3px 10px;border-radius:8px;font-size:.8rem;font-weight:600}
+  .hint{position:fixed;top:14px;right:18px;color:#9aa3b4;font-size:.74rem;z-index:20}
+  .brand-logo{height:64px;width:auto;margin-bottom:1.4em}
+  /* hero / section-divider — AWID blue gradient with white text */
+  .divider{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%)}
+  .divider h1,.divider h2{color:#fff}
+  .divider .kicker{color:rgba(255,255,255,.85)}
+  .divider .lead{color:rgba(255,255,255,.94)}
+  .divider .footer{color:rgba(255,255,255,.7);border-top-color:rgba(255,255,255,.25)}
+  .divider ul.clean li{color:rgba(255,255,255,.94)}
+  .divider ul.clean li b{color:#fff}
+  .divider ul.clean li::before{background:var(--spotlight)}
+  .partners-pills{display:flex;gap:12px;flex-wrap:wrap;margin-top:1.8em}
+  .partners-pills .pp{padding:12px 20px;border-radius:10px;font-weight:700;font-size:1rem;background:#fff;color:var(--primary);box-shadow:var(--shadow-md);border:0}
+  .role{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--spotlight);margin-bottom:.4em}
+  .brings{margin-top:.9em;border-top:1px solid var(--line);padding-top:.8em}
+  .brings .lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--primary);font-weight:700}
+  .brings p{color:#333;font-size:.92rem;margin-top:.3em}
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:1.6em;align-items:stretch}
+  .step{background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-sm);border-radius:12px;padding:18px 16px;position:relative}
+  .step .num{width:30px;height:30px;border-radius:50%;background:var(--primary);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:.9rem;margin-bottom:.6em}
+  .step h4{font-size:1.05rem;margin-bottom:.2em;color:var(--text)}
+  .step .who{font-size:.74rem;color:var(--primary);font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5em}
+  .step p{color:var(--muted);font-size:.85rem;line-height:1.4}
+  .step:not(:last-child)::after{content:"→";position:absolute;right:-22px;top:50%;transform:translateY(-50%);color:var(--spotlight);font-size:1.4rem;font-weight:800}
+  .fund{display:flex;flex-wrap:wrap;gap:8px;margin-top:1.6em;align-items:center}
+  .fund .flbl{font-size:.78rem;color:var(--muted);font-weight:700;margin-right:.4em}
+  .fund .tag{font-size:.82rem;background:#FDEBDD;color:#B8480C;border-color:#f6cba6}
+  .phases{display:grid;gap:14px;margin-top:1.2em}
+  .phase{display:grid;grid-template-columns:150px 1fr;gap:18px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-sm);border-radius:12px;padding:14px 20px;align-items:start}
+  .phase .ph{font-weight:800;color:var(--primary)}
+  .phase .ph small{display:block;color:var(--muted);font-weight:500;font-size:.78rem;margin-top:.2em}
+  .phase .body{color:#333;font-size:.95rem;line-height:1.45}
+  .tissue{margin-top:1.4em;background:var(--section);border:1px dashed #c7cfdc;border-radius:12px;padding:14px 18px;color:#444;font-size:.9rem;line-height:1.5}
+  .tissue b{color:var(--primary)}
+  @media(max-width:760px){.g2,.g3,.flow{grid-template-columns:1fr}.phase{grid-template-columns:1fr}.step:not(:last-child)::after{content:"↓";right:50%;top:auto;bottom:-24px;transform:translateX(50%)}}
+</style>
+</head>
+<body>
+<div class="progress" id="bar"></div>
+<div class="hint">← → arrows to navigate</div>
+<div class="deck" id="deck">
+
+  <!-- 1 TITLE -->
+  <section class="slide active center">
+    <img class="brand-logo" src="assets/img/logo-and-wordmark.png" alt="Anthony Wayne Innovation &amp; Design">
+    <div class="kicker">Regional Landscape · Researched June 2026</div>
+    <h1>AI Training in<br>Northwest Ohio</h1>
+    <p class="lead">Who is offering AI-related courses, programs, certificates, and community training across the Toledo metro and surrounding region — from university degrees to grassroots meetups.</p>
+    <div class="big-stats">
+      <div class="stat"><div class="n">6+</div><div class="l">Universities & colleges with AI offerings</div></div>
+      <div class="stat"><div class="n">3</div><div class="l">Community / nonprofit training orgs</div></div>
+      <div class="stat"><div class="n">209</div><div class="l">Web sources researched & fact-checked</div></div>
+    </div>
+    <div class="footer"><span>AI Training in Northwest Ohio</span><span>Multi-source, adversarially verified</span></div>
+  </section>
+
+  <!-- 2 OVERVIEW -->
+  <section class="slide">
+    <div class="kicker">The Landscape at a Glance</div>
+    <h2>A growing, multi-layered ecosystem</h2>
+    <ul class="clean">
+      <li><b>Universities lead on formal credentials.</b> BGSU, University of Toledo, and Tiffin all now offer AI-branded degrees, minors, and graduate specializations.</li>
+      <li><b>Tiffin University has the deepest AI portfolio</b> — a full B.S. in AI & Prompt Engineering, an AI+X minor, and multiple certificates.</li>
+      <li><b>Community colleges fill the workforce gap.</b> Owens runs affordable non-credit AI series for the public.</li>
+      <li><b>A vibrant non-academic scene anchors the region</b> — Great Lakes AI Week, EmpoweredAI, Anthony Wayne Innovation & Design, and The AI Collective Toledo.</li>
+      <li class="warn"><b>Notable gaps:</b> no NW Ohio AI Meetup group, and the public library teaches no AI classes.</li>
+    </ul>
+    <div class="footer"><span>Overview</span><span>2 / 12</span></div>
+  </section>
+
+  <!-- 3 BGSU -->
+  <section class="slide">
+    <div class="kicker">Universities · Degrees & Minors</div>
+    <h2>Bowling Green State University <span class="pill green">Bowling Green</span></h2>
+    <div class="grid g3">
+      <div class="card">
+        <div class="inst">First AI degree · Fall 2025</div>
+        <h3>Artificial Intelligence (AI) + X</h3>
+        <p>Combines AI with a second discipline — CS, math, physics, history, journalism, or PR.</p>
+        <div class="tags"><span class="tag deg">B.S. Degree</span><span class="tag">Undergrad</span><span class="tag inperson">In-person</span></div>
+      </div>
+      <div class="card">
+        <div class="inst">Open to any major</div>
+        <h3>AI and Society</h3>
+        <p>15 credit hours (9 core + 6 elective), via the CS department.</p>
+        <div class="tags"><span class="tag deg">Minor</span><span class="tag">Undergrad</span><span class="tag inperson">In-person</span></div>
+      </div>
+      <div class="card">
+        <div class="inst">30-credit graduate degree</div>
+        <h3>M.S. Data Science</h3>
+        <p>Includes <i>Artificial Intelligence Methods</i> (CS 5200).</p>
+        <div class="tags"><span class="tag deg">M.S.</span><span class="tag">Graduate</span><span class="tag inperson">In-person</span></div>
+      </div>
+    </div>
+    <p class="src">Sources: bgsu.edu/academics/artificial-intelligence-ai-x.html · ai-and-society.html · graduate/data-science-ms.html</p>
+    <div class="footer"><span>BGSU</span><span>3 / 12</span></div>
+  </section>
+
+  <!-- 4 UTOLEDO -->
+  <section class="slide">
+    <div class="kicker">Universities · Degrees & Certificates</div>
+    <h2>University of Toledo <span class="pill green">Toledo</span></h2>
+    <div class="grid g3">
+      <div class="card"><div class="inst">Launched 2020</div><h3>B.S. Data Science</h3><p>Now under the new School of Interdisciplinary Data Science.</p><div class="tags"><span class="tag deg">B.S.</span><span class="tag inperson">In-person</span></div></div>
+      <div class="card"><div class="inst">Launched 2020</div><h3>B.A. Data Analytics</h3><p>College of Arts and Letters.</p><div class="tags"><span class="tag deg">B.A.</span><span class="tag inperson">In-person</span></div></div>
+      <div class="card"><div class="inst">College of Engineering</div><h3>AI Graduate Specialization</h3><p>Core: AI, Machine Learning, Biologically-Inspired Computing.</p><div class="tags"><span class="tag deg">MSE / Ph.D.</span><span class="tag inperson">In-person</span></div></div>
+      <div class="card"><div class="inst">In development</div><h3>M.S. Data Science</h3><p>Planned fully online graduate degree.</p><div class="tags"><span class="tag deg">M.S.</span><span class="tag online">Online (planned)</span></div></div>
+      <div class="card"><div class="inst">Neff College of Business</div><h3>Master of Applied Business Analytics</h3><p>Launched fully online.</p><div class="tags"><span class="tag deg">Master's</span><span class="tag online">Online</span></div></div>
+      <div class="card"><div class="inst">Family Business Center</div><h3>AI for Business Certificate</h3><p>2-day workshop · Ohio TechCred eligible ($1,500/member).</p><div class="tags"><span class="tag cert">Certificate</span><span class="tag inperson">In-person</span></div></div>
+    </div>
+    <p class="src">Sources: utoledo.edu (data-science, data-analytics, EECS AI specialization, Family Business Center) · news.utoledo.edu</p>
+    <div class="footer"><span>University of Toledo</span><span>4 / 12</span></div>
+  </section>
+
+  <!-- 5 TIFFIN -->
+  <section class="slide">
+    <div class="kicker">Universities · Deepest AI Portfolio</div>
+    <h2>Tiffin University <span class="pill green">Tiffin</span></h2>
+    <div class="grid g3">
+      <div class="card"><div class="inst">120 credits · $535/cr</div><h3>B.S. AI & Prompt Engineering</h3><p>Full undergraduate AI degree (AIPE).</p><div class="tags"><span class="tag deg">B.S.</span><span class="tag online">Online</span></div></div>
+      <div class="card"><div class="inst">18 credits · any major</div><h3>AI + X Minor</h3><p>For business, health, education, criminal justice, arts.</p><div class="tags"><span class="tag deg">Minor</span><span class="tag online">Online</span></div></div>
+      <div class="card"><div class="inst">Undergraduate</div><h3>B.S. Business Intelligence & Analytics</h3><p>Distinct from the graduate MBA Data Analytics track.</p><div class="tags"><span class="tag deg">B.S.</span><span class="tag online">Online</span></div></div>
+      <div class="card"><div class="inst">AI & Data Science Center</div><h3>Professional Certificates</h3><p>Prompt Engineering for Educators / Students / Professions + industry cert prep (Google, AWS, Microsoft).</p><div class="tags"><span class="tag cert">Certificates</span><span class="tag online">Online</span></div></div>
+      <div class="card"><div class="inst">Workforce Ready · with IBM</div><h3>AI Engineer Certificate</h3><p>Non-degree, delivered via live online classes.</p><div class="tags"><span class="tag cert">Certificate</span><span class="tag online">Online (live)</span></div></div>
+      <div class="card"><div class="inst">33 credits</div><h3>M.S. Cybersecurity</h3><p>AI-infused; incl. <i>Emerging Technologies in Cybersecurity</i> (CDS650).</p><div class="tags"><span class="tag deg">M.S.</span><span class="tag online">Online</span></div></div>
+    </div>
+    <p class="src">Sources: tiffin.edu/academics/.../ai-data-science-center · go.tiffin.edu · workforceready.tiffin.edu</p>
+    <div class="footer"><span>Tiffin University</span><span>5 / 12</span></div>
+  </section>
+
+  <!-- 6 OWENS / COMMUNITY COLLEGE -->
+  <section class="slide">
+    <div class="kicker">Community College · Workforce Training</div>
+    <h2>Owens Community College <span class="pill green">Toledo / Perrysburg</span></h2>
+    <div class="grid g2">
+      <div class="card">
+        <div class="inst">Workforce & Community Services</div>
+        <h3>"AI and The Future of Work"</h3>
+        <p>Four-part non-credit series, taught by <b>LeSean Shaw</b> (co-founder, Actual Reality Technologies & EmpoweredAI):</p>
+        <ul class="clean" style="margin-top:.7em">
+          <li style="font-size:.92rem">Demystify AI: Past, Present & Future</li>
+          <li style="font-size:.92rem">AI Fundamentals & Tools</li>
+          <li style="font-size:.92rem">Building Your Own GPT or Agent</li>
+          <li style="font-size:.92rem">AI Integrations for Efficiency</li>
+        </ul>
+        <div class="tags"><span class="tag cert">Non-credit series</span><span class="tag inperson">In-person or virtual</span><span class="tag">$30 each / $100 all four</span></div>
+      </div>
+      <div class="card">
+        <div class="inst">ed2go online portal</div>
+        <h3>AI & Machine Learning Suite</h3>
+        <p>Self-paced online continuing-education course (instructor David Iseminger). No prerequisites.</p>
+        <div class="tags"><span class="tag cert">Online course</span><span class="tag online">Self-paced</span></div>
+        <hr style="border:none;border-top:1px solid var(--line);margin:1.2em 0">
+        <div class="inst">Also note</div>
+        <h3 style="font-size:1.05rem">UToledo AI/ML Club</h3>
+        <p>Student-run workshops, seminars & projects (advisor Dr. Ashish Kharel). Students only — not general public.</p>
+      </div>
+    </div>
+    <p class="src">Sources: owens.edu/news-releases/2025/10/31 · ed2go.com/owens · utoledo.edu/engineering EECS student orgs</p>
+    <div class="footer"><span>Owens CC</span><span>6 / 12</span></div>
+  </section>
+
+  <!-- 7 GREAT LAKES AI WEEK -->
+  <section class="slide">
+    <div class="kicker">Events · Regional Flagship</div>
+    <h2>Great Lakes AI Week</h2>
+    <p class="lead">The region's marquee AI event — Nov 4–6, 2025 at BGSU; 2026 edition Nov 10–12. Organized by <b>Enterprise Technology Association</b>, <b>JobsOhio</b>, and <b>Actual Reality Technologies</b> (universities are venue/education partners).</p>
+    <div class="grid g2" style="margin-top:1.2em">
+      <div class="card">
+        <h3>Summits & socials</h3>
+        <p>AI Leadership Summit · AI For Business Summit · AI Woodstock Toledo · Women in AI & Tech Breakfast. 1,000+ attendees.</p>
+        <div class="tags"><span class="tag">Conference</span><span class="tag inperson">In-person · BGSU</span></div>
+      </div>
+      <div class="card">
+        <div class="inst">JobsOhio-sponsored · UToledo College of Engineering</div>
+        <h3>AI Community Day Workshops & Certs</h3>
+        <p><b>Track 1:</b> AI Techniques & Tooling — prompt engineering, workflow automation, responsible AI with Microsoft 365.<br><b>Track 2:</b> AI Strategy & Governance.</p>
+        <div class="tags"><span class="tag cert">Workshops + certs</span><span class="tag inperson">In-person</span></div>
+      </div>
+    </div>
+    <p class="src">Sources: greatlakesaiweek.com · greatlakesaiweek.com/calendar/ai-workshops · BGSU & UToledo newsrooms · Toledo Blade</p>
+    <div class="footer"><span>Great Lakes AI Week</span><span>7 / 12</span></div>
+  </section>
+
+  <!-- 8 COMMUNITY & NONPROFIT -->
+  <section class="slide">
+    <div class="kicker">Community · Nonprofit & Grassroots</div>
+    <h2>The community anchors</h2>
+    <div class="grid g3">
+      <div class="card">
+        <div class="inst">Toledo nonprofit · founded 2023</div>
+        <h3>EmpoweredAI <span class="tag">"The Glass City's AI Hub"</span></h3>
+        <p>12 neighborhood partners across the 419. Programs:</p>
+        <ul class="clean" style="margin-top:.7em">
+          <li style="font-size:.92rem"><b>Ignite Labs</b> — generative AI, digital storytelling & ethical design for middle/high schoolers</li>
+          <li style="font-size:.92rem"><b>Educator Fellowship</b> — teacher PD for integrating AI</li>
+          <li style="font-size:.92rem"><b>Community Studio</b> — residents prototype AI solutions</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="inst">Chapter of a 70,000+ member global nonprofit</div>
+        <h3>The AI Collective — Toledo</h3>
+        <p>Recurring <b>Tech Nights</b>, <b>AI Office Hours</b> & info sessions at <b>TolHouse coworking</b> (1447 N Summit St). ~2nd & 4th Tuesdays.</p>
+        <div class="tags" style="margin-top:.9em">
+          <span class="tag">Justin Beaudry</span><span class="tag">Keith Instone</span><span class="tag">Yashraj Mote</span><span class="tag">Louis Lane</span><span class="tag">Michael J Vanderpool</span>
+        </div>
+        <p class="src" style="margin-top:.9em">Found via Luma, not Meetup.</p>
+      </div>
+      <div class="card">
+        <div class="inst">Private studio · sponsored by Actual Reality Technologies</div>
+        <h3>Anthony Wayne Innovation &amp; Design</h3>
+        <p>Hands-on AI, design &amp; technology workshops for students, makers &amp; small businesses — e.g. <b>Applied AI in Design Thinking</b> at The Loft 419, downtown Toledo.</p>
+        <div class="tags" style="margin-top:.9em"><span class="tag inperson">In-person · Toledo</span><span class="tag">Workshops</span><span class="tag">Michael Vanderpool</span></div>
+      </div>
+    </div>
+    <p class="src">Sources: empoweredai.org · luma.com/great-lakes-ai-info-2 · vanderpoolteacher.github.io/awid-classes · news.utoledo.edu · wtol.com</p>
+    <div class="footer"><span>Community & Nonprofit</span><span>8 / 12</span></div>
+  </section>
+
+  <!-- 9 NATIONAL VENDORS -->
+  <section class="slide">
+    <div class="kicker">Commercial · Marketing to the Region</div>
+    <h2>National vendors marketing to Toledo</h2>
+    <p class="lead"><span class="badge-warn">⚠ Caveat</span> &nbsp; These run templated, auto-generated geo-targeted landing pages. None has a fixed Toledo campus — delivery is Live Online or onsite-at-client. Treat as remote vendors available to the region.</p>
+    <table>
+      <tr><th>Provider</th><th>Offering</th><th>Format</th><th>Price</th></tr>
+      <tr><td><b>LearneRRing</b></td><td>AI & Automation 1-Day Workshop</td><td>In-person (Toledo) / virtual on request</td><td>—</td></tr>
+      <tr><td><b>Certstaffix Training</b></td><td>AI for Business · ChatGPT/GenAI · Prompt Engineering · MS Copilot</td><td>Live Online + onsite corporate</td><td>$365–$960</td></tr>
+      <tr><td><b>American Graphics Institute</b></td><td>Live instructor-led AI classes + private group workshops</td><td>Online + onsite private</td><td>—</td></tr>
+      <tr><td><b>Unichrone</b></td><td>Generative AI in Cybersecurity (cert course)</td><td>Online classroom / group</td><td>—</td></tr>
+    </table>
+    <p class="src">Sources: eventbrite.com (LearneRRing) · certstaff.com · agitraining.com · unichrone.com</p>
+    <div class="footer"><span>Commercial Vendors</span><span>9 / 12</span></div>
+  </section>
+
+  <!-- 10 GAPS / NEGATIVE FINDINGS -->
+  <section class="slide">
+    <div class="kicker">What We Did NOT Find</div>
+    <h2>Notable gaps</h2>
+    <ul class="clean">
+      <li class="warn"><b>No NW Ohio AI Meetup group.</b> The only Ohio AI/ML Meetups are in Cleveland, Columbus & NE Ohio. Local grassroots activity runs through The AI Collective (via Luma), EmpoweredAI, and AWID — not Meetup.</li>
+      <li class="warn"><b>Toledo Lucas County Public Library teaches no AI classes</b> in its standing catalog (MS Office, Google Workspace, 3D printing, etc.). It offers LinkedIn Learning & O'Reilly online, and has hosted an EmpoweredAI kids program — but no library-taught AI class.</li>
+      <li class="warn"><b>Eventbrite is thin.</b> The only verified NW Ohio listing is the templated LearneRRing workshop. A "FutureReady AI Prompt Engineering Bootcamp" surfaced but was too low-reliability to confirm.</li>
+      <li class="warn"><b>Unconfirmed institutions:</b> No AI-specific offerings verified for Lourdes University, Defiance College, Northwest State CC, Terra State CC, or Penta Career Center — worth a direct check.</li>
+    </ul>
+    <div class="footer"><span>Gaps & Negative Findings</span><span>10 / 12</span></div>
+  </section>
+
+  <!-- 11 ROSTER SUMMARY -->
+  <section class="slide">
+    <div class="kicker">The Roster · Who's Offering AI Training</div>
+    <h2>The complete picture</h2>
+    <table>
+      <tr><th>Provider</th><th>What they offer</th><th>Type</th></tr>
+      <tr><td><b>BGSU</b></td><td>AI+X degree, AI & Society minor, Data Science M.S.</td><td>Degrees / minor</td></tr>
+      <tr><td><b>University of Toledo</b></td><td>Data Science/Analytics degrees, AI grad specialization, business analytics, AI for Business cert</td><td>Degrees / cert</td></tr>
+      <tr><td><b>Tiffin University</b></td><td>AI & Prompt Engineering B.S., AI+X minor, multiple certs, AI-infused M.S.</td><td>Degrees / certs</td></tr>
+      <tr><td><b>Owens Community College</b></td><td>"AI and The Future of Work" series + ed2go AI/ML suite</td><td>Non-credit</td></tr>
+      <tr><td><b>Great Lakes AI Week</b> (ETA, JobsOhio, ART)</td><td>Conference + AI Community Day workshops & certs</td><td>Event</td></tr>
+      <tr><td><b>EmpoweredAI</b></td><td>Ignite Labs, Educator Fellowship, Community Studio</td><td>Nonprofit</td></tr>
+      <tr><td><b>The AI Collective – Toledo</b></td><td>Tech Nights, AI Office Hours, info sessions</td><td>Meetup/community</td></tr>
+      <tr><td><b>Anthony Wayne Innovation &amp; Design (AWID)</b></td><td>Hands-on AI, design &amp; tech workshops (e.g., "Applied AI in Design Thinking") for students, makers &amp; small businesses</td><td>Workshops / private studio</td></tr>
+      <tr><td><b>Toledo Chamber of Commerce</b></td><td>"AI: The Game Changer for Business" seminar</td><td>Event</td></tr>
+      <tr><td><b>National vendors</b></td><td>LearneRRing, Certstaffix, AGI, Unichrone</td><td>Online / commercial</td></tr>
+    </table>
+    <div class="footer"><span>Full Roster</span><span>11 / 12</span></div>
+  </section>
+
+  <!-- 12 CLOSING -->
+  <section class="slide center">
+    <div class="kicker">Method & Caveats</div>
+    <h2>How this was built</h2>
+    <p class="lead">Two deep-research passes fanned out across <b>universities, community & technical colleges, career centers, event platforms (Eventbrite, Meetup), libraries, chambers, coworking spaces, and commercial trainers</b>. <b>209 sources</b> were searched; <b>50 claims</b> went through 3-vote adversarial verification — only those backed by primary sources are shown here.</p>
+    <ul class="clean" style="margin-top:1.4em">
+      <li class="warn"><b>Time-sensitive:</b> Great Lakes AI Week 2025 & Owens' Feb–Mar 2026 sessions have passed; the 2026 conference agenda is not fully verified.</li>
+      <li class="warn"><b>Self-described programs</b> (EmpoweredAI, AI Collective cadence) should be reconfirmed against current calendars.</li>
+      <li><b>Not exhaustive</b> — reflects only claims that survived verification.</li>
+    </ul>
+    <div class="footer"><span>AI Training in Northwest Ohio</span><span>12 / 12</span></div>
+  </section>
+
+  <!-- 13 PARTNERSHIP — DIVIDER / VISION -->
+  <section class="slide divider center">
+    <div class="kicker">From Inventory to Action · A Proposal</div>
+    <h1>Building an AI Training<br>Public–Private Partnership</h1>
+    <p class="lead">Turn the region's scattered AI offerings into one coordinated talent pipeline — by linking a nimble private innovation studio, a mission-driven community nonprofit, and a public community college that can credential and fund the work.</p>
+    <div class="partners-pills">
+      <span class="pp a">Anthony Wayne Innovation &amp; Design</span>
+      <span class="pp b">EmpoweredAI</span>
+      <span class="pp c">Owens Community College</span>
+    </div>
+    <div class="footer"><span>Public–Private Partnership</span><span>13 / 16</span></div>
+  </section>
+
+  <!-- 14 PARTNERSHIP — WHO BRINGS WHAT -->
+  <section class="slide">
+    <div class="kicker">The Partnership · Complementary Strengths</div>
+    <h2>Three partners, three distinct assets</h2>
+    <div class="grid g3">
+      <div class="card">
+        <div class="role">Private · Industry</div>
+        <h3>AWID</h3>
+        <div class="inst">Anthony Wayne Innovation &amp; Design</div>
+        <p>Hands-on AI, design &amp; technology workshops for students, makers &amp; small businesses. Applied, design-thinking pedagogy; downtown venue (The Loft 419); sponsored by Actual Reality Technologies.</p>
+        <div class="brings"><div class="lbl">Brings</div><p>Speed, applied curriculum, real-world projects, industry relevance.</p></div>
+      </div>
+      <div class="card">
+        <div class="role">Nonprofit · Community</div>
+        <h3>EmpoweredAI</h3>
+        <div class="inst">"The Glass City's AI Hub"</div>
+        <p>Digital-equity mission with 12 neighborhood partners. K-12 student labs (Ignite Labs), educator fellowships, and a community studio across the 419.</p>
+        <div class="brings"><div class="lbl">Brings</div><p>Outreach, equity, youth &amp; educator pipeline, grant eligibility, community trust.</p></div>
+      </div>
+      <div class="card">
+        <div class="role">Public · Institution</div>
+        <h3>Owens Community College</h3>
+        <div class="inst">Workforce &amp; Community Services</div>
+        <p>Accredited public college already running AI continuing-ed. Issues credentials, accesses Ohio TechCred funding, holds employer relationships, facilities &amp; financial aid.</p>
+        <div class="brings"><div class="lbl">Brings</div><p>Credentials, scale, funding access, employer placement, accreditation.</p></div>
+      </div>
+    </div>
+    <div class="footer"><span>Who Brings What</span><span>14 / 16</span></div>
+  </section>
+
+  <!-- 15 PARTNERSHIP — THE MODEL -->
+  <section class="slide">
+    <div class="kicker">The Model · One Continuous Pipeline</div>
+    <h2>Spark → Build → Credential → Work</h2>
+    <div class="flow">
+      <div class="step"><div class="num">1</div><div class="who">EmpoweredAI</div><h4>Spark</h4><p>Reach youth, educators &amp; underserved communities. Build awareness, confidence &amp; early AI literacy.</p></div>
+      <div class="step"><div class="num">2</div><div class="who">AWID</div><h4>Build</h4><p>Applied, hands-on workshops — design thinking, prompt engineering, real client &amp; small-business projects.</p></div>
+      <div class="step"><div class="num">3</div><div class="who">Owens CC</div><h4>Credential</h4><p>Convert learning into stackable, TechCred-funded certificates with academic recognition.</p></div>
+      <div class="step"><div class="num">4</div><div class="who">Employers</div><h4>Work</h4><p>Place graduates, upskill incumbent workers, drive small-business AI adoption across NW Ohio.</p></div>
+    </div>
+    <div class="fund">
+      <span class="flbl">Funding stack:</span>
+      <span class="tag">Ohio TechCred</span>
+      <span class="tag">JobsOhio</span>
+      <span class="tag">State / federal workforce grants</span>
+      <span class="tag">Philanthropy (via EmpoweredAI 501c3)</span>
+      <span class="tag">Employer sponsorship</span>
+    </div>
+    <div class="tissue">
+      <b>The connective tissue already exists.</b> Actual Reality Technologies sponsors AWID <i>and</i> co-organizes Great Lakes AI Week; LeSean Shaw co-founded EmpoweredAI and teaches Owens' AI series; AWID and The AI Collective share Toledo organizers. The PPP <b>formalizes relationships that are already in motion.</b>
+    </div>
+    <div class="footer"><span>The Model</span><span>15 / 16</span></div>
+  </section>
+
+  <!-- 16 PARTNERSHIP — ROADMAP & OUTCOMES -->
+  <section class="slide">
+    <div class="kicker">Execution · Governance, Roadmap &amp; Outcomes</div>
+    <h2>How we stand it up</h2>
+    <div class="phases">
+      <div class="phase"><div class="ph">Phase 1<small>0–6 months</small></div><div class="body"><b>Formalize &amp; pilot.</b> Sign an MOU and stand up a 3-partner steering council. Launch a co-branded pilot workshop series and a shared regional AI-training calendar.</div></div>
+      <div class="phase"><div class="ph">Phase 2<small>6–18 months</small></div><div class="body"><b>Credential the pipeline.</b> Owens packages AWID + EmpoweredAI content into a stackable micro-credential; enroll employers in Ohio TechCred; pilot a K-12 → community → college pathway.</div></div>
+      <div class="phase"><div class="ph">Phase 3<small>18+ months</small></div><div class="body"><b>Scale &amp; sustain.</b> Employer cohort programs, dual-enrollment for high schoolers, and a diversified funding base (TechCred + grants + sponsorship) that makes the model self-sustaining.</div></div>
+    </div>
+    <div class="fund">
+      <span class="flbl">Measure success by:</span>
+      <span class="tag" style="background:#E8F4EC;color:#1f5d39;border-color:#bfe0cc">Learners reached</span>
+      <span class="tag" style="background:#E8F4EC;color:#1f5d39;border-color:#bfe0cc">Credentials earned</span>
+      <span class="tag" style="background:#E8F4EC;color:#1f5d39;border-color:#bfe0cc">Employers engaged</span>
+      <span class="tag" style="background:#E8F4EC;color:#1f5d39;border-color:#bfe0cc">Equity / underserved reach</span>
+      <span class="tag" style="background:#E8F4EC;color:#1f5d39;border-color:#bfe0cc">Small businesses adopting AI</span>
+    </div>
+    <div class="footer"><span>Roadmap &amp; Outcomes</span><span>16 / 16</span></div>
+  </section>
+
+</div>
+
+<div class="nav">
+  <button id="prev" aria-label="Previous">‹</button>
+  <button id="next" aria-label="Next">›</button>
+</div>
+
+<script>
+  const slides=[...document.querySelectorAll('.slide')];
+  let i=0;
+  const bar=document.getElementById('bar');
+  function show(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+    bar.style.width=((i+1)/slides.length*100)+'%';
+    document.querySelector('.slide.active').scrollTop=0;
+  }
+  document.getElementById('next').onclick=()=>show(i+1);
+  document.getElementById('prev').onclick=()=>show(i-1);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' ')show(i+1);
+    if(e.key==='ArrowLeft'||e.key==='PageUp')show(i-1);
+    if(e.key==='Home')show(0);
+    if(e.key==='End')show(slides.length-1);
+  });
+  // touch swipe
+  let x0=null;
+  addEventListener('touchstart',e=>x0=e.touches[0].clientX);
+  addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50)show(i+(dx<0?1:-1));x0=null;});
+  // dynamic slide numbering — update any "N / M" footer counter
+  slides.forEach((s,k)=>{
+    const f=s.querySelector('.footer span:last-child');
+    if(f&&/^\d+\s*\/\s*\d+$/.test(f.textContent.trim())) f.textContent=(k+1)+' / '+slides.length;
+  });
+  show(0);
+</script>
+</body>
+</html>
