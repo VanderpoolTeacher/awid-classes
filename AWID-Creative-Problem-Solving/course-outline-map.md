@@ -121,7 +121,7 @@ most phases rest on a single concept. These are the supplement targets.**
 
 ## Module 3 — Build systems, not outputs *(strand: cross-cutting — the "applied" engine)*
 
-**Lessons:** [1 · Build Systems, Not Outputs](lessons/module-3-build-systems/1-build-systems-not-outputs/lesson.md) *(3a — the core thesis)* · [2 · Organize Your Work](lessons/module-3-build-systems/2-organize-your-work/lesson.md) *(3b — organizing)* · [3 · Git & GitHub Basics](lessons/module-3-build-systems/3-git-and-github-basics/lesson.md) *(3c — tooling)* · _planned: 3d — the production pipeline_
+**Lessons:** [1 · Build Systems, Not Outputs](lessons/module-3-build-systems/1-build-systems-not-outputs/lesson.md) *(3a — the core thesis)* · [2 · Organize Your Work](lessons/module-3-build-systems/2-organize-your-work/lesson.md) *(3b — organizing)* · [3 · Git & GitHub Basics](lessons/module-3-build-systems/3-git-and-github-basics/lesson.md) *(3c — tooling)* · [4 · The Production Pipeline](lessons/module-3-build-systems/4-the-production-pipeline/lesson.md) *(3d — the flagship pipeline)*
 
 The distinctive thesis of this instructor: don't use AI to make one-off deliverables — build
 the repeatable system that makes them. This is where the workshop went deepest.
