@@ -473,3 +473,14 @@ once):
   the module reads in teaching order 1a→1b→1c→1d. Self-contained; outline reordered.
 - **Result:** **Module 1 now complete** (5 lessons, in order). Modules 0, 1, 3 fully built;
   Module 2 remains parked on the design-thinking supplement. **Next:** commit, PR closing #25.
+
+### 2026-06-03 — Step 23: Surface the course in the README + repo description (issue #27)
+
+- **Prompt (summary):** Noticed the repo landing page doesn't describe the course — the README
+  was the original site readme and the course only showed as an unexplained folder. "go" to fix.
+- **Response/decision:** On **issue #27 / branch `feature/27-surface-course-readme`**: added a
+  **Course materials** section to root `README.md` (module/lesson list + pointers to the spec,
+  outline, viewer, and log); created `AWID-Creative-Problem-Solving/README.md` so the folder
+  explains itself on GitHub; updated the repo **About** description to mention the course.
+- **Result:** The course is now discoverable from the repo landing page and the folder.
+  **Next:** commit, PR closing #27.
