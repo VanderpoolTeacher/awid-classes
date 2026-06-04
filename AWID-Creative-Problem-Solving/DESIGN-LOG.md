@@ -500,3 +500,14 @@ once):
 - **Result:** From the live site, students can reach the course index and open any lesson's
   reading, activity, and interactive. Manifest valid; all pages serve 200. **Next:** commit, PR
   closing #29.
+
+### 2026-06-03 — Step 25: Fix viewer list rendering (issue #31)
+
+- **Prompt (summary):** User screenshot — Discussion-questions numbering was off (every item
+  showed "1." and wrapped lines became stray paragraphs).
+- **Response/decision:** Bug in `view.html`'s `mdToHtml`: list items that wrap onto a second line
+  in the source weren't joined to the `<li>`, which split the `<ol>` (restarting numbering) and
+  turned continuations into paragraphs. On **issue #31 / branch `feature/31-viewer-list-rendering`**
+  added an `isContinuation()` check so `<ul>`/`<ol>` items absorb wrapped continuation lines.
+- **Result:** Verified by simulating the parser on a real wrapped discussion-questions block — one
+  `<ol>`, items 1–4, continuations joined. **Next:** commit, PR closing #31.
