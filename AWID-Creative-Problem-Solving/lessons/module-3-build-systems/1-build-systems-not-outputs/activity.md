@@ -32,21 +32,17 @@ ______________________________________________________________________________
 ## Part 2 — Build a template
 
 1. Name a task you do **more than once** (a weekly update, a lesson, a proposal, a post).
+2. Find or make **one good example** of it, and ask the chatbot: *"Strip this down to a reusable
+   template — replace the specific content with clearly labeled placeholders."*
+3. Use that template to generate **one** new instance.
+
+**Write down:** your repeated task, and whether it came out more consistent than a from-scratch
+request would have.
 
 ```
 My repeated task: ____________________________________________________________
-```
 
-2. Find or make **one good example** of it. Ask the chatbot:
-   > *"Strip this down to a reusable template — replace the specific content with clearly
-   > labeled placeholders."*
-
-3. Use that template to generate **one** new instance.
-
-**Write down:** did it come out more consistent than a from-scratch request would have?
-
-```
-______________________________________________________________________________
+More consistent than from scratch? ___________________________________________
 ```
 
 ---
