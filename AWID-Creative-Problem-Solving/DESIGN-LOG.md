@@ -523,3 +523,16 @@ once):
   contiguous (one list) with the write-in box after them.
 - **Result:** Re-scan of all 27 files → **0 split-list issues**. Rendering verified clean course-
   wide. **Next:** commit, PR closing #33.
+
+### 2026-06-03 — Step 27: Sticky header navigation in interactives (issue #35)
+
+- **Prompt (summary):** "some content interactives need to be able to have header navigation."
+- **Response/decision:** On **issue #35 / branch `feature/35-scorm-sticky-header`**: moved the
+  Back / step-count / Next controls and the progress bar into `.lesson__header` and made the
+  header `position: sticky; top: 0` so navigation stays visible while a step's content scrolls;
+  removed the now-redundant bottom `.lesson__nav`. Root blocker fixed: `.lesson { overflow:
+  hidden }` silently neutralizes `position: sticky` — removed it and rounded the header's top
+  corners to preserve the card. Applied to all 9 lesson SCORM packages + `_templates/scorm`.
+- **Result:** each package has exactly one nav (now in the header); inline JS untouched and
+  compiles; diff confined to 10 `index.html` headers + 10 `styles.css`. **Next:** commit, PR
+  closing #35.

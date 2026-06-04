@@ -13,6 +13,11 @@
       <p class="lesson__eyebrow">Module 0 · Creative Problem Solving</p>
       <h1 class="lesson__title">It's Not Magic: How AI Actually Works</h1>
       <div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+      <nav class="lesson__nav">
+        <button type="button" id="prevBtn" class="btn btn--ghost" disabled>← Back</button>
+        <span class="lesson__count" id="stepCount"></span>
+        <button type="button" id="nextBtn" class="btn">Next →</button>
+      </nav>
     </header>
 
     <!-- Each <section class="step"> is one screen. JS shows one at a time. -->
@@ -98,11 +103,6 @@
          learning system.</p>
     </section>
 
-    <nav class="lesson__nav">
-      <button type="button" id="prevBtn" class="btn btn--ghost" disabled>← Back</button>
-      <span class="lesson__count" id="stepCount"></span>
-      <button type="button" id="nextBtn" class="btn">Next →</button>
-    </nav>
   </main>
 
   <script>
