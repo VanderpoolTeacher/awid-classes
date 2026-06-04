@@ -30,6 +30,10 @@
     .tab--launch { margin-left:auto; color:#fff; background:var(--accent); border-radius:999px;
       padding:8px 16px; align-self:center; border-bottom:none; text-decoration:none; }
     .tab--launch:hover { filter:brightness(1.05); }
+    .tab--all { background:transparent; color:var(--primary); border:1px solid var(--line); }
+    .tab--all:hover { background:#f1f5f9; filter:none; }
+    .lesson-switcher { font:inherit; border:1px solid var(--line); border-radius:999px;
+      padding:7px 12px; color:var(--ink); background:#fff; max-width:230px; align-self:center; }
     article { padding:8px 32px 36px; }
     article h1 { font-size:1.7rem; }
     article h2 { font-size:1.3rem; margin-top:1.6em; }
@@ -72,11 +76,13 @@
     // ?lesson=<folder>  (default = Module 0). Parts live in <folder>/<part>.md
     var params = new URLSearchParams(location.search);
     var LESSON = params.get("lesson") || "module-0-framing/1-its-not-magic";
+    var INSTRUCTOR = params.get("instructor") === "1";
     var PARTS = [
-      { key: "lesson-text",     label: "Lesson" },
-      { key: "activity",        label: "Activity" },
-      { key: "instructor-guide",label: "Instructor Guide" }
+      { key: "lesson-text", label: "Lesson" },
+      { key: "activity",    label: "Activity" }
     ];
+    // Instructor guides contain answer keys — only shown with ?instructor=1 (not for students).
+    if (INSTRUCTOR) PARTS.push({ key: "instructor-guide", label: "Instructor Guide" });
 
     var tabsEl = document.getElementById("tabs");
     var contentEl = document.getElementById("content");
@@ -88,6 +94,38 @@
       b.addEventListener("click", function () { load(p.key); });
       tabsEl.appendChild(b);
     });
+    // Right cluster: All-lessons link, a lesson switcher, and the interactive launch.
+    var allLink = document.createElement("a");
+    allLink.className = "tab--launch tab--all";
+    allLink.textContent = "☰ All lessons";
+    allLink.href = "index.html" + (INSTRUCTOR ? "?instructor=1" : "");
+    tabsEl.appendChild(allLink);
+
+    var switcher = document.createElement("select");
+    switcher.className = "lesson-switcher";
+    switcher.setAttribute("aria-label", "Jump to a lesson");
+    switcher.addEventListener("change", function () {
+      if (switcher.value) {
+        location.search = "?lesson=" + encodeURIComponent(switcher.value) + (INSTRUCTOR ? "&instructor=1" : "");
+      }
+    });
+    tabsEl.appendChild(switcher);
+    fetch("lessons.json").then(function (r) { return r.ok ? r.json() : null; }).then(function (data) {
+      if (!data) { switcher.style.display = "none"; return; }
+      var ph = document.createElement("option"); ph.value = ""; ph.textContent = "Jump to lesson…";
+      switcher.appendChild(ph);
+      (data.modules || []).forEach(function (m) {
+        var og = document.createElement("optgroup"); og.label = m.title;
+        (m.lessons || []).forEach(function (l) {
+          var o = document.createElement("option");
+          o.value = m.id + "/" + l.slug; o.textContent = l.title;
+          if (o.value === LESSON) o.selected = true;
+          og.appendChild(o);
+        });
+        switcher.appendChild(og);
+      });
+    }).catch(function () { switcher.style.display = "none"; });
+
     var launch = document.createElement("a");
     launch.className = "tab--launch";
     launch.textContent = "▶ Launch interactive";
