@@ -211,14 +211,30 @@
           while (i < lines.length && /^>\s?/.test(lines[i])) { q.push(inline(lines[i].replace(/^>\s?/,""))); i++; }
           html.push("<blockquote>"+q.join("<br>")+"</blockquote>"); continue;
         }
+        // A line continues the current list item if it's non-blank and not itself a new
+        // list item, heading, blockquote, code fence, hr, or table row.
+        function isContinuation(l) {
+          return l.trim() !== "" &&
+                 !/^\s*(\d+\.|[-*])\s+/.test(l) &&
+                 !/^(#{1,6}\s|>\s?|```|---\s*$)/.test(l) &&
+                 l.indexOf("|") === -1;
+        }
         if (/^\s*[-*]\s+/.test(line)) {                 // unordered list
           var ul = [];
-          while (i < lines.length && /^\s*[-*]\s+/.test(lines[i])) { ul.push("<li>"+inline(lines[i].replace(/^\s*[-*]\s+/,""))+"</li>"); i++; }
+          while (i < lines.length && /^\s*[-*]\s+/.test(lines[i])) {
+            var uitem = lines[i].replace(/^\s*[-*]\s+/, ""); i++;
+            while (i < lines.length && isContinuation(lines[i])) { uitem += " " + lines[i].trim(); i++; }
+            ul.push("<li>" + inline(uitem) + "</li>");
+          }
           html.push("<ul>"+ul.join("")+"</ul>"); continue;
         }
         if (/^\s*\d+\.\s+/.test(line)) {                // ordered list
           var ol = [];
-          while (i < lines.length && /^\s*\d+\.\s+/.test(lines[i])) { ol.push("<li>"+inline(lines[i].replace(/^\s*\d+\.\s+/,""))+"</li>"); i++; }
+          while (i < lines.length && /^\s*\d+\.\s+/.test(lines[i])) {
+            var oitem = lines[i].replace(/^\s*\d+\.\s+/, ""); i++;
+            while (i < lines.length && isContinuation(lines[i])) { oitem += " " + lines[i].trim(); i++; }
+            ol.push("<li>" + inline(oitem) + "</li>");
+          }
           html.push("<ol>"+ol.join("")+"</ol>"); continue;
         }
         if (line.trim() === "") { i++; continue; }      // blank
