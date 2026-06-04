@@ -1,0 +1,39 @@
+{
+  "course": "Applied AI in Design Thinking (Creative Problem Solving)",
+  "modules": [
+    {
+      "id": "module-0-framing",
+      "title": "Module 0 — Framing",
+      "blurb": "Set expectations and demystify AI before doing anything.",
+      "lessons": [
+        { "slug": "1-its-not-magic", "title": "It's Not Magic: How AI Actually Works", "blurb": "Why AI isn't magic — it's code, data, and speed (and it's non-deterministic)." }
+      ]
+    },
+    {
+      "id": "module-1-foundational-ai",
+      "title": "Module 1 — Foundational AI",
+      "blurb": "How AI works, where to trust it, and how to use it responsibly.",
+      "lessons": [
+        { "slug": "1-how-ai-works-up-close", "title": "How AI Works, Up Close", "blurb": "Memory (the context window), context, images, and the limits of what it knows." },
+        { "slug": "2-can-you-trust-it", "title": "Can You Trust It?", "blurb": "Hallucination, bias, the \"tells,\" and the habit of verifying." },
+        { "slug": "3-whose-work-is-it", "title": "Whose Work Is It?", "blurb": "Ownership, copyright, fair use, and responsible, audience-aware use." },
+        { "slug": "4-your-data-isnt-private", "title": "Your Data Isn't Private", "blurb": "Privacy, permissions, and what not to feed AI." },
+        { "slug": "5-who-wins-with-ai", "title": "Who Wins With AI?", "blurb": "AI as a tool — domain expertise and clear intent win." }
+      ]
+    },
+    {
+      "id": "module-3-build-systems",
+      "title": "Module 3 — Build Systems, Not Outputs",
+      "blurb": "Build repeatable systems instead of one-off outputs.",
+      "lessons": [
+        { "slug": "1-build-systems-not-outputs", "title": "Build Systems, Not Outputs", "blurb": "Don't ask AI for the finished thing — build the system that makes it." },
+        { "slug": "2-organize-your-work", "title": "Organize Your Work", "blurb": "Folders, information architecture, a project log, and a sandbox." },
+        { "slug": "3-git-and-github-basics", "title": "Git & GitHub Basics", "blurb": "Track and share your work with version control." },
+        { "slug": "4-the-production-pipeline", "title": "The Production Pipeline", "blurb": "Chain small steps with human checkpoints to produce a finished whole." }
+      ]
+    }
+  ],
+  "planned": [
+    { "id": "module-2-design-thinking", "title": "Module 2 — The Design Thinking Process", "blurb": "Empathize → define → ideate → prototype → test. Coming soon." }
+  ]
+}

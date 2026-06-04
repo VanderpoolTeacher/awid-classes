@@ -484,3 +484,19 @@ once):
   explains itself on GitHub; updated the repo **About** description to mention the course.
 - **Result:** The course is now discoverable from the repo landing page and the folder.
   **Next:** commit, PR closing #27.
+
+### 2026-06-03 — Step 24: Make the course browsable for students (issue #29)
+
+- **Prompt (summary):** Wire the lessons into the live site so students can access all the content.
+- **Response/decision:** On **issue #29 / branch `feature/29-course-browsable`**: added
+  `lessons/lessons.json` (manifest of modules → lessons, data-driven like `classes.json`); built
+  `lessons/index.html` — a self-paced **course index** that lists every module/lesson and links
+  into the viewer; upgraded `lessons/view.html` with an "☰ All lessons" link and a lesson
+  **switcher** (dropdown from the manifest); added a **Course** nav link and a "Free, self-paced
+  course" promo section to the site home (`index.html`).
+- **Decision:** the student viewer shows **Lesson + Activity + Interactive only**; the
+  **instructor guide** (which contains answer keys) is gated behind `?instructor=1` so students
+  don't get the answers. (Open to changing if the user wants everything shown.)
+- **Result:** From the live site, students can reach the course index and open any lesson's
+  reading, activity, and interactive. Manifest valid; all pages serve 200. **Next:** commit, PR
+  closing #29.
