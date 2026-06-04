@@ -523,3 +523,19 @@ once):
   contiguous (one list) with the write-in box after them.
 - **Result:** Re-scan of all 27 files → **0 split-list issues**. Rendering verified clean course-
   wide. **Next:** commit, PR closing #33.
+
+### 2026-06-03 — Step 28: Remove the quiz answer-length tell (issue #36)
+
+- **Prompt (summary):** "all your quiz questions, the longest answer is always the one that's correct."
+- **Response/decision:** Confirmed: 42/46 lesson questions had the correct option as the longest
+  (by up to +23 chars). On **issue #36 / branch `feature/36-quiz-answer-length-tell`** applied
+  **both** fixes: (1) the interactive now **shuffles** option order at load (grading still keys on
+  the original index, so it's unchanged); (2) rewrote options across all 9 lessons to comparable
+  length so the correct answer is no longer conspicuously longest. Updated the `_templates/scorm`
+  authoring comment and **LESSON-SPEC §8a** so new lessons don't reintroduce the tell. (Follows
+  Step 27 / #35.)
+- **Result:** verified against a pre-edit baseline — every `answer` index and option count
+  unchanged on all 46 questions; no question has the correct option longest by ≥8 chars (residual
+  gaps are 1–6 chars, sub-word); inline JS compiles in all 10 files. **Next:** commit, PR closing
+  #36. *(DESIGN-LOG appends after Step 27's entry from #35 — resolve the trivial overlap when the
+  second PR merges.)*

@@ -110,7 +110,7 @@
     var QUESTIONS = [
       {
         q: "Which of these is NON-deterministic?",
-        options: ["A calculator doing 2 + 2", "Asking a chatbot the same question twice", "Adding a column in a spreadsheet"],
+        options: ["A calculator doing 2 + 2 and showing the result", "Asking a chatbot the same question twice", "Adding a column in a spreadsheet"],
         answer: 1,
         feedback: "A calculator and a spreadsheet give the same result every time. A chatbot predicts a likely answer, so it can differ each time."
       },
@@ -128,13 +128,13 @@
       },
       {
         q: "Why don't you need the deep math to use AI well?",
-        options: ["Because the math is fake", "Like driving a car without knowing the engine — a simple model is enough", "Because AI has no math in it"],
+        options: ["The math is fake and made up by experts", "Like driving a car without knowing the engine", "Modern AI has no real math inside it"],
         answer: 1,
         feedback: "You can drive without knowing the engine. The model 'code + data + speed, non-deterministic' is enough to use it well."
       },
       {
         q: "A chatbot mostly works by…",
-        options: ["Looking up the one true answer", "Predicting what word probably comes next, very fast", "Asking a human in another room"],
+        options: ["Looking up the one true stored answer", "Predicting what word probably comes next", "Asking a hidden human in another room"],
         answer: 1,
         feedback: "It's a fast 'what word probably comes next' machine, trained on mountains of text — not a lookup of one true answer."
       }
@@ -150,7 +150,13 @@
       var legend = document.createElement("legend");
       legend.textContent = (qi + 1) + ". " + item.q;
       fs.appendChild(legend);
-      item.options.forEach(function (opt, oi) {
+      var order = item.options.map(function (opt, oi) { return oi; });
+      for (var k = order.length - 1; k > 0; k--) {
+        var j = Math.floor(Math.random() * (k + 1));
+        var tmp = order[k]; order[k] = order[j]; order[j] = tmp;
+      }
+      order.forEach(function (oi) {
+        var opt = item.options[oi];
         var id = "q" + qi + "o" + oi;
         var label = document.createElement("label");
         label.className = "quiz__opt";

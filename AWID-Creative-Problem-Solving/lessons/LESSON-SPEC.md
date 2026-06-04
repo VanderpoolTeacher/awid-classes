@@ -80,6 +80,10 @@ These consolidate Decisions 10–16 in `DESIGN-LOG.md`.
 7. **Traceability.** Front matter lists `relatedConcepts` keys from `concept-inventory.json`.
 8. **Quiz feedback.** Interactive checks give per-question feedback (right/wrong + a short why),
    not just a score.
+8a. **Quiz options — no tells.** Write a question's options at **comparable length**; the correct
+    answer must not be the longest or most detailed choice. The interactive **shuffles option
+    order** at load, so never let position or length signal the answer (`answer` is the index into
+    the authored array, not the on-screen order).
 9. **Immutability.** Once a lesson is published to `main` it is **locked** (`locked: true` +
    `changePolicy` in front matter). Changes require an approved **GitHub issue**, referenced in
    the commit. (Templates and this spec are tools — they may evolve without an issue.)

@@ -103,7 +103,7 @@
     var QUESTIONS = [
       {
         q: "What is an AI \"hallucination\"?",
-        options: ["When AI refuses to answer", "When AI states something false as if it's true", "When AI runs slowly"],
+        options: ["When AI politely refuses to answer you", "When AI states something false as if true", "When AI loads and runs really slowly"],
         answer: 1,
         feedback: "It's confident, plausible-sounding fabrication — invented facts, sources, even court cases."
       },
@@ -115,19 +115,19 @@
       },
       {
         q: "AI gives you three sources. Before you use them, you should…",
-        options: ["trust them — they look real", "search for each one to confirm it exists", "ask the AI if it's sure"],
+        options: ["trust them since they all look real", "search each one to confirm it exists", "ask the AI if it is really sure"],
         answer: 1,
         feedback: "If you can't find a source independently, treat it as fabricated until proven otherwise."
       },
       {
         q: "How is bias different from hallucination?",
-        options: ["They're the same thing", "Bias is a quiet, systematic skew from training data; hallucination is a loud false statement", "Bias only happens in images"],
+        options: ["They are really just the same exact thing", "Bias is a quiet skew; a hallucination is loud", "Bias only ever happens in generated images"],
         answer: 1,
         feedback: "Bias is quiet and systematic; a hallucination is a loud, checkable falsehood."
       },
       {
         q: "When should you verify the hardest?",
-        options: ["Low-stakes brainstorming", "High-stakes work going public with your name on it", "You never need to verify"],
+        options: ["Quick low-stakes brainstorming for yourself", "High-stakes public work with your name on it", "You honestly never need to verify anything"],
         answer: 1,
         feedback: "Match effort to stakes — verify hard when a wrong answer would be costly."
       }
@@ -142,7 +142,13 @@
       var legend = document.createElement("legend");
       legend.textContent = (qi + 1) + ". " + item.q;
       fs.appendChild(legend);
-      item.options.forEach(function (opt, oi) {
+      var order = item.options.map(function (opt, oi) { return oi; });
+      for (var k = order.length - 1; k > 0; k--) {
+        var j = Math.floor(Math.random() * (k + 1));
+        var tmp = order[k]; order[k] = order[j]; order[j] = tmp;
+      }
+      order.forEach(function (oi) {
+        var opt = item.options[oi];
         var id = "q" + qi + "o" + oi;
         var label = document.createElement("label");
         label.className = "quiz__opt"; label.htmlFor = id;

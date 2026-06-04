@@ -96,31 +96,31 @@
     var QUESTIONS = [
       {
         q: "Why chain small stages instead of one giant prompt?",
-        options: ["To be slower on purpose", "Each stage is focused and checkable; one giant prompt is too much to review or fix", "AI prefers short prompts"],
+        options: ["It makes the whole process slower on purpose", "Each stage stays focused and easy to check", "AI always prefers very short, simple prompts"],
         answer: 1,
         feedback: "Small stages are tasks AI does well and that you can actually review before the next step."
       },
       {
         q: "\"Human-in-the-loop\" means…",
-        options: ["AI works completely alone", "A person reviews and approves the work at key stages", "Humans type everything themselves"],
+        options: ["AI works completely alone with no oversight", "A person reviews and approves at key stages", "A human types every single word themselves"],
         answer: 1,
         feedback: "AI is the fast entry-level employee; the human reviews and signs off."
       },
       {
         q: "The source of truth in a pipeline is…",
-        options: ["The AI's best guess", "The standard/spec the work must match — you check each stage against it", "Whatever the final output says"],
+        options: ["The AI's best guess at each step", "The spec the work must match", "Whatever the final output happens to say"],
         answer: 1,
         feedback: "Check each stage against it to catch drift before it compounds."
       },
       {
         q: "Why catch drift early?",
-        options: ["It doesn't really matter", "Errors compound — a wrong early stage poisons everything built on it", "To save paper"],
+        options: ["It honestly does not matter when you catch it", "Errors compound onto everything built after", "It helps you save paper and printing costs"],
         answer: 1,
         feedback: "A wrong outline poisons every lesson built from it — fix early."
       },
       {
         q: "A pipeline with no human checkpoints is…",
-        options: ["Maximally efficient", "A confident error machine — it makes mistakes as fast as good work", "Impossible to build"],
+        options: ["The most efficient setup you can build", "A confident machine that makes mistakes fast", "Completely impossible to actually build"],
         answer: 1,
         feedback: "Speed plus checkpoints is the win; speed alone is the trap."
       }
@@ -135,7 +135,13 @@
       var legend = document.createElement("legend");
       legend.textContent = (qi + 1) + ". " + item.q;
       fs.appendChild(legend);
-      item.options.forEach(function (opt, oi) {
+      var order = item.options.map(function (opt, oi) { return oi; });
+      for (var k = order.length - 1; k > 0; k--) {
+        var j = Math.floor(Math.random() * (k + 1));
+        var tmp = order[k]; order[k] = order[j]; order[j] = tmp;
+      }
+      order.forEach(function (oi) {
+        var opt = item.options[oi];
         var id = "q" + qi + "o" + oi;
         var label = document.createElement("label");
         label.className = "quiz__opt"; label.htmlFor = id;
