@@ -30,10 +30,14 @@ body {
   background: var(--surface);
   border-radius: 16px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-  overflow: hidden;
 }
 
 .lesson__header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--surface);
+  border-radius: 16px 16px 0 0;
   padding: 28px 32px 16px;
   border-bottom: 1px solid var(--line);
 }
@@ -128,12 +132,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 32px 28px;
-  border-top: 1px solid var(--line);
+  gap: 12px;
+  margin-top: 14px;
 }
 .lesson__count { color: var(--muted); font-size: 0.9rem; }
 
 @media (max-width: 520px) {
-  .lesson__header, .step, .lesson__nav { padding-left: 20px; padding-right: 20px; }
+  .lesson__header, .step { padding-left: 20px; padding-right: 20px; }
   .lesson__title { font-size: 1.35rem; }
 }
