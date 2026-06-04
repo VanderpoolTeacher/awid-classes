@@ -524,6 +524,19 @@ once):
 - **Result:** Re-scan of all 27 files → **0 split-list issues**. Rendering verified clean course-
   wide. **Next:** commit, PR closing #33.
 
+### 2026-06-03 — Step 27: Sticky header navigation in interactives (issue #35)
+
+- **Prompt (summary):** "some content interactives need to be able to have header navigation."
+- **Response/decision:** On **issue #35 / branch `feature/35-scorm-sticky-header`**: moved the
+  Back / step-count / Next controls and the progress bar into `.lesson__header` and made the
+  header `position: sticky; top: 0` so navigation stays visible while a step's content scrolls;
+  removed the now-redundant bottom `.lesson__nav`. Root blocker fixed: `.lesson { overflow:
+  hidden }` silently neutralizes `position: sticky` — removed it and rounded the header's top
+  corners to preserve the card. Applied to all 9 lesson SCORM packages + `_templates/scorm`.
+- **Result:** each package has exactly one nav (now in the header); inline JS untouched and
+  compiles; diff confined to 10 `index.html` headers + 10 `styles.css`. **Next:** commit, PR
+  closing #35.
+
 ### 2026-06-03 — Step 28: Remove the quiz answer-length tell (issue #36)
 
 - **Prompt (summary):** "all your quiz questions, the longest answer is always the one that's correct."
@@ -537,5 +550,4 @@ once):
 - **Result:** verified against a pre-edit baseline — every `answer` index and option count
   unchanged on all 46 questions; no question has the correct option longest by ≥8 chars (residual
   gaps are 1–6 chars, sub-word); inline JS compiles in all 10 files. **Next:** commit, PR closing
-  #36. *(DESIGN-LOG appends after Step 27's entry from #35 — resolve the trivial overlap when the
-  second PR merges.)*
+  #36.
