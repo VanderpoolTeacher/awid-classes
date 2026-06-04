@@ -551,3 +551,20 @@ once):
   unchanged on all 46 questions; no question has the correct option longest by ≥8 chars (residual
   gaps are 1–6 chars, sub-word); inline JS compiles in all 10 files. **Next:** commit, PR closing
   #36.
+
+### 2026-06-04 — Step 29: Course-navigation sidebar in the lesson viewer (issue #39)
+
+- **Prompt (summary):** clarified that "header navigation" meant being able to navigate the whole
+  course from a left sidebar on desktop — "put the navigation on the left sidebar for everything in
+  the lesson course content."
+- **Response/decision:** On **issue #39 / branch `feature/39-viewer-course-sidebar`**, viewer-only
+  (kept SCORM packages self-contained per §4.10). Reworked `lessons/view.html` into a two-column
+  layout: a left **course-nav sidebar** built from `lessons.json` (modules → lessons, current
+  lesson highlighted via `aria-current`, planned modules shown disabled with a "Coming soon"
+  line). Desktop ≥860px: sticky sidebar + content. <860px: sidebar collapses to a ☰ drawer with a
+  dimmed backdrop. Removed the redundant "Jump to lesson…" `<select>`; kept tabs, "All lessons"
+  link, and "Launch interactive". Degrades gracefully if `lessons.json` fails (sidebar hidden);
+  file stays self-contained (inline CSS/JS).
+- **Result:** verified by headless-Chrome screenshots — desktop two-column with current lesson
+  highlighted, mobile single-column with ☰, and the open drawer + backdrop all render correctly;
+  inline JS parses; page + `lessons.json` serve 200. **Next:** commit, PR closing #39.
