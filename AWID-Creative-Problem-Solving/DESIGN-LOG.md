@@ -511,3 +511,15 @@ once):
   added an `isContinuation()` check so `<ul>`/`<ol>` items absorb wrapped continuation lines.
 - **Result:** Verified by simulating the parser on a real wrapped discussion-questions block — one
   `<ol>`, items 1–4, continuations joined. **Next:** commit, PR closing #31.
+
+### 2026-06-03 — Step 26: Spot-check rendering + fix one split list (issue #33)
+
+- **Prompt (summary):** "yes" — spot-check rendering across lessons now that the renderer is fixed.
+- **Response/decision:** Ran the viewer renderer over all 27 lesson parts and scanned for anomalies
+  (leaked list items, split `<ol>`/`<ul>`, empty items). Found exactly one: `build-systems-not-
+  outputs/activity.md` Part 2 placed a fenced write-in box *between* numbered steps, splitting the
+  list and restarting numbering. On **issue #33 / branch
+  `feature/33-fix-buildsystems-activity-numbering`** restructured Part 2 so the three steps are
+  contiguous (one list) with the write-in box after them.
+- **Result:** Re-scan of all 27 files → **0 split-list issues**. Rendering verified clean course-
+  wide. **Next:** commit, PR closing #33.
