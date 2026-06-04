@@ -96,31 +96,31 @@
     var QUESTIONS = [
       {
         q: "Why do long AI chats \"forget\" what you said earlier?",
-        options: ["The AI gets bored", "Its context window (working memory) overflows and the earliest context drops out", "The internet resets"],
+        options: ["The AI gets bored with the topic and quietly stops trying after a while", "Its working memory fills up and the oldest details drop out", "The internet quietly resets the chat"],
         answer: 1,
         feedback: "It's a memory limit, not the AI getting dumber — restate or restart."
       },
       {
         q: "A good way to work with AI's limited memory is to…",
-        options: ["Type faster", "Restate key context and start fresh chats for new tasks", "Use more emojis"],
+        options: ["Type your messages much faster so it cannot forget them", "Restate key context and start fresh chats", "Add more emojis to each message"],
         answer: 1,
         feedback: "Feed its memory on purpose; don't fight it."
       },
       {
         q: "Why does giving more context produce better results?",
-        options: ["AI can read your mind", "AI can't read your mind — goal + audience + constraints aim it", "Longer is always better"],
+        options: ["AI can read your mind without context", "Goal, audience, and limits aim the AI", "Longer messages are always better"],
         answer: 1,
         feedback: "Context is how you aim the tool at what you actually want."
       },
       {
         q: "Is an AI's knowledge unlimited?",
-        options: ["Yes, it knows everything", "No — it's finite and frozen at the time it was trained", "Only on weekends"],
+        options: ["Yes, it truly knows everything", "No, it is frozen at training time", "Only on weekends and holidays"],
         answer: 1,
         feedback: "Big but bounded — and it may miss recent events."
       },
       {
         q: "How does image generation actually work?",
-        options: ["It draws line by line like a person", "It computes a field of pixels into a recognizable image, fast", "It photographs real scenes"],
+        options: ["It draws line by line like a person", "It computes a full field of pixels fast", "It photographs real scenes with a camera"],
         answer: 1,
         feedback: "Fast pixel computation — impressive, not magic."
       }
@@ -135,7 +135,13 @@
       var legend = document.createElement("legend");
       legend.textContent = (qi + 1) + ". " + item.q;
       fs.appendChild(legend);
-      item.options.forEach(function (opt, oi) {
+      var order = item.options.map(function (opt, oi) { return oi; });
+      for (var k = order.length - 1; k > 0; k--) {
+        var j = Math.floor(Math.random() * (k + 1));
+        var tmp = order[k]; order[k] = order[j]; order[j] = tmp;
+      }
+      order.forEach(function (oi) {
+        var opt = item.options[oi];
         var id = "q" + qi + "o" + oi;
         var label = document.createElement("label");
         label.className = "quiz__opt"; label.htmlFor = id;

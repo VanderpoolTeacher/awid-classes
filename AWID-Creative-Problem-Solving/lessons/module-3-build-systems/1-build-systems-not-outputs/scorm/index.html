@@ -95,31 +95,31 @@
     var QUESTIONS = [
       {
         q: "Why do repeated one-off requests to AI produce inconsistent results?",
-        options: ["AI gets tired over time", "AI is non-deterministic — it makes a fresh, likely answer each time", "Your internet is slow"],
+        options: ["It quietly gets tired and sloppy the more questions you keep asking it", "It is non-deterministic — it makes a fresh, likely answer each time", "Your internet connection is too slow to load it"],
         answer: 1,
         feedback: "Same request, different output each time — that's just how AI works."
       },
       {
         q: "What's the difference between an output and a system?",
-        options: ["There isn't one", "An output is one finished thing; a system is the reusable process that makes consistent outputs", "A system is just a longer prompt"],
+        options: ["A system is really just a single finished output dressed up with a fancier name", "An output is one finished thing; a system is the reusable process behind it", "A system is just a longer, more detailed prompt"],
         answer: 1,
         feedback: "Build the mold (the system), not each part (the output)."
       },
       {
         q: "A template-as-source-of-truth is…",
-        options: ["Whatever your latest good output was", "A master pattern stripped to placeholders — and you push improvements back into it", "A finished document you copy each time"],
+        options: ["Whatever your most recent good output happened to be", "A master pattern of placeholders you keep improving over time", "A finished document you copy and tweak by hand each time"],
         answer: 1,
         feedback: "Strip it to placeholders, keep it canonical, and feed improvements back in."
       },
       {
         q: "Why organize your inputs first?",
-        options: ["It just looks nicer", "Messy in, messy out — AI works best from organized information", "It's legally required"],
+        options: ["A tidy folder simply looks a lot nicer to all of the other people around you", "Messy in, messy out — AI works best from organized inputs", "Some law somewhere actually requires you to do it"],
         answer: 1,
         feedback: "If inputs are a mess, have AI help organize them, then build on the clean base."
       },
       {
         q: "Which task is worth turning into a system?",
-        options: ["A one-time apology note", "A weekly report you make every week", "A single one-off tweet"],
+        options: ["A one-time apology note you will never send again", "A weekly report you have to make every single week", "A single one-off tweet for a passing moment"],
         answer: 1,
         feedback: "Repeated work earns the up-front cost; genuine one-time tasks don't."
       }
@@ -134,7 +134,13 @@
       var legend = document.createElement("legend");
       legend.textContent = (qi + 1) + ". " + item.q;
       fs.appendChild(legend);
-      item.options.forEach(function (opt, oi) {
+      var order = item.options.map(function (opt, oi) { return oi; });
+      for (var k = order.length - 1; k > 0; k--) {
+        var j = Math.floor(Math.random() * (k + 1));
+        var tmp = order[k]; order[k] = order[j]; order[j] = tmp;
+      }
+      order.forEach(function (oi) {
+        var opt = item.options[oi];
         var id = "q" + qi + "o" + oi;
         var label = document.createElement("label");
         label.className = "quiz__opt"; label.htmlFor = id;

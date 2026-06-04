@@ -99,31 +99,31 @@
     var QUESTIONS = [
       {
         q: "Why does the person matter more than the tool when using AI?",
-        options: ["The tool is slow", "AI supplies speed but not judgment — the person sets the goal and catches errors", "The person types faster"],
+        options: ["The tool works faster than any person can", "AI brings speed, but the person sets the goal and catches errors", "The person can type the prompts much faster than the AI ever could on its own"],
         answer: 1,
         feedback: "AI gives speed and options; you supply the goal, the judgment, and the error-catching."
       },
       {
         q: "Who often gets the most out of AI?",
-        options: ["The most technical person in the room", "A domain expert who knows what they want", "Whoever has the newest computer"],
+        options: ["The most technical coder in the room", "A domain expert who knows what they want", "Whoever owns the newest, fastest computer"],
         answer: 1,
         feedback: "Domain expertise — knowing what 'good' looks like — beats raw technical skill."
       },
       {
         q: "\"Get closer to the controls\" means…",
-        options: ["Learn to code first", "Be specific and ask for structure to steer the output", "Always use a bigger model"],
+        options: ["Learn to write code before you start", "Be specific and ask for structure to steer the output", "Always switch to a bigger, newer model whenever you can afford one"],
         answer: 1,
         feedback: "Vague in, vague out — precise instructions and structure steer the result."
       },
       {
         q: "Before doing something important, a good AI agent should…",
-        options: ["Just do it as fast as possible", "State its plan and pause for your approval", "Hide what it's doing"],
+        options: ["Just do it as fast as it possibly can", "State its plan and pause for your approval", "Hide its steps so you do not worry"],
         answer: 1,
         feedback: "Agents take real actions — a good one shows its plan and waits for your okay."
       },
       {
         q: "When should you NOT trust AI on your own?",
-        options: ["When brainstorming low-stakes ideas", "When you're outside your expertise or the stakes are high", "When it's a free tool"],
+        options: ["When you are brainstorming small, low-stakes ideas", "When you are outside your expertise or stakes are high", "When the tool you are using happens to be free"],
         answer: 1,
         feedback: "Outside your domain or high-stakes? Loop in a human expert."
       }
@@ -138,7 +138,13 @@
       var legend = document.createElement("legend");
       legend.textContent = (qi + 1) + ". " + item.q;
       fs.appendChild(legend);
-      item.options.forEach(function (opt, oi) {
+      var order = item.options.map(function (opt, oi) { return oi; });
+      for (var k = order.length - 1; k > 0; k--) {
+        var j = Math.floor(Math.random() * (k + 1));
+        var tmp = order[k]; order[k] = order[j]; order[j] = tmp;
+      }
+      order.forEach(function (oi) {
+        var opt = item.options[oi];
         var id = "q" + qi + "o" + oi;
         var label = document.createElement("label");
         label.className = "quiz__opt"; label.htmlFor = id;

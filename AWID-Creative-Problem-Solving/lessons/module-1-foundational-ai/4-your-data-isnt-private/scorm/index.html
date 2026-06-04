@@ -99,31 +99,31 @@
     var QUESTIONS = [
       {
         q: "Why isn't data you paste into a public AI tool guaranteed to stay private?",
-        options: ["The tool deletes it instantly", "Tools store/log it and may reuse it, and online data persists", "It's encrypted forever"],
+        options: ["The tool deletes your text the moment you send it", "Tools may store, log, and reuse what you paste", "Everything you type is locked away and encrypted forever"],
         answer: 1,
         feedback: "Public tools store and may reuse what you submit, and online data doesn't reliably disappear."
       },
       {
         q: "Which should you keep OUT of a public AI tool?",
-        options: ["A generic history question", "A list of customers' names and emails", "A made-up example with no real people"],
+        options: ["A general history question with no real people", "A list of real customers' names and emails", "A made-up example using fake names and numbers"],
         answer: 1,
         feedback: "Other people's personal information (PII) should never go into a public tool."
       },
       {
         q: "The placeholder trick is…",
-        options: ["Pasting everything and hoping for the best", "Swapping real names/numbers for stand-ins before pasting, then restoring locally", "Only ever using paid tools"],
+        options: ["Pasting all your real details and hoping nobody sees", "Swapping real names and numbers for stand-ins first", "Only ever using paid tools instead of free ones"],
         answer: 1,
         feedback: "The AI helps without ever seeing the private parts."
       },
       {
         q: "A FREE AI tool warrants extra caution because…",
-        options: ["It runs slower", "It usually reserves the right to use and keep your data", "It has fewer features"],
+        options: ["It usually runs slower than a paid tool", "It often keeps and reuses the data you share", "It usually comes with fewer built-in features"],
         answer: 1,
         feedback: "Free usually means your data is fair game — often to train future models."
       },
       {
         q: "Health records are protected by which rule?",
-        options: ["FERPA", "HIPAA", "There's no rule for that"],
+        options: ["FERPA", "HIPAA", "COPPA"],
         answer: 1,
         feedback: "HIPAA protects health data; FERPA protects student records."
       }
@@ -138,7 +138,13 @@
       var legend = document.createElement("legend");
       legend.textContent = (qi + 1) + ". " + item.q;
       fs.appendChild(legend);
-      item.options.forEach(function (opt, oi) {
+      var order = item.options.map(function (opt, oi) { return oi; });
+      for (var k = order.length - 1; k > 0; k--) {
+        var j = Math.floor(Math.random() * (k + 1));
+        var tmp = order[k]; order[k] = order[j]; order[j] = tmp;
+      }
+      order.forEach(function (oi) {
+        var opt = item.options[oi];
         var id = "q" + qi + "o" + oi;
         var label = document.createElement("label");
         label.className = "quiz__opt"; label.htmlFor = id;

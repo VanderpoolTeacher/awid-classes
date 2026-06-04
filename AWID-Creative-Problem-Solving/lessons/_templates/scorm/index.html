@@ -58,11 +58,14 @@
 
   <script>
     // ===== EDIT THIS: one object per question. Every question needs `feedback`. =====
+    // Write options of COMPARABLE length: the correct answer must NOT be the longest or
+    // most detailed choice (that length becomes a tell). The engine shuffles option order
+    // at load, so don't rely on position either — `answer` is the index into THIS array.
     var QUESTIONS = [
       {
         q: "{{Question text?}}",
-        options: ["{{wrong}}", "{{correct}}", "{{wrong}}"],
-        answer: 1,                       // index of the correct option
+        options: ["{{wrong}}", "{{correct}}", "{{wrong}}"],  // keep all options similar in length
+        answer: 1,                       // index of the correct option (order is shuffled on screen)
         feedback: "{{Short why — shown after submitting.}}"
       }
       // …add more questions…
@@ -79,7 +82,13 @@
       var legend = document.createElement("legend");
       legend.textContent = (qi + 1) + ". " + item.q;
       fs.appendChild(legend);
-      item.options.forEach(function (opt, oi) {
+      var order = item.options.map(function (opt, oi) { return oi; });
+      for (var k = order.length - 1; k > 0; k--) {
+        var j = Math.floor(Math.random() * (k + 1));
+        var tmp = order[k]; order[k] = order[j]; order[j] = tmp;
+      }
+      order.forEach(function (oi) {
+        var opt = item.options[oi];
         var id = "q" + qi + "o" + oi;
         var label = document.createElement("label");
         label.className = "quiz__opt"; label.htmlFor = id;

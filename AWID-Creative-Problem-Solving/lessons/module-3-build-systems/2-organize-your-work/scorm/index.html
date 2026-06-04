@@ -94,31 +94,31 @@
     var QUESTIONS = [
       {
         q: "Why does working in a focused project folder help you AND the AI?",
-        options: ["It looks tidy", "It keeps a project's pieces together and gives AI a clear, contained context", "It automatically deletes old files"],
+        options: ["It makes your desktop look tidy and neat", "It groups the pieces and gives AI a clear context", "It automatically deletes your old, unused files"],
         answer: 1,
         feedback: "Point AI at one clear folder, not your whole scattered drive."
       },
       {
         q: "Information architecture is…",
-        options: ["The number of folders you have", "The structure and naming that makes things findable", "A type of AI model"],
+        options: ["The total number of folders you have", "The structure and naming that aids finding", "A new type of powerful AI model"],
         answer: 1,
         feedback: "A logical place for everything, with consistent names."
       },
       {
         q: "A project log is…",
-        options: ["A list of every file", "A short note of what you did and why — for future-you and teammates", "A backup of your data"],
+        options: ["A list of every file in the project", "A short note of what you did and why", "A spare backup copy of your data"],
         answer: 1,
         feedback: "Two lines a day saves the 'why did we do this?' headache later."
       },
       {
         q: "What's a sandbox for?",
-        options: ["Storing your finished work", "Experimenting and breaking things safely, away from real work", "Sharing files with clients"],
+        options: ["Storing all your polished, finished work", "Experimenting safely, away from real work", "Sharing files with clients and teammates"],
         answer: 1,
         feedback: "Play there; promote what works into the real project."
       },
       {
         q: "Which organizing job can you hand to AI?",
-        options: ["Deciding your life goals", "Proposing a folder structure and sorting a messy folder", "Nothing about organizing"],
+        options: ["Deciding your big personal life goals", "Proposing a structure and sorting files", "Nothing useful about organizing at all"],
         answer: 1,
         feedback: "Organizing is exactly the tedious part AI is happy to do."
       }
@@ -133,7 +133,13 @@
       var legend = document.createElement("legend");
       legend.textContent = (qi + 1) + ". " + item.q;
       fs.appendChild(legend);
-      item.options.forEach(function (opt, oi) {
+      var order = item.options.map(function (opt, oi) { return oi; });
+      for (var k = order.length - 1; k > 0; k--) {
+        var j = Math.floor(Math.random() * (k + 1));
+        var tmp = order[k]; order[k] = order[j]; order[j] = tmp;
+      }
+      order.forEach(function (oi) {
+        var opt = item.options[oi];
         var id = "q" + qi + "o" + oi;
         var label = document.createElement("label");
         label.className = "quiz__opt"; label.htmlFor = id;

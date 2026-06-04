@@ -101,31 +101,31 @@
     var QUESTIONS = [
       {
         q: "The plagiarism/theft objection to AI is basically that…",
-        options: ["AI runs too slowly", "AI was trained on creators' work without consent, payment, or credit", "AI images look fake"],
+        options: ["AI quietly uses far too much electricity and computer power to run", "It learned from creators' work without permission or pay", "AI pictures often look fake or blurry"],
         answer: 1,
         feedback: "Creators feel their work was taken to build a tool that now competes with them."
       },
       {
         q: "Copyright protects…",
-        options: ["a general idea", "your specific expression (the exact words/image)", "anything posted on the internet"],
+        options: ["a general idea or concept", "the exact words or image you made", "anything you find on the internet"],
         answer: 1,
         feedback: "Ideas are free to all; the specific fixed form is the protected part."
       },
       {
         q: "For AI projects, fair use is…",
-        options: ["a guaranteed free pass", "an unsettled gray area — don't assume it covers you", "only about music"],
+        options: ["a guaranteed free pass that always protects you in court", "an unsettled gray area you can't count on", "a rule that applies only to music"],
         answer: 1,
         feedback: "Courts are still deciding it — treat it as a gray zone, not a free pass."
       },
       {
         q: "Which is a SAFE source to build from?",
-        options: ["A living artist's portfolio", "A stock photo with a watermark", "Public-domain NASA images"],
+        options: ["A living artist's online portfolio", "A stock photo with a watermark", "A public-domain image from NASA"],
         answer: 2,
         feedback: "Public-domain work and your own work are the wells you can always use safely."
       },
       {
         q: "Where do the ethics of an AI tool live?",
-        options: ["In the tool itself", "In your intent and choices", "In the file format"],
+        options: ["Inside the AI tool itself", "In your intent and choices", "In the file's format or type"],
         answer: 1,
         feedback: "A hammer builds or breaks — the tool isn't the ethics, you are."
       }
@@ -140,7 +140,13 @@
       var legend = document.createElement("legend");
       legend.textContent = (qi + 1) + ". " + item.q;
       fs.appendChild(legend);
-      item.options.forEach(function (opt, oi) {
+      var order = item.options.map(function (opt, oi) { return oi; });
+      for (var k = order.length - 1; k > 0; k--) {
+        var j = Math.floor(Math.random() * (k + 1));
+        var tmp = order[k]; order[k] = order[j]; order[j] = tmp;
+      }
+      order.forEach(function (oi) {
+        var opt = item.options[oi];
         var id = "q" + qi + "o" + oi;
         var label = document.createElement("label");
         label.className = "quiz__opt"; label.htmlFor = id;
