@@ -610,3 +610,17 @@ once):
   (`intro-design-tech-ai`) still showing the plain band (graceful fallback). `classes.json` valid
   (5 classes); `class-detail.js` passes `node --check`; image serves 200. **Next:** commit, PR
   closing #43.
+
+### 2026-06-10 — Step 32: Move class detail image into the left column (issue #45)
+
+- **Prompt (summary):** "The image as a hero is too big. Put it in line with About this class in the
+  left column."
+- **Response/decision:** On **issue #45 / branch `feature/45-class-detail-inline-image`**, moved the
+  class image out of the full-width `.class-hero` band into `.class-body__main`, placed directly
+  under the "About this class" heading (before the long description). Renamed `.class-hero__image`
+  → `.class-body__image` and resized it to fill the content column (no `max-width: var(--max-width)`,
+  lighter `--shadow-sm`). Kept the `onerror="this.remove()"` fallback so image-less classes are
+  unaffected.
+- **Result:** verified by headless-Chrome screenshot — the image renders at column width inside the
+  left column under "About this class", with the description flowing below; the hero band is back to
+  text only. `class-detail.js` passes `node --check`. **Next:** commit, PR closing #45.
