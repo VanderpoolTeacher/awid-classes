@@ -528,6 +528,8 @@ html.feature-banner-hide .feature-banner { display: none; }
 }
 
 /* Testimonials */
+.testimonials { background: var(--color-primary); }
+.testimonials h2 { color: #fff; }
 .testimonials__list {
   display: grid;
   gap: var(--space-3);
