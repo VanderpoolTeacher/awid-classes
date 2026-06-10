@@ -45,6 +45,10 @@ function renderClass(container, cls) {
   const startsRow = cls.schedule.startDate
     ? `<div class="class-rail__row"><dt>Starts</dt><dd>${formatStartDate(cls.schedule.startDate)}</dd></div>`
     : "";
+  const heroImageBlock = cls.heroImage
+    ? `<img class="class-hero__image" src="${escapeHtml(cls.heroImage)}"
+            alt="${escapeHtml(cls.title)}" onerror="this.remove()">`
+    : "";
   const sponsorBlock = cls.sponsor
     ? `<div class="class-rail__sponsor">
          <a href="https://actualreality.tech/" target="_blank" rel="noopener noreferrer">
@@ -64,6 +68,7 @@ function renderClass(container, cls) {
         <h1 id="class-title">${escapeHtml(cls.title)}</h1>
         <p class="class-hero__short">${escapeHtml(cls.shortDescription)}</p>
       </div>
+      ${heroImageBlock}
     </section>
 
     <section class="container">

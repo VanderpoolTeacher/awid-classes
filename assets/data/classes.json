@@ -1,5 +1,38 @@
 [
   {
+    "id": "make-cool-videos-with-ai",
+    "title": "Make Cool Videos with the Help of AI",
+    "shortDescription": "Make videos that pop using AI tools — no fancy tech skills needed, just your creativity.",
+    "longDescription": "Ready to dive into the world of video creation but want a little help? Join us online for a fun and easygoing workshop where you'll learn how to use AI tools to make videos that pop. No fancy tech skills needed — just bring your creativity and let's make some cool stuff together. Perfect for beginners and for pros who want to speed things up.",
+    "audience": "Beginners and creators who want to speed up video production",
+    "schedule": {
+      "startDate": "2026-06-15",
+      "days": "One-day workshop · Monday · online",
+      "sessions": 1,
+      "time": "5:00 PM – 9:00 PM"
+    },
+    "price": 0,
+    "sponsor": "Actual Reality Technologies",
+    "location": "Online",
+    "instructor": {
+      "name": "Michael Vanderpool",
+      "bio": "Founder and instructor at AWID. Background in design, technology education, and applied innovation."
+    },
+    "prerequisites": "None — no technical background required.",
+    "capacity": 12,
+    "seatsRemaining": 12,
+    "eventbriteUrl": "https://www.eventbrite.com/e/make-cool-videos-with-the-help-of-ai-tickets-1991205998744?aff=oddtdtcreator",
+    "heroImage": "assets/img/classes/make-cool-videos-with-ai.png",
+    "learningObjectives": [
+      "Use AI tools to turn a simple idea into a short, watchable video",
+      "Generate visuals, b-roll, and effects with AI",
+      "Speed up editing and assembly with AI assistance",
+      "Add AI-assisted captions, voiceover, or music",
+      "Apply quick techniques for visually appealing video content",
+      "Export and share a finished video"
+    ]
+  },
+  {
     "id": "intro-design-tech-ai",
     "title": "Intro to Design and Tech with AI",
     "shortDescription": "Foundations of design and technology, with AI as a creative partner.",

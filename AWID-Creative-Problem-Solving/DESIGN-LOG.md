@@ -568,3 +568,24 @@ once):
 - **Result:** verified by headless-Chrome screenshots — desktop two-column with current lesson
   highlighted, mobile single-column with ☰, and the open drawer + backdrop all render correctly;
   inline JS parses; page + `lessons.json` serve 200. **Next:** commit, PR closing #39.
+
+### 2026-06-10 — Step 31: Add "Make Cool Videos with the Help of AI" class (issue #43)
+
+- **Prompt (summary):** "add this course" + Eventbrite link; user supplied a hero image and asked to
+  rename it; capacity 12, free, online, sponsored by Actual Reality Technologies.
+- **Response/decision:** On **issue #43 / branch `feature/43-class-make-cool-videos`**, pulled the
+  event details from Eventbrite and added a new entry to `assets/data/classes.json` (id
+  `make-cool-videos-with-ai`, Mon Jun 15 2026 5–9 PM, online, free, 12 seats, Eventbrite URL,
+  drafted 6 learning objectives from the event copy). Inserted **first** in the array so the next
+  upcoming class leads the catalog. Saved the supplied image to
+  `assets/img/classes/make-cool-videos-with-ai.png`. Discovered `heroImage` was a defined-but-unused
+  field site-wide (no card or detail view rendered it; existing classes point at non-existent jpgs),
+  so — per the user's choice — wired `heroImage` into the **class detail** hero only:
+  `class-detail.js` now emits an optional `<img class="class-hero__image" … onerror="this.remove()">`
+  that self-removes when the file is missing, so the other classes keep their solid band. Added
+  `.class-hero__image` CSS.
+- **Result:** verified by headless-Chrome screenshots — catalog card (FREE + title + audience), the
+  new detail page rendering the supplied image in the hero, and an image-less class
+  (`intro-design-tech-ai`) still showing the plain band (graceful fallback). `classes.json` valid
+  (5 classes); `class-detail.js` passes `node --check`; image serves 200. **Next:** commit, PR
+  closing #43.

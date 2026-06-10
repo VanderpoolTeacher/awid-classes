@@ -355,6 +355,14 @@ p { margin: 0 0 var(--space-2); }
   margin-bottom: var(--space-2);
 }
 .class-hero__short { font-size: 18px; opacity: 0.95; max-width: 780px; }
+.class-hero__image {
+  max-width: var(--max-width);
+  width: 100%;
+  height: auto;
+  margin: var(--space-4) auto 0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+}
 
 .class-body {
   display: grid;
