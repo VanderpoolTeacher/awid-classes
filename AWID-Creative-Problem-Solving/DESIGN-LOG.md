@@ -624,3 +624,13 @@ once):
 - **Result:** verified by headless-Chrome screenshot — the image renders at column width inside the
   left column under "About this class", with the description flowing below; the hero band is back to
   text only. `class-detail.js` passes `node --check`. **Next:** commit, PR closing #45.
+
+### 2026-06-10 — Step 33: Place class detail image below the About text (issue #47)
+
+- **Prompt (summary):** "Put the image under the about this class text."
+- **Response/decision:** On **issue #47 / branch `feature/47-image-below-about-text`**, moved
+  `${classImageBlock}` in `class-detail.js` from between the "About this class" heading and its
+  paragraph to **after** the long-description paragraph (still in the left column, above "What
+  you'll learn"). No CSS change.
+- **Result:** verified by headless-Chrome screenshot — image now sits below the About paragraph;
+  `class-detail.js` passes `node --check`. **Next:** commit, PR closing #47.
