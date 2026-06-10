@@ -74,8 +74,8 @@ function renderClass(container, cls) {
       <div class="class-body">
         <div class="class-body__main">
           <h2>About this class</h2>
-          ${classImageBlock}
           <p>${escapeHtml(cls.longDescription)}</p>
+          ${classImageBlock}
 
           <h2>What you'll learn</h2>
           <ul>${objectiveItems}</ul>
