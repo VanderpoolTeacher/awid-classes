@@ -45,8 +45,8 @@ function renderClass(container, cls) {
   const startsRow = cls.schedule.startDate
     ? `<div class="class-rail__row"><dt>Starts</dt><dd>${formatStartDate(cls.schedule.startDate)}</dd></div>`
     : "";
-  const heroImageBlock = cls.heroImage
-    ? `<img class="class-hero__image" src="${escapeHtml(cls.heroImage)}"
+  const classImageBlock = cls.heroImage
+    ? `<img class="class-body__image" src="${escapeHtml(cls.heroImage)}"
             alt="${escapeHtml(cls.title)}" onerror="this.remove()">`
     : "";
   const sponsorBlock = cls.sponsor
@@ -68,13 +68,13 @@ function renderClass(container, cls) {
         <h1 id="class-title">${escapeHtml(cls.title)}</h1>
         <p class="class-hero__short">${escapeHtml(cls.shortDescription)}</p>
       </div>
-      ${heroImageBlock}
     </section>
 
     <section class="container">
       <div class="class-body">
         <div class="class-body__main">
           <h2>About this class</h2>
+          ${classImageBlock}
           <p>${escapeHtml(cls.longDescription)}</p>
 
           <h2>What you'll learn</h2>

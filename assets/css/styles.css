@@ -355,13 +355,12 @@ p { margin: 0 0 var(--space-2); }
   margin-bottom: var(--space-2);
 }
 .class-hero__short { font-size: 18px; opacity: 0.95; max-width: 780px; }
-.class-hero__image {
-  max-width: var(--max-width);
+.class-body__image {
   width: 100%;
   height: auto;
-  margin: var(--space-4) auto 0;
+  margin: 0 0 var(--space-3);
   border-radius: var(--radius);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
 }
 
 .class-body {
