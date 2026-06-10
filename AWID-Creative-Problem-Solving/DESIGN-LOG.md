@@ -568,3 +568,23 @@ once):
 - **Result:** verified by headless-Chrome screenshots — desktop two-column with current lesson
   highlighted, mobile single-column with ☰, and the open drawer + backdrop all render correctly;
   inline JS parses; page + `lessons.json` serve 200. **Next:** commit, PR closing #39.
+
+### 2026-06-10 — Step 30: Homepage testimonials section (issue #41)
+
+- **Prompt (summary):** "add this as a testimonial" — a thank-you note from a charter-school
+  educator who attended the May 29 *Applied AI in Design Thinking* workshop.
+- **Response/decision:** No testimonials feature existed, so built one on **issue #41 / branch
+  `feature/41-homepage-testimonials`**, mirroring the `classes.json` → JS → section pattern. Added
+  `assets/data/testimonials.json` (seeded with the note, kept **verbatim**, attributed
+  **anonymously** as "A newly exuberant AI student", linked to `applied-ai-design-thinking`),
+  `assets/js/testimonials.js` (same shape as `catalog.js`: fetch, `escapeHtml`, render one
+  `<figure class="testimonial">` per entry with multi-paragraph `<blockquote>`), a tinted
+  `#testimonials` section in `index.html` placed between the catalog and the free-course strip,
+  and a small `.testimonials`/`.testimonial` CSS block reusing existing tokens. The section starts
+  `hidden` and is only revealed once ≥1 testimonial renders, so a JS-disabled / failed-fetch /
+  empty-array state never shows an empty shell.
+- **Result:** verified — `testimonials.json` is valid JSON; `testimonials.js` passes
+  `node --check`; headless-Chrome screenshot of the homepage shows the section rendering between
+  the catalog and the course strip with the three-paragraph quote and attribution. Design spec:
+  `docs/superpowers/specs/2026-06-10-homepage-testimonials-design.md`. **Next:** commit, PR
+  closing #41.
