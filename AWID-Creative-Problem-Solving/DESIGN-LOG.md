@@ -582,9 +582,31 @@ once):
   `#testimonials` section in `index.html` placed between the catalog and the free-course strip,
   and a small `.testimonials`/`.testimonial` CSS block reusing existing tokens. The section starts
   `hidden` and is only revealed once ≥1 testimonial renders, so a JS-disabled / failed-fetch /
-  empty-array state never shows an empty shell.
+  empty-array state never shows an empty shell. (A follow-up tweak made the section background
+  brand-blue with a white heading.)
 - **Result:** verified — `testimonials.json` is valid JSON; `testimonials.js` passes
   `node --check`; headless-Chrome screenshot of the homepage shows the section rendering between
   the catalog and the course strip with the three-paragraph quote and attribution. Design spec:
   `docs/superpowers/specs/2026-06-10-homepage-testimonials-design.md`. **Next:** commit, PR
   closing #41.
+
+### 2026-06-10 — Step 31: Add "Make Cool Videos with the Help of AI" class (issue #43)
+
+- **Prompt (summary):** "add this course" + Eventbrite link; user supplied a hero image and asked to
+  rename it; capacity 12, free, online, sponsored by Actual Reality Technologies.
+- **Response/decision:** On **issue #43 / branch `feature/43-class-make-cool-videos`**, pulled the
+  event details from Eventbrite and added a new entry to `assets/data/classes.json` (id
+  `make-cool-videos-with-ai`, Mon Jun 15 2026 5–9 PM, online, free, 12 seats, Eventbrite URL,
+  drafted 6 learning objectives from the event copy). Inserted **first** in the array so the next
+  upcoming class leads the catalog. Saved the supplied image to
+  `assets/img/classes/make-cool-videos-with-ai.png`. Discovered `heroImage` was a defined-but-unused
+  field site-wide (no card or detail view rendered it; existing classes point at non-existent jpgs),
+  so — per the user's choice — wired `heroImage` into the **class detail** hero only:
+  `class-detail.js` now emits an optional `<img class="class-hero__image" … onerror="this.remove()">`
+  that self-removes when the file is missing, so the other classes keep their solid band. Added
+  `.class-hero__image` CSS.
+- **Result:** verified by headless-Chrome screenshots — catalog card (FREE + title + audience), the
+  new detail page rendering the supplied image in the hero, and an image-less class
+  (`intro-design-tech-ai`) still showing the plain band (graceful fallback). `classes.json` valid
+  (5 classes); `class-detail.js` passes `node --check`; image serves 200. **Next:** commit, PR
+  closing #43.
