@@ -534,3 +534,35 @@ html.feature-banner-hide .feature-banner { display: none; }
 @media (max-width: 600px) {
   .feature-banner { padding: var(--space-4) 0; }
 }
+
+/* Testimonials */
+.testimonials { background: var(--color-primary); }
+.testimonials h2 { color: #fff; }
+.testimonials__list {
+  display: grid;
+  gap: var(--space-3);
+  max-width: 760px;
+  margin: 0 auto;
+}
+.testimonial {
+  margin: 0;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-4);
+}
+.testimonial__quote {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 18px;
+  line-height: 1.6;
+}
+.testimonial__quote p { margin: 0 0 var(--space-2); }
+.testimonial__quote p:last-child { margin-bottom: 0; }
+.testimonial__attribution {
+  margin-top: var(--space-2);
+  color: var(--color-muted);
+  font-size: 15px;
+  font-style: italic;
+}
